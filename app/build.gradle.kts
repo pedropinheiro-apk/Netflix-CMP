@@ -2,26 +2,6 @@
 
 plugins {
     id("com.streamplayer.application")
-    alias(libs.plugins.kover)
-}
-
-android {
-    koverReport {
-        filters {
-            excludes {
-                packages(
-                    "*.di",
-                )
-
-                classes(
-                    "*.BuildConfig",
-                    "*.ComposableSingletons",
-                    "*ScreenKt*",
-                )
-                annotatedBy("Generated")
-            }
-        }
-    }
 }
 
 dependencies {

@@ -4,7 +4,6 @@ plugins {
     id("com.streamplayer.android-library")
     id("com.streamplayer.compose")
     alias(libs.plugins.ksp)
-    alias(libs.plugins.kover)
 }
 
 dependencies {
