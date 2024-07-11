@@ -1,6 +1,5 @@
 plugins {
     id("com.streamplayer.android-library")
-    alias(libs.plugins.kover)
 }
 android {
     buildFeatures {

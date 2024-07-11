@@ -15,6 +15,7 @@ plugins {
     id("kotlin-kapt")
     id("kotlin-parcelize")
     id("com.streamplayer.dokka")
+    id("com.streamplayer.kover")
 }
 val catalog: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
@@ -39,4 +40,8 @@ android {
 
 dependencies {
     dokkaPlugin(libs.getLibrary("dokka"))
+}
+
+tasks.register("coverageReport") {
+    dependsOn(":app:koverHtmlReportDebug")
 }
