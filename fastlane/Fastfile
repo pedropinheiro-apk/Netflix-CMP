@@ -15,7 +15,7 @@ platform :android do
   end
 
   desc "Lint check"
-    lane :test do
+    lane :lint do
       gradle(task: "detekt")
     end
 
