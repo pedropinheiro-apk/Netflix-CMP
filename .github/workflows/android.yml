@@ -25,8 +25,6 @@ jobs:
       run: bundle install
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Lint
-      run: ./gradlew detekt
     - name: Run Lane from fastlane
       run: |
         ls
@@ -39,4 +37,3 @@ jobs:
         echo '### Report' >> $GITHUB_STEP_SUMMARY
         echo ' Build falhando ' >> $GITHUB_STEP_SUMMARY
         echo ' > Execute `./gradlew build` local ' >> $GITHUB_STEP_SUMMARY
-        echo ' > Execute `./gradlew detekt` local' >> $GITHUB_STEP_SUMMARY

@@ -14,6 +14,11 @@ platform :android do
     gradle(task: "test")
   end
 
+  desc "Lint check"
+    lane :test do
+      gradle(task: "detekt")
+    end
+
   desc "Create Release build"
   lane :release do
     gradle(task: "clean assembleRelease")
