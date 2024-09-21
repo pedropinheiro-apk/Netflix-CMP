@@ -25,6 +25,8 @@ jobs:
       run: bundle install
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+    - name: Lint
+      run: ./gradlew detekt
     - name: Run Lane from fastlane
       run: |
         ls
