@@ -5,6 +5,7 @@ platform :android do
 
   desc "Run all CI lanes"
   lane :ci do 
+     lint
      test
      debug
   end
