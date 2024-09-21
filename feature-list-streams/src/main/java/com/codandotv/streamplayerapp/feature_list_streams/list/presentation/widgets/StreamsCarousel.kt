@@ -22,11 +22,6 @@ import androidx.paging.compose.itemKey
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
 
-data class StreamsCarouselContent(
-    val genreTitle: String,
-    val contentList: Flow<PagingData<StreamsCardContent>>
-)
-
 @Composable
 fun StreamsCarousel(
     content: StreamsCarouselContent,
@@ -69,6 +64,11 @@ fun StreamsCarousel(
         }
     }
 }
+
+data class StreamsCarouselContent(
+    val genreTitle: String,
+    val contentList: Flow<PagingData<StreamsCardContent>>
+)
 
 @Composable
 @Preview

@@ -2,8 +2,7 @@ package com.codandotv.streamplayerapp.feature_list_streams.list.domain
 
 import org.koin.core.annotation.Factory
 
-interface ListStreamAnalytics{}
+interface ListStreamAnalytics
 
 @Factory
-class ListStreamAnalyticsImpl : ListStreamAnalytics {
-}
+class ListStreamAnalyticsImpl : ListStreamAnalytics

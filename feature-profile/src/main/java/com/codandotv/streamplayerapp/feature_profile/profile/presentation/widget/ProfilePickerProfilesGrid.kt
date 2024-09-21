@@ -74,6 +74,7 @@ fun ProfilePickerProfilesGrid(
     }
 }
 
+@Suppress("MagicNumber")
 @Composable
 private fun ProfileItem(
     state: ProfilePickerStreamsUIState,

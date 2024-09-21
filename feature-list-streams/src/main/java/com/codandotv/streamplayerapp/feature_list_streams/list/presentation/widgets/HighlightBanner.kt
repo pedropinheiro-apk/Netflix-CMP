@@ -42,6 +42,7 @@ import com.codandotv.streamplayerapp.feature_list_streams.list.domain.model.High
 import com.codandotv.streamplayerapp.feature_list_streams.list.domain.model.IconAndTextInfo
 import com.codandotv.streamplayerapp.core.shared.ui.R as RSharedUI
 
+@Suppress("MagicNumber")
 @Composable
 fun HighlightBanner(modifier: Modifier = Modifier, data: HighlightBanner?) {
     data ?: return

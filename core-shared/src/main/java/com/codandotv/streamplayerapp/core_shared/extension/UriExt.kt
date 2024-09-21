@@ -11,6 +11,7 @@ import java.net.MalformedURLException
 import java.net.URL
 import java.util.*
 
+@Suppress("MagicNumber", "SwallowedException")
 fun getUriFromUrlImage(
     contentUrl: String,
     context: Context

@@ -8,8 +8,8 @@ import com.codandotv.streamplayerapp.feature_list_streams.list.domain.model.Genr
 import com.codandotv.streamplayerapp.feature_list_streams.list.domain.model.Stream
 import com.codandotv.streamplayerapp.feature_list_streams.list.domain.toGenres
 import com.codandotv.streamplayerapp.feature_list_streams.list.domain.toStream
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import org.koin.core.annotation.Factory
 
 interface ListStreamRepository {

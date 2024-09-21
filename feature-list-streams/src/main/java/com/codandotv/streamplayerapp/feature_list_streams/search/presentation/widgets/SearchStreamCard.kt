@@ -27,12 +27,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreviews
 
-data class SearchStreamCardModel(
-    val id: String,
-    val title: String,
-    val url: String
-)
-
+@Suppress("MagicNumber")
 @Composable
 fun SearchStreamCard(
     content: SearchStreamCardModel,
@@ -73,6 +68,12 @@ fun SearchStreamCard(
     }
 }
 
+data class SearchStreamCardModel(
+    val id: String,
+    val title: String,
+    val url: String
+)
+
 @Composable
 fun ImageStream(modifier: Modifier, url: String) {
     Card(
@@ -88,6 +89,7 @@ fun ImageStream(modifier: Modifier, url: String) {
     }
 }
 
+@Suppress("MagicNumber")
 @Composable
 fun PlayerIcon(modifier: Modifier) {
     Box(

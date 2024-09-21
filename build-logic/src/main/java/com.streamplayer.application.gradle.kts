@@ -16,6 +16,7 @@ plugins {
     id("kotlin-parcelize")
     id("com.streamplayer.dokka")
     id("com.streamplayer.kover")
+    id("com.streamplayer.detekt")
 }
 val catalog: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 

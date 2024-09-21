@@ -1,3 +1,4 @@
+@file:Suppress("MagicNumber")
 package com.codandotv.streamplayerapp.feature_profile.profile.domain
 
 import com.codandotv.streamplayerapp.feature_profile.profile.data.ProfilePickerStreamRepository

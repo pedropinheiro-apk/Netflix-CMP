@@ -21,6 +21,7 @@ import com.codandotv.streamplayerapp.core_shared_ui.widget.PlayerComponent
 import com.codandotv.streamplayerapp.feature.list.streams.R
 import com.codandotv.streamplayerapp.feature_list_streams.detail.presentation.screens.DetailStreamsUIState.DetailStreamsLoadedUIState
 
+@Suppress("MagicNumber")
 @Composable
 fun DetailStreamImagePreview(
     uiState: DetailStreamsLoadedUIState,

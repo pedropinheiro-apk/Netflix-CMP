@@ -9,7 +9,7 @@ val videoStream = VideoStream(
     videoId = "123"
 )
 
-val movieIdString = "123"
+const val MOVIE_ID_STRING = "123"
 
 val videoStream1 = VideoStream(
     movieId = 1234565,

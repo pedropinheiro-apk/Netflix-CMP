@@ -61,6 +61,7 @@ fun ProfilePickerStreamScreen(
     }
 }
 
+@Suppress("LongMethod", "LongParameterList")
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -94,9 +95,14 @@ private fun SetupProfilePickerScreen(
         },
         content = { _ ->
             with(uiState) {
-                // This code, like others, can't be moved to the ViewModel because it needs to calculate based on the size of the screen.
-                // Yes, we can pass "LocalDensity.current" to the ViewModel, but this is not a good practice. The ViewModel is a pure Kotlin class
-                // and this class shouldn't have any dependency on Android (even more, kmp is coming soon 😎)
+                /**
+                 * This code, like others, can't be moved to the ViewModel because it needs to
+                 * calculate based on the size of the screen.
+                 * Yes, we can pass "LocalDensity.current" to the ViewModel, but this is not a
+                 * good practice. The ViewModel is a pure Kotlin class
+                 * and this class shouldn't have any dependency on Android (even more,
+                 * kmp is coming soon 😎)
+                 */
                 onSetHaltSizeImage(defaultImageSize.dp.dpToPx() / 2)
                 onSetHalfExpandedSizeImage(expandedImageSize.dp.dpToPx() / 2)
 

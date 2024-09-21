@@ -1,5 +1,6 @@
 package com.codandotv.streamplayerapp.feature_list_streams.detail.data.model
 
+@Suppress("ConstructorParameterNaming")
 data class DetailStreamResponse(
     val id : String,
     val title : String,

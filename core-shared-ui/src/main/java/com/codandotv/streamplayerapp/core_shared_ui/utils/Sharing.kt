@@ -20,6 +20,7 @@ object Sharing {
     const val ANIMATION_DURATION = 300
 }
 
+@Suppress("SwallowedException")
 fun isPackageInstalled(packageName: String, context: Context): Boolean {
     val pm = context.packageManager
     return try {

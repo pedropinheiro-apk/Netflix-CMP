@@ -16,6 +16,7 @@ plugins {
     id("kotlin-parcelize")
     id("com.streamplayer.dokka")
     id("org.jetbrains.kotlinx.kover")
+    id("com.streamplayer.detekt")
 }
 
 android {
