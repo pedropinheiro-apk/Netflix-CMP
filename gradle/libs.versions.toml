@@ -56,6 +56,9 @@ android_youtube_player_version = "12.0.0"
 kotlin_gradle_plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 android_gradle_plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "android_gradle_plugin" }
 
+#Kover
+kover-gradle-plugin = { module = "org.jetbrains.kotlinx:kover-gradle-plugin", version.ref = "kover" }
+
 #Coil
 coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 
