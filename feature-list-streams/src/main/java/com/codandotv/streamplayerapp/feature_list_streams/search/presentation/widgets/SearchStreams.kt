@@ -1,6 +1,5 @@
 package com.codandotv.streamplayerapp.feature_list_streams.search.presentation.widgets
 
-
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -13,7 +12,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Cast
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.MicNone
@@ -78,7 +77,7 @@ private fun StreamPlayerTopBar(
             }
         ) {
             Icon(
-                imageVector = Icons.Default.ArrowBack,
+                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                 contentDescription = stringResource(id = R.string.icon_back),
                 tint = Color.White,
             )
@@ -130,8 +129,8 @@ fun SearchTopBar(
         TextField(
             modifier = Modifier.fillMaxWidth(),
             value = currentSearchText,
-            colors = TextFieldDefaults.textFieldColors(
-                containerColor = Colors.Gray100,
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = Colors.Gray100,
                 focusedIndicatorColor = Color.Transparent,
                 disabledIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent,

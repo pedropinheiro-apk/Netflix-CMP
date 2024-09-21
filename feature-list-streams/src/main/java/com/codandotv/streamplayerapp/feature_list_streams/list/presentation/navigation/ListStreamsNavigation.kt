@@ -21,7 +21,7 @@ internal const val DEFAULT_ID = ""
 fun NavGraphBuilder.listStreamsNavGraph(navController: NavHostController) {
     composable(HOME_COMPLETE) { nav ->
         BackHandler(true) {}
-        if (nav.getLifecycle().currentState == Lifecycle.State.STARTED) {
+        if (nav.lifecycle.currentState == Lifecycle.State.STARTED) {
             loadKoinModules(ListStreamModule().module)
         }
         ListStreamsScreen(navController = navController,

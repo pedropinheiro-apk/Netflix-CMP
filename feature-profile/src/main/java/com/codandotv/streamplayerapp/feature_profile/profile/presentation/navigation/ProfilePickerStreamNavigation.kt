@@ -15,7 +15,7 @@ import org.koin.ksp.generated.module
 
 fun NavGraphBuilder.profilePickerStreamNavGraph(navController: NavHostController) {
     composable(Routes.PROFILE_PICKER) { nav ->
-        if (nav.getLifecycle().currentState == Lifecycle.State.STARTED) {
+        if (nav.lifecycle.currentState == Lifecycle.State.STARTED) {
             loadKoinModules(ProfilePickerStreamModule().module)
         }
         ProfilePickerStreamScreen(

@@ -18,7 +18,7 @@ internal const val DEFAULT_ID = "0"
 
 fun NavGraphBuilder.detailStreamNavGraph(navController: NavHostController) {
     composable(DETAIL_COMPLETE) { nav ->
-        if (nav.getLifecycle().currentState == Lifecycle.State.STARTED) {
+        if (nav.lifecycle.currentState == Lifecycle.State.STARTED) {
             loadKoinModules(DetailStreamModule.module)
         }
         DetailStreamScreen(

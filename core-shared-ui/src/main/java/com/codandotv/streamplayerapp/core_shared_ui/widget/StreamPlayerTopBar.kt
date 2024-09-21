@@ -135,7 +135,7 @@ private fun StreamPlayerOptionsTopBar(modifier: Modifier, scrollBehavior: TopApp
                     color = Color.White
                 )
             }
-        }, colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color.Transparent)
+        }, colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
     )
 }
 
