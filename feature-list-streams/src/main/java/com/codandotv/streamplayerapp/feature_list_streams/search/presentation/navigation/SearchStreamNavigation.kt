@@ -14,7 +14,7 @@ import org.koin.core.context.unloadKoinModules
 fun NavGraphBuilder.searchStreamsNavGraph(navController: NavHostController) {
     composable(Routes.SEARCH) { nav ->
         BackHandler(true) {}
-        if (nav.getLifecycle().currentState == Lifecycle.State.STARTED) {
+        if (nav.lifecycle.currentState == Lifecycle.State.STARTED) {
             loadKoinModules(SearchModule.module)
         }
         SearchScreen(
