@@ -23,6 +23,7 @@ import coil.request.ImageRequest
 import com.codandotv.streamplayerapp.feature.profile.R
 import com.codandotv.streamplayerapp.feature_profile.profile.presentation.screens.ProfilePickerStreamsUIState
 
+@Suppress("MagicNumber")
 @Composable
 fun ProfilePickerSelectedProfileContainer(
     state: ProfilePickerStreamsUIState,

@@ -39,6 +39,7 @@ import com.codandotv.streamplayerapp.core.shared.ui.R
 import com.codandotv.streamplayerapp.core_shared_ui.resources.Colors
 import com.codandotv.streamplayerapp.feature.list.streams.R as ResourceListStream
 
+@Suppress("LongParameterList")
 @Composable
 fun SearchableTopBar(
     currentSearchText: String,

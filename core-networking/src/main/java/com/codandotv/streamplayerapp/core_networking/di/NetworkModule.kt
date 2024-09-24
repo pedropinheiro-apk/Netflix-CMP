@@ -12,6 +12,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
+@Suppress("MagicNumber")
 object NetworkModule {
     val module = module {
         single(QualifierHost) {

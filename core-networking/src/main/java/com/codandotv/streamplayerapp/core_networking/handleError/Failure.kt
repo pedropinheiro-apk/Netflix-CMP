@@ -6,6 +6,11 @@ import org.koin.core.component.KoinComponent
 /**
  * Base Class for handling errors/failures/exceptions.
  */
+@Suppress(
+    "ThrowingExceptionsWithoutMessageOrCause",
+    "TooGenericExceptionCaught",
+    "MagicNumber"
+)
 sealed class Failure(
     val code: Int? = -1,
     val errorMessage: String? = null,

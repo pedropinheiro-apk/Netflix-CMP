@@ -4,6 +4,7 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.ui.graphics.Color
 
+@Suppress("MagicNumber")
 object Colors {
     val Dark10 = Color(0x1A000000)
     val AlphaBlack = Color(0xEB000000)

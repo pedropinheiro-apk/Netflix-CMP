@@ -6,6 +6,7 @@ import com.codandotv.streamplayerapp.core_networking.handleError.NetworkResponse
 import com.codandotv.streamplayerapp.feature_list_streams.list.domain.model.Stream
 import com.codandotv.streamplayerapp.feature_list_streams.list.domain.toListStream
 
+@Suppress("TooGenericExceptionCaught", "UseCheckOrError")
 class StreamDataSource(
     private val service: ListStreamService,
     private val genreId: Long,

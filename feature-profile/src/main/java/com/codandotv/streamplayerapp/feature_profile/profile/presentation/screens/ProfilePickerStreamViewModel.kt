@@ -110,6 +110,7 @@ class ProfilePickerStreamViewModel(
         setupCenterScreen()
     }
 
+    @Suppress("MagicNumber")
     fun moveSelectedProfileToCenterImage(profile: ProfileStream) {
         viewModelScope.launch {
             with(_uiState.value) {

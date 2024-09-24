@@ -6,19 +6,16 @@ import com.codandotv.streamplayerapp.feature_list_streams.detail.data.DetailStre
 import com.codandotv.streamplayerapp.feature_list_streams.detail.data.DetailStreamRepositoryImpl
 import com.codandotv.streamplayerapp.feature_list_streams.detail.data.DetailStreamService
 import io.mockk.coEvery
-import io.mockk.coVerify
 import io.mockk.coVerifyOrder
 import io.mockk.mockk
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runTest
-import org.junit.After
 import org.junit.Before
 import org.junit.Test
 
 class DetailStreamRepositoryTest {
     private lateinit var repository: DetailStreamRepository
-    private val movieId = movieIdString
+    private val movieId = MOVIE_ID_STRING
     private lateinit var service: DetailStreamService
     private lateinit var favoriteDao: FavoriteDao
 

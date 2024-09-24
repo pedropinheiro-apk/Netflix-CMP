@@ -16,13 +16,6 @@ import coil.compose.AsyncImage
 import com.codandotv.streamplayerapp.core_networking.Url.IMAGE_URL_SIZE_300
 import kotlinx.parcelize.Parcelize
 
-@Parcelize
-data class StreamsCardContent(
-    val id: String,
-    val url: String,
-    val contentDescription: String,
-) : Parcelable
-
 @Composable
 fun StreamsCard(
     content: StreamsCardContent,
@@ -50,6 +43,13 @@ fun StreamsCard(
         )
     }
 }
+
+@Parcelize
+data class StreamsCardContent(
+    val id: String,
+    val url: String,
+    val contentDescription: String,
+) : Parcelable
 
 @Preview
 @Composable

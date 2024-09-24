@@ -41,7 +41,9 @@ class DetailStreamRepositoryImpl(
      * @param movieId
      * @return Boolean
      */
-    override suspend fun isFavorite(movieId: String) : Boolean = favoriteDao.fetchAll().any { movie -> movie.id == movieId }
+    override suspend fun isFavorite(movieId: String) : Boolean = favoriteDao.fetchAll().any {
+        movie -> movie.id == movieId
+    }
     
     override suspend fun getVideoStreams(): Flow<List<VideoStream>> =
         service.getVideoStreams(movieId)
