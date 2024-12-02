@@ -34,6 +34,7 @@ androidx_core_ktx = "1.13.1"
 moshi = "1.14.0"
 okhttp = "4.12.0"
 retrofit = "2.9.0"
+ktor = "3.0.1"
 
 #Compose
 compose = "1.5.15"
@@ -57,6 +58,7 @@ android_youtube_player_version = "12.0.0"
 kotlin_gradle_plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 android_gradle_plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "android_gradle_plugin" }
 detekt-gradle-plugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
+
 
 #Kover
 kover-gradle-plugin = { module = "org.jetbrains.kotlinx:kover-gradle-plugin", version.ref = "kover" }
@@ -126,7 +128,10 @@ moshi = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "mo
 moshi_converter = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
-compose-material = { group = "androidx.wear.compose", name = "compose-material", version = "1.2.0" }
+ktor_client_core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor_client_okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor_client_content_negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor_client_content_serialization_gson = { module = "io.ktor:ktor-serialization-gson", version.ref = "ktor" }
 
 #Room
 roomRuntime = { group = "androidx.room", name = "room-runtime", version.ref = "room"}
@@ -140,7 +145,7 @@ dokka = { group = "org.jetbrains.dokka", name = "android-documentation-plugin", 
 room = ["roomRuntime","roomKtx"]
 compose = ["compose.ui", "compose.icons", "compose.material3","compose_pagging", "compose.lifecycle", "compose.navigation", "compose.activity", "compose.ui.tooling"]
 composetest = ["compose.uitest", "compose.junit4", "compose.manifest", "compose.ui.test"]
-networking = ["retrofit", "moshi", "moshi_converter", "okhttp", "interceptor"]
+networking = ["retrofit", "moshi", "moshi_converter", "okhttp", "interceptor","ktor_client_core","ktor_client_okhttp","ktor_client_content_serialization_gson","ktor_client_content_negotiation"]
 koin = ["koin_android", "koin_compose"]
 test = ["junit", "mockk", "mockk_android", "viewmodel_test", "koin_test","coroutines_test"]
 androidSupport = ["androidx_core", "androidx_appcompat", "androidx_dynamicanimation","google_material"]
@@ -151,8 +156,7 @@ android_application = { id = "com.android.application", version.ref = "android_g
 android_library = { id = "com.android.library", version.ref = "android_gradle_plugin" }
 
 kotlin_android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-kotlin_kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
-kotlin_parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka"}
 
