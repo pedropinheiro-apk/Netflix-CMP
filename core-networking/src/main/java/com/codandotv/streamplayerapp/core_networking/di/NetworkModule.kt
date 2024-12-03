@@ -2,6 +2,7 @@ package com.codandotv.streamplayerapp.core_networking.di
 
 import android.util.Log
 import com.codandotv.streamplayerapp.core.networking.BuildConfig
+import com.codandotv.streamplayerapp.core_networking.di.Network.TIMEOUT
 import com.codandotv.streamplayerapp.core_networking.handleError.validator
 import com.squareup.moshi.Moshi
 import io.ktor.client.HttpClient
@@ -72,9 +73,9 @@ object NetworkModule {
         }
 
         install(HttpTimeout) {
-            socketTimeoutMillis = 10000
-            requestTimeoutMillis = 10000
-            connectTimeoutMillis = 10000
+            socketTimeoutMillis = TIMEOUT
+            requestTimeoutMillis = TIMEOUT
+            connectTimeoutMillis = TIMEOUT
         }
 
         defaultRequest {
@@ -107,4 +108,8 @@ object NetworkModule {
             }
         }
     }
+}
+
+internal object Network{
+    const val TIMEOUT = 10000L
 }
