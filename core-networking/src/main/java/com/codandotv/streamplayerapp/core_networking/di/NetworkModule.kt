@@ -32,17 +32,6 @@ object NetworkModule {
         single(QualifierHost) { BuildConfig.HOST }
         single(QualifierProfile) { BuildConfig.PROFILE }
 
-//        single(QualifierAuthInterceptor) {
-//            Interceptor { chain ->
-//                val newRequest = chain.request()
-//                    .newBuilder()
-//                    .addHeader("Authorization", BuildConfig.API_BEARER_AUTH)
-//                    .addHeader("Content-Type", "application/json;charset=utf-8")
-//                    .build()
-//                chain.proceed(newRequest)
-//            }
-//        }
-
         single {
             provideKtorHttpClient(
                 moshi = get(),
