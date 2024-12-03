@@ -17,6 +17,7 @@ plugins {
     id("com.streamplayer.dokka")
     id("org.jetbrains.kotlinx.kover")
     id("com.streamplayer.detekt")
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {

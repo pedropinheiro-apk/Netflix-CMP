@@ -13,7 +13,7 @@ object QualifierProfile : Qualifier {
         get() = "QualifierProfile"
 }
 
-object QualifierProfileRetrofit : Qualifier {
+object QualifierProfileHttpClient : Qualifier {
     override val value: QualifierValue
         get() = "QualifierProfileRetrofit"
 }

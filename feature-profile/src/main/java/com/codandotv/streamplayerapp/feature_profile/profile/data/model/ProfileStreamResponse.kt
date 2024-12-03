@@ -1,5 +1,8 @@
 package com.codandotv.streamplayerapp.feature_profile.profile.data.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 @Suppress("ConstructorParameterNaming")
 data class ProfileStreamResponse(
     val id: String,
@@ -7,6 +10,7 @@ data class ProfileStreamResponse(
     val profile_url: String,
 )
 
+@Serializable
 data class ProfilesResponse(
     val profiles: List<ProfileStreamResponse>
 )

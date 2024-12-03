@@ -1,103 +1,121 @@
 package com.codandotv.streamplayerapp.core_networking.di
 
+import android.util.Log
 import com.codandotv.streamplayerapp.core.networking.BuildConfig
-import com.codandotv.streamplayerapp.core_networking.coroutines.NetworkResponseAdapterFactory
+import com.codandotv.streamplayerapp.core_networking.handleError.validator
 import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import io.ktor.client.HttpClient
+import io.ktor.client.HttpClientConfig
+import io.ktor.client.engine.okhttp.OkHttp
+import io.ktor.client.engine.okhttp.OkHttpConfig
+import io.ktor.client.plugins.HttpResponseValidator
+import io.ktor.client.plugins.HttpTimeout
+import io.ktor.client.plugins.auth.Auth
+import io.ktor.client.plugins.auth.providers.BearerTokens
+import io.ktor.client.plugins.auth.providers.bearer
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.plugins.defaultRequest
+import io.ktor.client.plugins.logging.LogLevel
+import io.ktor.client.plugins.logging.Logger
+import io.ktor.client.plugins.logging.Logging
+import io.ktor.client.request.accept
+import io.ktor.http.ContentType
+import io.ktor.http.contentType
+import io.ktor.serialization.kotlinx.json.json
+import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
-import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
-import java.util.concurrent.TimeUnit
 
-@Suppress("MagicNumber")
 object NetworkModule {
     val module = module {
-        single(QualifierHost) {
-            BuildConfig.HOST
-        }
+        single(QualifierHost) { BuildConfig.HOST }
+        single(QualifierProfile) { BuildConfig.PROFILE }
 
-        single(QualifierProfile) {
-            BuildConfig.PROFILE
-        }
+//        single(QualifierAuthInterceptor) {
+//            Interceptor { chain ->
+//                val newRequest = chain.request()
+//                    .newBuilder()
+//                    .addHeader("Authorization", BuildConfig.API_BEARER_AUTH)
+//                    .addHeader("Content-Type", "application/json;charset=utf-8")
+//                    .build()
+//                chain.proceed(newRequest)
+//            }
+//        }
 
         single {
-            Moshi.Builder()
-                .add(KotlinJsonAdapterFactory())
-                .build()
+            provideKtorHttpClient(
+                moshi = get(),
+                baseUrl = get(QualifierHost),
+            )
         }
 
-        single(QualifierAuthInterceptor) {
-            Interceptor { chain ->
-                val newRequest =
-                    chain.request()
-                        .newBuilder()
-                        .addHeader(
-                            "Authorization",
-                            BuildConfig.API_BEARER_AUTH
-                        )
-                        .addHeader("Content-Type", "application/json;charset=utf-8")
-                        .build()
-                chain.proceed(newRequest)
+        single(QualifierProfileHttpClient) {
+            provideKtorHttpClient(
+                moshi = get(),
+                baseUrl = get(QualifierProfile),
+            )
+        }
+
+        single { Moshi.Builder().build() }
+    }
+
+    private fun provideKtorHttpClient(
+        moshi: Moshi,
+        baseUrl: String,
+    ): HttpClient {
+        return HttpClient(OkHttp) {
+            installPlugins(moshi, baseUrl)
+        }
+    }
+
+    private fun HttpClientConfig<OkHttpConfig>.installPlugins(
+        moshi: Moshi,
+        baseUrl: String,
+    ) {
+        expectSuccess = false
+
+        install(ContentNegotiation) {
+            json(Json {
+                explicitNulls = false
+                ignoreUnknownKeys = true
+            })
+        }
+
+        install(HttpTimeout) {
+            socketTimeoutMillis = 10000
+            requestTimeoutMillis = 10000
+            connectTimeoutMillis = 10000
+        }
+
+        defaultRequest {
+            url(baseUrl)
+            contentType(ContentType.Application.Json)
+            accept(ContentType.Application.Json)
+        }
+
+        validator(moshi)
+
+        install(Auth) {
+            bearer {
+                loadTokens {
+                    BearerTokens(
+                        accessToken = BuildConfig.API_BEARER_AUTH,
+                        refreshToken = ""
+                    )
+                }
             }
         }
 
-        single<Interceptor>(QualifierLoggerInterceptor) {
-            HttpLoggingInterceptor().setLevel(
-                if (BuildConfig.DEBUG) {
-                    HttpLoggingInterceptor.Level.BODY
-                } else {
-                    HttpLoggingInterceptor.Level.NONE
+        if (BuildConfig.DEBUG) {
+            install(Logging) {
+                level = LogLevel.ALL
+                logger = object : Logger {
+                    override fun log(message: String) {
+                        Log.i("HttpClient", message)
+                    }
                 }
-            )
-        }
-        single {
-            provideRetrofit(
-                okHttpClient = get(),
-                moshi = get(),
-                baseUrl = get(QualifierHost)
-            )
-        }
-
-        single(QualifierProfileRetrofit) {
-            provideRetrofit(
-                okHttpClient = get(),
-                moshi = get(),
-                baseUrl = get(QualifierProfile)
-            )
-        }
-
-        single {
-            provideOkhttp(
-                get(QualifierAuthInterceptor),
-                get(QualifierLoggerInterceptor),
-            )
+            }
         }
     }
-
-    private fun provideOkhttp(
-        vararg interceptor: Interceptor
-    ): OkHttpClient {
-        val okHttpClientBuilder = OkHttpClient.Builder()
-        interceptor.forEach {
-            okHttpClientBuilder.addInterceptor(it)
-        }
-        return okHttpClientBuilder
-            .connectTimeout(15, TimeUnit.SECONDS)
-            .build()
-    }
-
-    private fun provideRetrofit(
-        okHttpClient: OkHttpClient,
-        moshi: Moshi,
-        baseUrl: String
-    ): Retrofit =
-        Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .client(okHttpClient)
-            .addConverterFactory(MoshiConverterFactory.create(moshi))
-            .addCallAdapterFactory(NetworkResponseAdapterFactory(moshi))
-            .build()
 }

@@ -1,9 +1,9 @@
 package com.codandotv.streamplayerapp.feature_list_streams.list.domain
 
+import ListStreamResponse
+import StreamResponse
 import com.codandotv.streamplayerapp.core_networking.Url
 import com.codandotv.streamplayerapp.feature_list_streams.list.data.model.GenresResponse
-import com.codandotv.streamplayerapp.feature_list_streams.list.data.model.ListStreamResponse
-import com.codandotv.streamplayerapp.feature_list_streams.list.data.model.StreamResponse
 import com.codandotv.streamplayerapp.feature_list_streams.list.domain.model.Genre
 import com.codandotv.streamplayerapp.feature_list_streams.list.domain.model.ListStream
 import com.codandotv.streamplayerapp.feature_list_streams.list.domain.model.Stream
@@ -24,5 +24,5 @@ fun StreamResponse.toStream(): Stream = Stream(
     description = overview,
     name = title,
     posterPathUrl = "${Url.IMAGE_URL_SIZE_300}${poster_path}",
-    id = id
+    id = id.toString()
 )

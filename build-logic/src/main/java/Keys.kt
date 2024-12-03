@@ -5,8 +5,8 @@ object Keys {
 
     object BuildField {
         val api_bearer_debug =
-            "\"Bearer ${System.getenv(tmdb_token_name_debug) ?: default_tmdb_token}\""
+            "\"${System.getenv(tmdb_token_name_debug) ?: default_tmdb_token}\""
         val api_bearer_release =
-            "\"Bearer ${System.getenv(tmdb_token_name_release) ?: default_tmdb_token}\""
+            "\"${System.getenv(tmdb_token_name_release) ?: default_tmdb_token}\""
     }
 }
