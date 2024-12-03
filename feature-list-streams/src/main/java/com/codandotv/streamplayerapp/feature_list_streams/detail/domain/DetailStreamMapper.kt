@@ -8,7 +8,7 @@ import com.codandotv.streamplayerapp.feature_list_streams.detail.data.model.Vide
 @Suppress("MagicNumber")
 fun DetailStreamResponse.toDetailStream(isFavorite: Boolean = false): DetailStream =
     DetailStream(
-        id = this.id,
+        id = this.id.toString(),
         title = this.title,
         overview = this.overview,
         tagline = this.tagline,

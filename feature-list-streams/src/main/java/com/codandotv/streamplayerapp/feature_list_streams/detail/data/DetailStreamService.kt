@@ -13,7 +13,6 @@ interface DetailStreamService {
     suspend fun getVideoStreams(movieId: String): NetworkResponse<VideoStreamsResponse>
 }
 
-@Factory
 class DetailStreamServiceImpl(
     private val client: HttpClient
 ) : DetailStreamService {

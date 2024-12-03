@@ -1,5 +1,6 @@
 package com.codandotv.streamplayerapp.core_networking.handleError
 
+import android.util.Log
 import com.squareup.moshi.Moshi
 import io.ktor.client.HttpClient
 import io.ktor.client.HttpClientConfig
@@ -36,6 +37,8 @@ internal fun HttpClientConfig<OkHttpConfig>.validator(
         }
 
         handleResponseExceptionWithRequest { exception, _ ->
+            Log.d("HttpClientError",exception.stackTraceToString())
+
             when (exception) {
                 is IOException -> throw Failure.NetworkError(throwable = exception)
                 else -> throw Failure.GenericError(

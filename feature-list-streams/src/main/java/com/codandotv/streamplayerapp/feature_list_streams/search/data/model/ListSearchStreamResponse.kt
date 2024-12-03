@@ -11,12 +11,12 @@ data class ListSearchStreamResponse(
     @Serializable
     data class SearchStreamResponse(
         @Json(name = "id")
-        val id: String,
+        val id: Int,
         @Json(name = "title")
         val title: String,
         @Json(name="overview")
         val overview: String,
         @Json(name = "poster_path")
-        val posterPath: String,
+        val posterPath: String? = null
     )
 }

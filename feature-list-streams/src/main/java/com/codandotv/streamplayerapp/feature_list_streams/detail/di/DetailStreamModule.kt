@@ -3,6 +3,7 @@ package com.codandotv.streamplayerapp.feature_list_streams.detail.di
 import com.codandotv.streamplayerapp.feature_list_streams.detail.data.DetailStreamRepository
 import com.codandotv.streamplayerapp.feature_list_streams.detail.data.DetailStreamRepositoryImpl
 import com.codandotv.streamplayerapp.feature_list_streams.detail.data.DetailStreamService
+import com.codandotv.streamplayerapp.feature_list_streams.detail.data.DetailStreamServiceImpl
 import com.codandotv.streamplayerapp.feature_list_streams.detail.domain.DetailStreamUseCase
 import com.codandotv.streamplayerapp.feature_list_streams.detail.domain.DetailStreamUseCaseImpl
 import com.codandotv.streamplayerapp.feature_list_streams.detail.domain.VideoStreamsUseCase
@@ -12,7 +13,6 @@ import kotlinx.coroutines.Dispatchers
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.parameter.parametersOf
 import org.koin.dsl.module
-import retrofit2.Retrofit
 
 object DetailStreamModule {
     val module = module {
@@ -49,6 +49,10 @@ object DetailStreamModule {
             )
         }
 
-        factory { get<Retrofit>().create(DetailStreamService::class.java) }
+        factory<DetailStreamService> {
+            DetailStreamServiceImpl(
+                client = get()
+            )
+        }
     }
 }
