@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 @Suppress("ConstructorParameterNaming")
 data class DetailStreamResponse(
-    val id : Int,
+    val id : Long,
     val title : String,
     val overview : String,
     val tagline : String,
