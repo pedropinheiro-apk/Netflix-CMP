@@ -1,10 +1,20 @@
 package com.codandotv.streamplayerapp.feature_profile.profile.data
 
 import com.codandotv.streamplayerapp.core_networking.handleError.NetworkResponse
+import com.codandotv.streamplayerapp.core_networking.handleError.safeRequest
 import com.codandotv.streamplayerapp.feature_profile.profile.data.model.ProfilesResponse
-import retrofit2.http.GET
+import io.ktor.client.HttpClient
+import io.ktor.client.request.url
 
 interface ProfilePickerStreamService {
-    @GET("profiles")
     suspend fun getProfiles(): NetworkResponse<ProfilesResponse>
+}
+
+class ProfilePickerStreamServiceImpl(
+    private val client: HttpClient
+) : ProfilePickerStreamService {
+    override suspend fun getProfiles(): NetworkResponse<ProfilesResponse> =
+        client.safeRequest {
+            url("profiles")
+        }
 }

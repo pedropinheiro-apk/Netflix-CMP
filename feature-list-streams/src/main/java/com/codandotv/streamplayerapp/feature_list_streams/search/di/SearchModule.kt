@@ -7,6 +7,8 @@ import com.codandotv.streamplayerapp.feature_list_streams.search.data.datasource
 import com.codandotv.streamplayerapp.feature_list_streams.search.data.repository.MostPopularMoviesRepository
 import com.codandotv.streamplayerapp.feature_list_streams.search.data.repository.MostPopularMoviesRepositoryImpl
 import com.codandotv.streamplayerapp.feature_list_streams.search.data.api.MostPopularMoviesService
+import com.codandotv.streamplayerapp.feature_list_streams.search.data.api.MostPopularMoviesServiceImpl
+import com.codandotv.streamplayerapp.feature_list_streams.search.data.api.SearchStreamServiceImpl
 import com.codandotv.streamplayerapp.feature_list_streams.search.data.datasource.SearchStreamDataSource
 import com.codandotv.streamplayerapp.feature_list_streams.search.data.repository.SearchStreamRepository
 import com.codandotv.streamplayerapp.feature_list_streams.search.data.repository.SearchStreamRepositoryImp
@@ -17,7 +19,6 @@ import com.codandotv.streamplayerapp.feature_list_streams.search.domain.SearchUs
 import com.codandotv.streamplayerapp.feature_list_streams.search.presentation.screens.SearchViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
-import retrofit2.Retrofit
 
 object SearchModule {
     val module = module {
@@ -28,8 +29,8 @@ object SearchModule {
             )
         }
 
-        factory { get<Retrofit>().create(SearchStreamService::class.java) }
-        factory { get<Retrofit>().create(MostPopularMoviesService::class.java) }
+        factory<SearchStreamService> { SearchStreamServiceImpl(get()) }
+        factory<MostPopularMoviesService> { MostPopularMoviesServiceImpl(get()) }
 
         factory<MostPopularMoviesUseCase> { MostPopularMoviesUseCaseImpl(repository = get()) }
         factory<MostPopularMoviesDataSource> { MostPopularMoviesDataSourceImpl(service = get()) }

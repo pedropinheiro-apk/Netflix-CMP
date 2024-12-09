@@ -5,10 +5,9 @@ import com.codandotv.streamplayerapp.core_networking.Url.IMAGE_URL_SIZE_500
 import com.codandotv.streamplayerapp.feature_list_streams.detail.data.model.DetailStreamResponse
 import com.codandotv.streamplayerapp.feature_list_streams.detail.data.model.VideoStreamsResponse
 
-@Suppress("MagicNumber")
 fun DetailStreamResponse.toDetailStream(isFavorite: Boolean = false): DetailStream =
     DetailStream(
-        id = this.id,
+        id = this.id.toString(),
         title = this.title,
         overview = this.overview,
         tagline = this.tagline,

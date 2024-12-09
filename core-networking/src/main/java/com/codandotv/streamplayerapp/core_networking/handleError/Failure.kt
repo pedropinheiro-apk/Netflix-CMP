@@ -1,6 +1,7 @@
 package com.codandotv.streamplayerapp.core_networking.handleError
 
 import com.codandotv.streamplayerapp.core.networking.R
+import kotlinx.serialization.Serializable
 import org.koin.core.component.KoinComponent
 
 /**
@@ -11,6 +12,8 @@ import org.koin.core.component.KoinComponent
     "TooGenericExceptionCaught",
     "MagicNumber"
 )
+
+@Serializable
 sealed class Failure(
     val code: Int? = -1,
     val errorMessage: String? = null,
@@ -23,7 +26,7 @@ sealed class Failure(
         Failure(codeStatus, errorMessageRes = R.string.core_networking_no_server_error)
 
     data class GenericError(
-        val codeStatus: Int? = -12, private val msg: String? = null
+        val codeStatus: Int? = -12, private val msg: String? = "Unknow error"
     ) : Failure(
         codeStatus
     )

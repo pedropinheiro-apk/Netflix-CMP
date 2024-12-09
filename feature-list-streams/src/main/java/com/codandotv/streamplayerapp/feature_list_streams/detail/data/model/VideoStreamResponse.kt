@@ -1,5 +1,8 @@
 package com.codandotv.streamplayerapp.feature_list_streams.detail.data.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class VideoStreamResponse(
     val id: String,
     val name: String,
@@ -10,6 +13,7 @@ data class VideoStreamResponse(
     val type: String,
 )
 
+@Serializable
 data class VideoStreamsResponse(
     val id: Long,
     val results: List<VideoStreamResponse>

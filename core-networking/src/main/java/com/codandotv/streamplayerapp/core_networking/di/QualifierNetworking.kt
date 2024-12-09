@@ -13,11 +13,10 @@ object QualifierProfile : Qualifier {
         get() = "QualifierProfile"
 }
 
-object QualifierProfileRetrofit : Qualifier {
+object QualifierProfileHttpClient : Qualifier {
     override val value: QualifierValue
         get() = "QualifierProfileRetrofit"
 }
-
 
 object QualifierLoggerInterceptor : Qualifier {
     override val value: QualifierValue

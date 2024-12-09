@@ -2,14 +2,18 @@ package com.codandotv.streamplayerapp.core_networking.handleError
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.serialization.Serializable
 
+@Serializable
 sealed class NetworkResponse<out T> {
+    @Serializable
     data class Success<out T>(
         val value: T
     ) : NetworkResponse<T>()
 
+    @Serializable
     data class Error(
-        val body: Any? = null,
+        val body: String? = null,
         @Transient
         val exception: Failure? = null
     ) : NetworkResponse<Nothing>()
