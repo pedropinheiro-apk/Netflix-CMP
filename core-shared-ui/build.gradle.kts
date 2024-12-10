@@ -1,10 +1,14 @@
 @file:Suppress("UnstableApiUsage")
 plugins {
     id("com.streamplayer.android-library")
-    id("com.streamplayer.compose")
+    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.compose.compiler)
+    id("kotlin-android")
 }
 
 dependencies {
+    implementation(compose.material3)
+    implementation(compose.preview)
     implementation(projects.coreShared)
     implementation(libs.bundles.koin)
     implementation(libs.bundles.kotlin)

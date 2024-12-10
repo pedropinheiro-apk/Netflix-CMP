@@ -10,15 +10,14 @@ import extensions.setupPackingOptions
 val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
 plugins {
+    //Note: The best approach might be to create a separate feature plugin to further isolate serialization, and do this later.
+    id("org.jetbrains.kotlin.plugin.serialization")
     id("com.android.library")
-    id("kotlin-android")
     id("kotlin-kapt")
     id("kotlin-parcelize")
     id("com.streamplayer.dokka")
     id("org.jetbrains.kotlinx.kover")
     id("com.streamplayer.detekt")
-    //Note: The best approach might be to create a separate feature plugin to further isolate serialization, and do this later.
-    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {

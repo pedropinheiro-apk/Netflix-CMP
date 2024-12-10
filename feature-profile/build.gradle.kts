@@ -2,7 +2,8 @@
 
 plugins {
     id("com.streamplayer.android-library")
-    id("com.streamplayer.compose")
+    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.ksp)
 }
 

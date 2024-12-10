@@ -1,28 +1,41 @@
 @file:Suppress("UnstableApiUsage")
 
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
+
 plugins {
     id("com.streamplayer.android-library")
-    id("com.streamplayer.compose")
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.compose.compiler)
 }
 
-dependencies {
-    implementation(projects.coreNetworking)
-    implementation(projects.coreNavigation)
-    implementation(projects.coreShared)
-    implementation(projects.coreSharedUi)
-    implementation(projects.coreLocalStorage)
+kotlin {
+    androidTarget {
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_17)
+        }
+    }
 
-    implementation(libs.bundles.koin)
-    implementation(libs.koin.annotations)
-    ksp(libs.koin.compiler)
-
-    implementation(libs.bundles.networking)
-    implementation(libs.roomRuntime)
-    implementation(libs.bundles.androidSupport)
-    implementation(libs.coil)
-
-    testImplementation(libs.bundles.test)
+    sourceSets {
+        androidMain.dependencies {
+            implementation(compose.material3)
+            implementation(compose.ui)
+            implementation(projects.coreNetworking)
+            implementation(projects.coreNavigation)
+            implementation(projects.coreShared)
+            implementation(projects.coreSharedUi)
+            implementation(projects.coreLocalStorage)
+            implementation(libs.bundles.koin)
+            implementation(libs.bundles.networking)
+            implementation(libs.coil)
+            implementation(libs.koin.annotations)
+            implementation(libs.bundles.androidSupport)
+        }
+    }
 }
 
 ksp {

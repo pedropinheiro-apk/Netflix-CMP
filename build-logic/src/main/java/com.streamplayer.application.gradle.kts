@@ -4,7 +4,6 @@ import extensions.dokkaPlugin
 import extensions.getLibrary
 import extensions.setupAndroidDefaultConfig
 import extensions.setupCompileOptions
-import extensions.setupCompose
 import extensions.setupPackingOptions
 
 val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
@@ -27,7 +26,6 @@ android {
     setupCompileOptions()
     setupPackingOptions()
     setupAndroidDefaultConfig()
-    setupCompose(catalog)
 
     defaultConfig {
         applicationId = Config.applicationId

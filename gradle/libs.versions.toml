@@ -1,12 +1,14 @@
 [versions]
-kotlin = "1.9.25"
+kotlin = "2.0.21"
 android_gradle_plugin = "8.2.2"
 koin = "3.4.0"
 koin-annotations-bom = "1.3.0"
-ksp = "1.9.25-1.0.20"
+ksp = "2.0.21-1.0.27"
 dokka = "1.9.10"
 kover = "0.7.5"
 detekt = "1.23.6"
+compose_plugin_multiplataform = "1.7.1"
+navigation-compose-version = "2.7.0-alpha07"
 
 #Test
 test_junit = "4.13.2"
@@ -33,17 +35,7 @@ androidx_core_ktx = "1.13.1"
 #Networking
 moshi = "1.14.0"
 okhttp = "4.12.0"
-ktor = "2.3.0"
-
-#Compose
-compose = "1.5.15"
-compose_bom = "2024.09.02"
-compose_material_3 = "1.3.0"
-compose_activity = "1.5.0"
-compose_icons = "1.4.3"
-compose_navigation = "2.8.1"
-lifecycle_version = "2.8.6"
-compose_pagging = "3.3.2"
+ktor = "3.0.1"
 
 coil = "2.3.0"
 lottie = "5.2.0"
@@ -84,35 +76,11 @@ mockk_android = { group = "io.mockk", name = "mockk-android", version.ref = "moc
 viewmodel_test = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidx_core_testing" }
 coroutines_test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines-test" }
 
-# AndroidX Lifecycle
-androidx_viewmodel_lifecycle-extensions = { group = "androidx.lifecycle", name = "lifecycle-extensions", version.ref = "viewmodel" }
-androidx_common_java = { group = "androidx.lifecycle", name = "lifecycle-reactivestreams", version.ref = "viewmodel" }
-
-# AndroidX test
-androidx_test_core = { group = "androidx.test", name = "core-ktx", version.ref = "androidx_test_core" }
-androidx_test_rules = { group = "androidx.test", name = "rules", version.ref = "androidx_test_rules" }
-androidx_test_runner = { group = "androidx.test", name = "runner", version.ref = "androidx_test_runner" }
-androidx_test_junit_ext = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "androidx_test_junit_ext" }
-android_test_mockwebserver = { group = "com.squareup.okhttp3", name = "mockwebserver", version.ref = "mockWebServer" }
+#Navigation
+navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigation-compose-version" }
 
 # Google
 google_material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-
-# Compose
-compose_bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose_bom" }
-compose_ui = { module = "androidx.compose.ui:ui" }
-compose_toolingpreview = { module = "androidx.compose.ui:ui-tooling-preview" }
-compose_icons = { module = "androidx.compose.material:material-icons-extended" }
-compose_lifecycle = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle_version" }
-compose_material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "compose_material_3" }
-compose_navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "compose_navigation" }
-compose_pagging = { group = "androidx.paging", name = "paging-compose", version.ref = "compose_pagging" }
-compose_activity = { module = "androidx.activity:activity-compose" }
-compose_ui_tooling = { module = "androidx.compose.ui:ui-tooling" }
-compose_ui_test = { module = "androidx.compose.ui:ui-test-junit4" }
-compose_manifest = { module = "androidx.compose.ui:ui-test-manifest" }
-compose_uitest = { module = "androidx.compose.ui:ui-test" }
-compose_junit4 = { module = "androidx.compose.ui:ui-test-junit4" }
 
 # Koin
 koin_test = { group = "io.insert-koin", name = "koin-test-junit4", version.ref = "koin" }
@@ -143,7 +111,6 @@ dokka = { group = "org.jetbrains.dokka", name = "android-documentation-plugin", 
 
 [bundles]
 room = ["roomRuntime", "roomKtx"]
-compose = ["compose.ui", "compose.icons", "compose.material3", "compose_pagging", "compose.lifecycle", "compose.navigation", "compose.activity", "compose.ui.tooling"]
 networking = ["moshi", "okhttp", "interceptor", "ktor_client_core", "ktor_client_okhttp", "ktor_client_content_serialization_json", "ktor_client_content_negotiation", "ktor_client_logger", "ktor_client_auth"]
 koin = ["koin_android", "koin_compose"]
 test = ["junit", "mockk", "mockk_android", "viewmodel_test", "koin_test", "coroutines_test"]
@@ -157,6 +124,9 @@ android_library = { id = "com.android.library", version.ref = "android_gradle_pl
 kotlin_android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
+jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose_plugin_multiplataform" }
+kotlin_multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+compose_compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }

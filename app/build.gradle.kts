@@ -14,12 +14,9 @@ dependencies {
     implementation(projects.coreNetworking)
     implementation(projects.coreLocalStorage)
 
-    implementation(platform(libs.compose.bom))
-    androidTestImplementation(platform(libs.compose.bom))
 
     implementation(libs.bundles.koin)
     implementation(libs.bundles.androidSupport)
-    implementation(libs.bundles.compose)
     implementation(libs.bundles.kotlin)
 
     implementation(libs.lottie)

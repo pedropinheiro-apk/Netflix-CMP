@@ -41,32 +41,7 @@ internal fun CommonExtension<*, *, *, *, *>.setupCompileOptions() {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-
-    kotlinOptions {
-        jvmTarget = "17"
-    }
 }
-
-fun CommonExtension<*, *, *, *, *>.setupCompose(catalog: VersionCatalog) {
-    buildFeatures {
-        compose = true
-        buildConfig = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "${catalog.getVersion("compose")}"
-    }
-
-    packaging {
-        resources {
-            excludes.apply {
-                add("META-INF/AL2.0")
-                add("META-INF/LGPL2.1")
-            }
-        }
-    }
-}
-
 
 internal fun CommonExtension<*, *, *, *, *>.setupNameSpace(project: Project) {
     val moduleName = project.displayName
