@@ -2,6 +2,8 @@
 
 plugins {
     id("com.streamplayer.application")
+    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.compose.compiler)
 }
 
 dependencies {
@@ -14,7 +16,10 @@ dependencies {
     implementation(projects.coreNetworking)
     implementation(projects.coreLocalStorage)
 
-
+    implementation(libs.navigation.compose)
+    implementation(compose.material3)
+    implementation(compose.ui)
+    implementation(compose.preview)
     implementation(libs.bundles.koin)
     implementation(libs.bundles.androidSupport)
     implementation(libs.bundles.kotlin)

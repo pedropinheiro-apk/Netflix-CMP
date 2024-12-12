@@ -1,14 +1,16 @@
 [versions]
 kotlin = "2.0.21"
 android_gradle_plugin = "8.2.2"
-koin = "3.4.0"
-koin-annotations-bom = "1.3.0"
+koin = "3.5.3"
+koin-ksp = "1.3.1"
 ksp = "2.0.21-1.0.27"
+
 dokka = "1.9.10"
 kover = "0.7.5"
 detekt = "1.23.6"
 compose_plugin_multiplataform = "1.7.1"
 navigation-compose-version = "2.7.0-alpha07"
+paging-compose="3.3.5"
 
 #Test
 test_junit = "4.13.2"
@@ -78,6 +80,7 @@ coroutines_test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-
 
 #Navigation
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigation-compose-version" }
+paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging-compose" }
 
 # Google
 google_material = { group = "com.google.android.material", name = "material", version.ref = "material" }
@@ -85,8 +88,9 @@ google_material = { group = "com.google.android.material", name = "material", ve
 # Koin
 koin_test = { group = "io.insert-koin", name = "koin-test-junit4", version.ref = "koin" }
 koin_android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
-koin_annotations = { group = "io.insert-koin", name = "koin-annotations", version.ref = "koin-annotations-bom" }
-koin_compiler = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koin-annotations-bom" }
+koin_core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+koin_annotations = { group = "io.insert-koin", name = "koin-annotations", version.ref = "koin-ksp" }
+koin_compiler = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koin-ksp" }
 koin_compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
 
 #Networking
@@ -112,7 +116,8 @@ dokka = { group = "org.jetbrains.dokka", name = "android-documentation-plugin", 
 [bundles]
 room = ["roomRuntime", "roomKtx"]
 networking = ["moshi", "okhttp", "interceptor", "ktor_client_core", "ktor_client_okhttp", "ktor_client_content_serialization_json", "ktor_client_content_negotiation", "ktor_client_logger", "ktor_client_auth"]
-koin = ["koin_android", "koin_compose"]
+koin = ["koin_android","koin_compose"]
+
 test = ["junit", "mockk", "mockk_android", "viewmodel_test", "koin_test", "coroutines_test"]
 androidSupport = ["androidx_core", "androidx_appcompat", "androidx_dynamicanimation", "google_material"]
 kotlin = ["androidx_core", "kotlin_stdlib", "kotlin_reflect"]

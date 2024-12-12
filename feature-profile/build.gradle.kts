@@ -12,8 +12,11 @@ dependencies {
     implementation(projects.coreNavigation)
     implementation(projects.coreShared)
     implementation(projects.coreSharedUi)
+    implementation(libs.navigation.compose)
+    implementation(compose.material3)
+    implementation(compose.ui)
 
-    implementation(libs.bundles.koin)
+    implementation(libs.koin.android)
     implementation(libs.koin.annotations)
     ksp(libs.koin.compiler)
 

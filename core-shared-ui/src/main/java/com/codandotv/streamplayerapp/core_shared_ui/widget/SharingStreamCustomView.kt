@@ -8,7 +8,6 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
-import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.AnimatedVisibilityScope
 import androidx.compose.animation.core.keyframes
@@ -293,11 +292,11 @@ fun SharingStreamCustomView(
                 }
             }
         }
-        BackHandler {
-            coroutineScope.launch {
-                startDismissWithExitAnimation(animateTrigger) { setShowDialog(false) }
-            }
-        }
+//        BackHandler {
+//            coroutineScope.launch {
+//                startDismissWithExitAnimation(animateTrigger) { setShowDialog(false) }
+//            }
+//        }
     }
 }
 
