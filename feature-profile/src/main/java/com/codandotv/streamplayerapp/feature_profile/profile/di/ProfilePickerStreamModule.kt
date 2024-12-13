@@ -1,39 +1,21 @@
 package com.codandotv.streamplayerapp.feature_profile.profile.di
 
-import com.codandotv.streamplayerapp.feature_profile.profile.data.ProfilePickerStreamRepository
-import com.codandotv.streamplayerapp.feature_profile.profile.data.ProfilePickerStreamRepositoryImpl
 import com.codandotv.streamplayerapp.feature_profile.profile.data.ProfilePickerStreamService
 import com.codandotv.streamplayerapp.feature_profile.profile.data.ProfilePickerStreamServiceImpl
-import com.codandotv.streamplayerapp.feature_profile.profile.domain.ProfilePickerStreamUseCase
-import com.codandotv.streamplayerapp.feature_profile.profile.domain.ProfilePickerStreamUseCaseImpl
-import com.codandotv.streamplayerapp.feature_profile.profile.presentation.screens.ProfilePickerStreamViewModel
-import org.koin.androidx.viewmodel.dsl.viewModel
-import org.koin.dsl.module
+import io.ktor.client.HttpClient
+import org.koin.core.annotation.ComponentScan
+import org.koin.core.annotation.Factory
+import org.koin.core.annotation.Module
+import org.koin.core.context.GlobalContext
 
-object ProfilePickerStreamModule {
-    val module = module {
-        viewModel {
-            ProfilePickerStreamViewModel(
-                useCase = get()
-            )
-        }
+@Module
+@ComponentScan("com.codandotv.streamplayerapp.feature_profile")
+class ProfilePickerStreamModule {
 
-        factory<ProfilePickerStreamUseCase> {
-            ProfilePickerStreamUseCaseImpl(
-                profilePickerStreamRepository = get()
-            )
-        }
-
-        factory<ProfilePickerStreamRepository> {
-            ProfilePickerStreamRepositoryImpl(
-                service = get()
-            )
-        }
-
-        factory<ProfilePickerStreamService> {
-            ProfilePickerStreamServiceImpl(
-                client = get()
-            )
-        }
+    @Factory
+    fun service(): ProfilePickerStreamService {
+        val koin = GlobalContext.get()
+        val client = koin.get<HttpClient>()
+        return ProfilePickerStreamServiceImpl(client)
     }
 }

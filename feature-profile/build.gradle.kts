@@ -2,6 +2,7 @@
 
 plugins {
     id("com.streamplayer.android-library")
+    id("kotlin-android")
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.ksp)
@@ -16,7 +17,7 @@ dependencies {
     implementation(compose.material3)
     implementation(compose.ui)
 
-    implementation(libs.koin.android)
+    implementation(libs.bundles.koin)
     implementation(libs.koin.annotations)
     ksp(libs.koin.compiler)
 

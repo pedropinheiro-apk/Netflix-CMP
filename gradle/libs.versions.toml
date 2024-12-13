@@ -18,13 +18,6 @@ androidx_core_testing = "2.2.0"
 mockk = "1.13.7"
 kotlinx-coroutines-test = "1.8.1"
 
-#Android Test
-androidx_test_core = "1.6.1"
-androidx_test_rules = "1.6.1"
-androidx_test_runner = "1.6.2"
-androidx_test_junit_ext = "1.2.1"
-mockWebServer = "4.10.0"
-
 #Android Support
 android_core_ktx = "1.7.0"
 androidx_appcompat = "1.7.0"
@@ -45,6 +38,7 @@ lottie = "5.2.0"
 #Room Database
 room = "2.5.2"
 android_youtube_player_version = "12.0.0"
+uiAndroid = "1.7.5"
 
 
 [libraries]
@@ -81,6 +75,7 @@ coroutines_test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-
 #Navigation
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigation-compose-version" }
 paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging-compose" }
+ui-android = { group = "androidx.compose.ui", name = "ui-android", version.ref = "uiAndroid" }
 
 # Google
 google_material = { group = "com.google.android.material", name = "material", version.ref = "material" }
