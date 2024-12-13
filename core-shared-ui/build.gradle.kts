@@ -7,13 +7,15 @@ plugins {
 }
 
 dependencies {
+    implementation(projects.coreShared)
     implementation(compose.material3)
     implementation(compose.preview)
-    implementation(projects.coreShared)
+    implementation(compose.ui)
+    implementation(libs.navigation.compose)
     implementation(libs.bundles.koin)
     implementation(libs.bundles.kotlin)
     implementation(libs.bundles.androidSupport)
     implementation(libs.android.youtube.player)
-    testImplementation(libs.bundles.test)
     implementation(libs.coil)
+    testImplementation(libs.bundles.test)
 }

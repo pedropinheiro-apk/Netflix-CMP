@@ -75,7 +75,6 @@ coroutines_test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-
 #Navigation
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigation-compose-version" }
 paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging-compose" }
-ui-android = { group = "androidx.compose.ui", name = "ui-android", version.ref = "uiAndroid" }
 
 # Google
 google_material = { group = "com.google.android.material", name = "material", version.ref = "material" }
