@@ -6,8 +6,10 @@ plugins {
 }
 
 repositories {
-    mavenCentral()
     google()
+    mavenCentral()
+    gradlePluginPortal()
+    maven(url = "https://plugins.gradle.org/m2/")
 }
 
 dependencies {
@@ -16,4 +18,5 @@ dependencies {
     implementation(libs.kover.gradle.plugin)
     implementation(libs.detekt.gradle.plugin)
     implementation(libs.serialization)
+    implementation(libs.com.google.devtools.ksp.gradle.plugin)
 }

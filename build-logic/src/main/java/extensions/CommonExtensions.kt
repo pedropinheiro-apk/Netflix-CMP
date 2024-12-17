@@ -6,9 +6,6 @@ import Config
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
-import org.gradle.api.artifacts.VersionCatalog
-import org.gradle.api.plugins.ExtensionAware
-import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
 
 internal fun CommonExtension<*, *, *, *, *>.setupPackingOptions() {
     packaging {

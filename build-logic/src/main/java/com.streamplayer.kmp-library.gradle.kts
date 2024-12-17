@@ -6,19 +6,29 @@ import extensions.setupAndroidDefaultConfig
 import extensions.setupCompileOptions
 import extensions.setupNameSpace
 import extensions.setupPackingOptions
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 
 val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
-
 plugins {
-    //Note: The best approach might be to create a separate feature plugin to further isolate serialization, and do this later.
-    id("org.jetbrains.kotlin.plugin.serialization")
+    id("org.jetbrains.kotlin.multiplatform")
     id("com.android.library")
+    id("org.jetbrains.kotlin.plugin.serialization")
     id("kotlin-kapt")
-    id("kotlin-android")
     id("kotlin-parcelize")
     id("com.streamplayer.dokka")
     id("org.jetbrains.kotlinx.kover")
     id("com.streamplayer.detekt")
+}
+
+kotlin {
+    androidTarget {
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_17)
+        }
+    }
 }
 
 android {
