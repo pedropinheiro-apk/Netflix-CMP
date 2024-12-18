@@ -1,4 +1,4 @@
-package com.codandotv.streamplayerapp.core_networking
+package com.codandotv.streamplayerapp.core_shared
 
 object Url {
     const val IMAGE_URL_SIZE_200 = "https://image.tmdb.org/t/p/w200/"

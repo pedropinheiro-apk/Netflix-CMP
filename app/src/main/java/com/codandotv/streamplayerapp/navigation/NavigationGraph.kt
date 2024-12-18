@@ -16,10 +16,10 @@ import com.codandotv.streamplayerapp.core_navigation.routes.BottomNavRoutes
 import com.codandotv.streamplayerapp.core_navigation.routes.Routes
 import detail.presentation.navigation.detailStreamNavGraph
 import com.codandotv.streamplayerapp.feature_list_streams.list.presentation.navigation.listStreamsNavGraph
-import com.codandotv.streamplayerapp.feature_list_streams.search.presentation.navigation.searchStreamsNavGraph
 import com.codandotv.streamplayerapp.feature_profile.profile.presentation.navigation.profilePickerStreamNavGraph
 
 import com.codandotv.streamplayerapp.splah.presentation.navigation.splashNavGraph
+import search.presentation.navigation.searchStreamsNavGraph
 
 @Composable
 fun NavigationGraph(navController: NavHostController) {

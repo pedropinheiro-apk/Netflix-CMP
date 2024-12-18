@@ -15,6 +15,7 @@ dependencies {
     implementation(libs.bundles.kotlin)
     implementation(libs.bundles.androidSupport)
     implementation(libs.android.youtube.player)
+    implementation(libs.paging.compose)
     implementation(libs.coil)
     testImplementation(libs.bundles.test)
 }
