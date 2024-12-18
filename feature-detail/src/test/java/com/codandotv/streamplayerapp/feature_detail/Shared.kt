@@ -1,8 +1,6 @@
-package com.codandotv.streamplayerapp.feature_list_streams.detail
+package com.codandotv.streamplayerapp.feature_detail
 
 import detail.data.model.DetailStreamResponse
-import detail.domain.DetailStream
-import detail.domain.VideoStream
 
 val videoStream = detail.domain.VideoStream(
     movieId = 123,
@@ -21,8 +19,8 @@ val videosStreamsList = listOf(
     videoStream1
 )
 
-val detailStreamResponse = detail.data.model.DetailStreamResponse(
-    id = "id",
+val detailStreamResponse = DetailStreamResponse(
+    id = 12,
     title = "title",
     overview = "overview",
     tagline = "tagline",

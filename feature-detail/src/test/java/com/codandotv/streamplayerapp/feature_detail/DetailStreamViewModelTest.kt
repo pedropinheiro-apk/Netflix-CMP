@@ -1,11 +1,6 @@
-package com.codandotv.streamplayerapp.feature_list_streams.detail
+package com.codandotv.streamplayerapp.feature_detail
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.LifecycleOwner
-import detail.domain.DetailStreamUseCase
-import detail.domain.VideoStreamsUseCase
-import detail.presentation.screens.DetailStreamViewModel
-import detail.presentation.screens.DetailStreamsUIState
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk

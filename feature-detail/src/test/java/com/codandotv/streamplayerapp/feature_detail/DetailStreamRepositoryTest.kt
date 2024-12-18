@@ -1,10 +1,7 @@
-package com.codandotv.streamplayerapp.feature_list_streams.detail
+package com.codandotv.streamplayerapp.feature_detail
 
 import com.codandotv.streamplayerapp.core_local_storage.data.dao.FavoriteDao
 import com.codandotv.streamplayerapp.core_networking.handleError.NetworkResponse
-import detail.data.DetailStreamRepository
-import detail.data.DetailStreamRepositoryImpl
-import detail.data.DetailStreamService
 import io.mockk.coEvery
 import io.mockk.coVerifyOrder
 import io.mockk.mockk

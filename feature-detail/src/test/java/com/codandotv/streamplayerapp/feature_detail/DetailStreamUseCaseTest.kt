@@ -1,15 +1,9 @@
-package com.codandotv.streamplayerapp.feature_list_streams.detail
+package com.codandotv.streamplayerapp.feature_detail
 
-import detail.data.DetailStreamRepository
-import detail.domain.DetailStream
-import detail.domain.DetailStreamUseCase
-import detail.domain.DetailStreamUseCaseImpl
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
