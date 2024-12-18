@@ -39,6 +39,8 @@ lottie = "5.2.0"
 room = "2.5.2"
 android_youtube_player_version = "12.0.0"
 uiAndroid = "1.7.5"
+junit = "1.2.1"
+espressoCore = "3.6.1"
 
 
 [libraries]
@@ -107,6 +109,8 @@ roomKtx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 
 android_youtube_player = { group = "com.pierfrancescosoffritti.androidyoutubeplayer", name = "core", version.ref = "android_youtube_player_version" }
 dokka = { group = "org.jetbrains.dokka", name = "android-documentation-plugin", version.ref = "dokka" }
+ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 
 [bundles]
 room = ["roomRuntime", "roomKtx"]

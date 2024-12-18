@@ -9,6 +9,7 @@ plugins {
 dependencies {
     implementation(projects.featureFavorites)
     implementation(projects.featureListStreams)
+    implementation(projects.featureDetail)
     implementation(projects.featureProfile)
     implementation(projects.coreShared)
     implementation(projects.coreSharedUi)

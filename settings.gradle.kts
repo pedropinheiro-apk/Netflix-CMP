@@ -31,3 +31,4 @@ include(":core-local-storage")
 include(":feature-favorites")
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+include(":feature-detail")

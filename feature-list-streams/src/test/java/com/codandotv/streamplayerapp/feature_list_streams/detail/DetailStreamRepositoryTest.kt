@@ -2,9 +2,9 @@ package com.codandotv.streamplayerapp.feature_list_streams.detail
 
 import com.codandotv.streamplayerapp.core_local_storage.data.dao.FavoriteDao
 import com.codandotv.streamplayerapp.core_networking.handleError.NetworkResponse
-import com.codandotv.streamplayerapp.feature_list_streams.detail.data.DetailStreamRepository
-import com.codandotv.streamplayerapp.feature_list_streams.detail.data.DetailStreamRepositoryImpl
-import com.codandotv.streamplayerapp.feature_list_streams.detail.data.DetailStreamService
+import detail.data.DetailStreamRepository
+import detail.data.DetailStreamRepositoryImpl
+import detail.data.DetailStreamService
 import io.mockk.coEvery
 import io.mockk.coVerifyOrder
 import io.mockk.mockk
@@ -14,16 +14,16 @@ import org.junit.Before
 import org.junit.Test
 
 class DetailStreamRepositoryTest {
-    private lateinit var repository: DetailStreamRepository
+    private lateinit var repository: detail.data.DetailStreamRepository
     private val movieId = MOVIE_ID_STRING
-    private lateinit var service: DetailStreamService
+    private lateinit var service: detail.data.DetailStreamService
     private lateinit var favoriteDao: FavoriteDao
 
     @Before
     fun setUp() {
         service = mockk()
         favoriteDao = mockk()
-        repository = DetailStreamRepositoryImpl(
+        repository = detail.data.DetailStreamRepositoryImpl(
             movieId = movieId,
             service = service,
             favoriteDao = favoriteDao

@@ -1,17 +1,17 @@
 package com.codandotv.streamplayerapp.feature_list_streams.detail
 
-import com.codandotv.streamplayerapp.feature_list_streams.detail.data.model.DetailStreamResponse
-import com.codandotv.streamplayerapp.feature_list_streams.detail.domain.DetailStream
-import com.codandotv.streamplayerapp.feature_list_streams.detail.domain.VideoStream
+import detail.data.model.DetailStreamResponse
+import detail.domain.DetailStream
+import detail.domain.VideoStream
 
-val videoStream = VideoStream(
+val videoStream = detail.domain.VideoStream(
     movieId = 123,
     videoId = "123"
 )
 
 const val MOVIE_ID_STRING = "123"
 
-val videoStream1 = VideoStream(
+val videoStream1 = detail.domain.VideoStream(
     movieId = 1234565,
     videoId = "123565"
 )
@@ -21,7 +21,7 @@ val videosStreamsList = listOf(
     videoStream1
 )
 
-val detailStreamResponse = DetailStreamResponse(
+val detailStreamResponse = detail.data.model.DetailStreamResponse(
     id = "id",
     title = "title",
     overview = "overview",
@@ -30,7 +30,7 @@ val detailStreamResponse = DetailStreamResponse(
     release_date = "release"
 )
 
-val detailStream = DetailStream(
+val detailStream = detail.domain.DetailStream(
     id = "id",
     title = "title",
     overview = "overview",
