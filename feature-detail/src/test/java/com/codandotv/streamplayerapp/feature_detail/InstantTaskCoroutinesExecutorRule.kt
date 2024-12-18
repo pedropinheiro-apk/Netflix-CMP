@@ -1,4 +1,4 @@
-package com.codandotv.streamplayerapp.feature_list_streams.detail
+package com.codandotv.streamplayerapp.feature_detail
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
