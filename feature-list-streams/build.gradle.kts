@@ -33,7 +33,6 @@ kotlin {
             implementation(libs.bundles.androidSupport)
 
         }
-
         sourceSets.named("androidMain").configure {
             kotlin.srcDir("build/generated/ksp/metadata/androidMain/kotlin")
         }
