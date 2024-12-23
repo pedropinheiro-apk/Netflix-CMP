@@ -37,10 +37,6 @@ kotlin {
         commonTest.dependencies {
             implementation(libs.bundles.test)
         }
-
-        sourceSets.named("androidMain").configure {
-            kotlin.srcDir("build/generated/ksp/metadata/androidMain/kotlin")
-        }
     }
 }
 
