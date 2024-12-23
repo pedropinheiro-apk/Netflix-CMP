@@ -1,6 +1,10 @@
 package com.codandotv.streamplayerapp.feature_detail
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.codandotv.streamplayerapp.feature_detail.domain.DetailStreamUseCase
+import com.codandotv.streamplayerapp.feature_detail.domain.VideoStreamsUseCase
+import com.codandotv.streamplayerapp.feature_detail.presentation.screens.DetailStreamViewModel
+import com.codandotv.streamplayerapp.feature_detail.presentation.screens.DetailStreamsUIState
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -12,9 +16,9 @@ import org.junit.Test
 import kotlin.test.assertTrue
 
 class DetailStreamViewModelTest {
-    private lateinit var detailStreamViewModel: detail.presentation.screens.DetailStreamViewModel
-    private lateinit var detailUseCase: detail.domain.DetailStreamUseCase
-    private lateinit var videoUseCase: detail.domain.VideoStreamsUseCase
+    private lateinit var detailStreamViewModel: DetailStreamViewModel
+    private lateinit var detailUseCase: DetailStreamUseCase
+    private lateinit var videoUseCase: VideoStreamsUseCase
 
     @get:Rule
     val rule = InstantTaskExecutorRule()
@@ -27,7 +31,7 @@ class DetailStreamViewModelTest {
         detailUseCase = mockk()
         videoUseCase = mockk()
 
-        detailStreamViewModel = detail.presentation.screens.DetailStreamViewModel(
+        detailStreamViewModel = DetailStreamViewModel(
             detailStreamUseCase = detailUseCase,
             videoStreamsUseCase = videoUseCase,
             dispatcher = executorRule.dispatcher
@@ -44,12 +48,12 @@ class DetailStreamViewModelTest {
 
             coVerify {
                 detailStreamViewModel.uiState.value.let {
-                    detail.presentation.screens.DetailStreamsUIState.LoadingStreamUIState
+                    DetailStreamsUIState.LoadingStreamUIState
                 }
                 detailUseCase.getMovie()
                 detailStreamViewModel.uiState.value.let {
                     assertTrue {
-                        it == detail.presentation.screens.DetailStreamsUIState.DetailStreamsLoadedUIState(
+                        it == DetailStreamsUIState.DetailStreamsLoadedUIState(
                             detailStream = detailStream, videoId = videosStreamsList.first().videoId
                         )
                     }

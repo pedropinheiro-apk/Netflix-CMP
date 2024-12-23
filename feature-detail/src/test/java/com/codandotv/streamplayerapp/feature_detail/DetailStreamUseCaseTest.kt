@@ -1,5 +1,8 @@
 package com.codandotv.streamplayerapp.feature_detail
 
+import com.codandotv.streamplayerapp.feature_detail.data.DetailStreamRepository
+import com.codandotv.streamplayerapp.feature_detail.domain.DetailStreamUseCase
+import com.codandotv.streamplayerapp.feature_detail.domain.DetailStreamUseCaseImpl
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -10,13 +13,13 @@ import org.junit.Test
 import kotlin.test.assertTrue
 
 class DetailStreamUseCaseTest {
-    private lateinit var detailStreamUseCase: detail.domain.DetailStreamUseCase
-    private lateinit var detailStreamRepository: detail.data.DetailStreamRepository
+    private lateinit var detailStreamUseCase: DetailStreamUseCase
+    private lateinit var detailStreamRepository: DetailStreamRepository
 
     @Before
     fun setUp() {
         detailStreamRepository = mockk()
-        detailStreamUseCase = detail.domain.DetailStreamUseCaseImpl(
+        detailStreamUseCase = DetailStreamUseCaseImpl(
             detailStreamRepository = detailStreamRepository
         )
     }
