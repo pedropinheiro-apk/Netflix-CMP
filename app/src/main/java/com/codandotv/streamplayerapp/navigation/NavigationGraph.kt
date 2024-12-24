@@ -14,11 +14,12 @@ import androidx.navigation.compose.composable
 import com.codandotv.streamplayerapp.core_navigation.bottomnavigation.StreamPlayerBottomNavigation
 import com.codandotv.streamplayerapp.core_navigation.routes.BottomNavRoutes
 import com.codandotv.streamplayerapp.core_navigation.routes.Routes
-import com.codandotv.streamplayerapp.feature_list_streams.detail.presentation.navigation.detailStreamNavGraph
 import com.codandotv.streamplayerapp.feature_list_streams.list.presentation.navigation.listStreamsNavGraph
-import com.codandotv.streamplayerapp.feature_list_streams.search.presentation.navigation.searchStreamsNavGraph
 import com.codandotv.streamplayerapp.feature_profile.profile.presentation.navigation.profilePickerStreamNavGraph
+
 import com.codandotv.streamplayerapp.splah.presentation.navigation.splashNavGraph
+import com.codandotv.streamplayerapp.feature_detail.presentation.navigation.detailStreamNavGraph
+import com.codandotv.streamplayerapp.feature_search.presentation.navigation.searchStreamsNavGraph
 
 @Composable
 fun NavigationGraph(navController: NavHostController) {
@@ -27,11 +28,11 @@ fun NavigationGraph(navController: NavHostController) {
         listStreamsNavGraph(navController = navController)
         searchStreamsNavGraph(navController = navController)
         detailStreamNavGraph(navController = navController)
+        profilePickerStreamNavGraph(navController = navController)
         temporaryFun(BottomNavRoutes.GAMES, navController)
         temporaryFun(BottomNavRoutes.NEWS, navController)
         temporaryFun(BottomNavRoutes.SCENES, navController)
         temporaryFun(BottomNavRoutes.DOWNLOADS, navController)
-        profilePickerStreamNavGraph(navController = navController)
     }
 }
 

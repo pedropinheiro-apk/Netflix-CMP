@@ -2,11 +2,15 @@
 
 plugins {
     id("com.streamplayer.application")
+    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.compose.compiler)
 }
 
 dependencies {
     implementation(projects.featureFavorites)
     implementation(projects.featureListStreams)
+    implementation(projects.featureDetail)
+    implementation(projects.featureSearch)
     implementation(projects.featureProfile)
     implementation(projects.coreShared)
     implementation(projects.coreSharedUi)
@@ -14,12 +18,12 @@ dependencies {
     implementation(projects.coreNetworking)
     implementation(projects.coreLocalStorage)
 
-    implementation(platform(libs.compose.bom))
-    androidTestImplementation(platform(libs.compose.bom))
-
+    implementation(libs.navigation.compose)
+    implementation(compose.material3)
+    implementation(compose.ui)
+    implementation(compose.preview)
     implementation(libs.bundles.koin)
     implementation(libs.bundles.androidSupport)
-    implementation(libs.bundles.compose)
     implementation(libs.bundles.kotlin)
 
     implementation(libs.lottie)

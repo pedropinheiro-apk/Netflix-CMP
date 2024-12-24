@@ -1,6 +1,5 @@
 package com.codandotv.streamplayerapp.feature_profile.profile.di
 
-import com.codandotv.streamplayerapp.core_networking.di.QualifierProfileHttpClient
 import com.codandotv.streamplayerapp.feature_profile.profile.data.ProfilePickerStreamService
 import com.codandotv.streamplayerapp.feature_profile.profile.data.ProfilePickerStreamServiceImpl
 import io.ktor.client.HttpClient
@@ -16,8 +15,7 @@ class ProfilePickerStreamModule {
     @Factory
     fun service(): ProfilePickerStreamService {
         val koin = GlobalContext.get()
-        val httpClient = koin.get<HttpClient>(QualifierProfileHttpClient)
-        return ProfilePickerStreamServiceImpl(httpClient)
+        val client = koin.get<HttpClient>()
+        return ProfilePickerStreamServiceImpl(client)
     }
-
 }
