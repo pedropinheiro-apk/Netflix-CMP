@@ -29,9 +29,6 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_17)
         }
     }
-    sourceSets.named("androidMain").configure {
-        kotlin.srcDir("build/generated/ksp/metadata/androidMain/kotlin")
-    }
 }
 
 android {
