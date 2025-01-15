@@ -1,6 +1,7 @@
 plugins {
-    id("com.streamplayer.android-library")
+    id("com.streamplayer.kmp-library")
 }
+
 android {
     buildFeatures {
         buildConfig = true
