@@ -20,9 +20,13 @@ android {
         }
     }
 }
-dependencies {
-    implementation(libs.bundles.kotlin)
-    implementation(libs.bundles.networking)
-    implementation(libs.bundles.koin)
-    testImplementation(libs.bundles.test)
+
+kotlin {
+    sourceSets {
+        androidMain.dependencies {
+            implementation(libs.bundles.kotlin)
+            implementation(libs.bundles.networking)
+            implementation(libs.bundles.koin)
+        }
+    }
 }
