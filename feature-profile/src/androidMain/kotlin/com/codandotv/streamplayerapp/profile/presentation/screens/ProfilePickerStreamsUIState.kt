@@ -1,6 +1,6 @@
-package com.codandotv.streamplayerapp.feature_profile.profile.presentation.screens
+package com.codandotv.streamplayerapp.profile.presentation.screens
 
-import com.codandotv.streamplayerapp.feature_profile.profile.domain.ProfileStream
+import com.codandotv.streamplayerapp.profile.domain.ProfileStream
 
 
 data class ProfilePickerStreamsUIState(

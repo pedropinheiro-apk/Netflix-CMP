@@ -1,12 +1,12 @@
-package com.codandotv.streamplayerapp.feature_profile.profile.presentation.screens
+package com.codandotv.streamplayerapp.profile.presentation.screens
 
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.codandotv.streamplayerapp.core_networking.handleError.catchFailure
-import com.codandotv.streamplayerapp.feature_profile.profile.domain.ProfilePickerStreamUseCase
-import com.codandotv.streamplayerapp.feature_profile.profile.domain.ProfileStream
+import com.codandotv.streamplayerapp.profile.domain.ProfilePickerStreamUseCase
+import com.codandotv.streamplayerapp.profile.domain.ProfileStream
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted

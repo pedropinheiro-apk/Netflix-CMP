@@ -15,7 +15,7 @@ import com.codandotv.streamplayerapp.core_navigation.bottomnavigation.StreamPlay
 import com.codandotv.streamplayerapp.core_navigation.routes.BottomNavRoutes
 import com.codandotv.streamplayerapp.core_navigation.routes.Routes
 import com.codandotv.streamplayerapp.feature_list_streams.list.presentation.navigation.listStreamsNavGraph
-import com.codandotv.streamplayerapp.feature_profile.profile.presentation.navigation.profilePickerStreamNavGraph
+import com.codandotv.streamplayerapp.profile.presentation.navigation.profilePickerStreamNavGraph
 
 import com.codandotv.streamplayerapp.splah.presentation.navigation.splashNavGraph
 import com.codandotv.streamplayerapp.feature_detail.presentation.navigation.detailStreamNavGraph

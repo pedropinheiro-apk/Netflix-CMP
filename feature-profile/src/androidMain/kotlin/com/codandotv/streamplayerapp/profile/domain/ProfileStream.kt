@@ -1,4 +1,4 @@
-package com.codandotv.streamplayerapp.feature_profile.profile.domain
+package com.codandotv.streamplayerapp.profile.domain
 
 data class ProfileStream(
     val id: String,

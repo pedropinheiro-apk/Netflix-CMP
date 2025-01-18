@@ -1,4 +1,4 @@
-package com.codandotv.streamplayerapp.feature_profile.profile.presentation.widget
+package com.codandotv.streamplayerapp.profile.presentation.widget
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalDensity

@@ -1,8 +1,8 @@
-package com.codandotv.streamplayerapp.feature_profile.profile.data
+package com.codandotv.streamplayerapp.profile.data
 
 import com.codandotv.streamplayerapp.core_networking.handleError.NetworkResponse
 import com.codandotv.streamplayerapp.core_networking.handleError.safeRequest
-import com.codandotv.streamplayerapp.feature_profile.profile.data.model.ProfilesResponse
+import com.codandotv.streamplayerapp.profile.data.model.ProfilesResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.request.url
 

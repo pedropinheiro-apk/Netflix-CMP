@@ -1,7 +1,7 @@
-package com.codandotv.streamplayerapp.feature_profile.profile.di
+package com.codandotv.streamplayerapp.profile.di
 
-import com.codandotv.streamplayerapp.feature_profile.profile.data.ProfilePickerStreamService
-import com.codandotv.streamplayerapp.feature_profile.profile.data.ProfilePickerStreamServiceImpl
+import com.codandotv.streamplayerapp.profile.data.ProfilePickerStreamService
+import com.codandotv.streamplayerapp.profile.data.ProfilePickerStreamServiceImpl
 import io.ktor.client.HttpClient
 import org.koin.core.annotation.ComponentScan
 import org.koin.core.annotation.Factory

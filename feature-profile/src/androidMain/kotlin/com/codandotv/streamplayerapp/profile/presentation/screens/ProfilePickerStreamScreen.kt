@@ -1,4 +1,4 @@
-package com.codandotv.streamplayerapp.feature_profile.profile.presentation.screens
+package com.codandotv.streamplayerapp.profile.presentation.screens
 
 import android.annotation.SuppressLint
 import androidx.compose.animation.animateColorAsState
@@ -24,13 +24,13 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreview
 import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreviews
 import com.codandotv.streamplayerapp.feature.profile.R
-import com.codandotv.streamplayerapp.feature_profile.profile.domain.ProfileStream
-import com.codandotv.streamplayerapp.feature_profile.profile.presentation.widget.LoadScreen
-import com.codandotv.streamplayerapp.feature_profile.profile.presentation.widget.ProfilePickerOpacityLayer
-import com.codandotv.streamplayerapp.feature_profile.profile.presentation.widget.ProfilePickerProfilesGrid
-import com.codandotv.streamplayerapp.feature_profile.profile.presentation.widget.ProfilePickerSelectedProfileContainer
-import com.codandotv.streamplayerapp.feature_profile.profile.presentation.widget.ProfilePickerStreamToolbar
-import com.codandotv.streamplayerapp.feature_profile.profile.presentation.widget.dpToPx
+import com.codandotv.streamplayerapp.profile.domain.ProfileStream
+import com.codandotv.streamplayerapp.profile.presentation.widget.LoadScreen
+import com.codandotv.streamplayerapp.profile.presentation.widget.ProfilePickerOpacityLayer
+import com.codandotv.streamplayerapp.profile.presentation.widget.ProfilePickerProfilesGrid
+import com.codandotv.streamplayerapp.profile.presentation.widget.ProfilePickerSelectedProfileContainer
+import com.codandotv.streamplayerapp.profile.presentation.widget.ProfilePickerStreamToolbar
+import com.codandotv.streamplayerapp.profile.presentation.widget.dpToPx
 import org.koin.androidx.compose.koinViewModel
 
 @Composable

@@ -1,4 +1,4 @@
-package com.codandotv.streamplayerapp.feature_profile.profile.presentation.navigation
+package com.codandotv.streamplayerapp.profile.presentation.navigation
 
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavGraphBuilder
@@ -7,8 +7,8 @@ import androidx.navigation.compose.composable
 import com.codandotv.streamplayerapp.core_navigation.routes.BottomNavRoutes.HOME
 import com.codandotv.streamplayerapp.core_navigation.routes.BottomNavRoutes.PARAM.PROFILE_ID
 import com.codandotv.streamplayerapp.core_navigation.routes.Routes
-import com.codandotv.streamplayerapp.feature_profile.profile.di.ProfilePickerStreamModule
-import com.codandotv.streamplayerapp.feature_profile.profile.presentation.screens.ProfilePickerStreamScreen
+import com.codandotv.streamplayerapp.profile.di.ProfilePickerStreamModule
+import com.codandotv.streamplayerapp.profile.presentation.screens.ProfilePickerStreamScreen
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
 import org.koin.ksp.generated.module

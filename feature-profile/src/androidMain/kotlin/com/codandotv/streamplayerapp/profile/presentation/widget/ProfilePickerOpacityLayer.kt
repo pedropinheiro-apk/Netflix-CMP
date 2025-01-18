@@ -1,4 +1,4 @@
-package com.codandotv.streamplayerapp.feature_profile.profile.presentation.widget
+package com.codandotv.streamplayerapp.profile.presentation.widget
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

@@ -1,4 +1,4 @@
-package com.codandotv.streamplayerapp.feature_profile.profile.presentation.widget
+package com.codandotv.streamplayerapp.profile.presentation.widget
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -24,8 +24,8 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.codandotv.streamplayerapp.feature.profile.R
-import com.codandotv.streamplayerapp.feature_profile.profile.domain.ProfileStream
-import com.codandotv.streamplayerapp.feature_profile.profile.presentation.screens.ProfilePickerStreamsUIState
+import com.codandotv.streamplayerapp.profile.domain.ProfileStream
+import com.codandotv.streamplayerapp.profile.presentation.screens.ProfilePickerStreamsUIState
 
 @Composable
 fun ProfilePickerProfilesGrid(

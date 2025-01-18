@@ -1,4 +1,4 @@
-package com.codandotv.streamplayerapp.feature_profile.profile.presentation.widget
+package com.codandotv.streamplayerapp.profile.presentation.widget
 
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.codandotv.streamplayerapp.feature.profile.R
-import com.codandotv.streamplayerapp.feature_profile.profile.presentation.screens.ProfilePickerStreamsUIState
+import com.codandotv.streamplayerapp.profile.presentation.screens.ProfilePickerStreamsUIState
 
 @Suppress("MagicNumber")
 @Composable

@@ -1,4 +1,4 @@
-package com.codandotv.streamplayerapp.feature_profile.profile.data.model
+package com.codandotv.streamplayerapp.profile.data.model
 
 import kotlinx.serialization.Serializable
 

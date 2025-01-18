@@ -1,6 +1,6 @@
-package com.codandotv.streamplayerapp.feature_profile.profile.domain
+package com.codandotv.streamplayerapp.profile.domain
 
-import com.codandotv.streamplayerapp.feature_profile.profile.data.model.ProfilesResponse
+import com.codandotv.streamplayerapp.profile.data.model.ProfilesResponse
 
 fun ProfilesResponse.toProfiles(): List<ProfileStream> = this.profiles.map { profileResponse ->
     ProfileStream(

@@ -1,7 +1,7 @@
 @file:Suppress("MagicNumber")
-package com.codandotv.streamplayerapp.feature_profile.profile.domain
+package com.codandotv.streamplayerapp.profile.domain
 
-import com.codandotv.streamplayerapp.feature_profile.profile.data.ProfilePickerStreamRepository
+import com.codandotv.streamplayerapp.profile.data.ProfilePickerStreamRepository
 import kotlinx.coroutines.flow.Flow
 import org.koin.core.annotation.Factory
 

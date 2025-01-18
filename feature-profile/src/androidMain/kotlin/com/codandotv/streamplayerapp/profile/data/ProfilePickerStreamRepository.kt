@@ -1,10 +1,10 @@
-package com.codandotv.streamplayerapp.feature_profile.profile.data
+package com.codandotv.streamplayerapp.profile.data
 
 import android.util.Log
 import com.codandotv.streamplayerapp.core_networking.handleError.toFlow
 import com.codandotv.streamplayerapp.core_networking.handleError.toResult
-import com.codandotv.streamplayerapp.feature_profile.profile.domain.ProfileStream
-import com.codandotv.streamplayerapp.feature_profile.profile.domain.toProfiles
+import com.codandotv.streamplayerapp.profile.domain.ProfileStream
+import com.codandotv.streamplayerapp.profile.domain.toProfiles
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
