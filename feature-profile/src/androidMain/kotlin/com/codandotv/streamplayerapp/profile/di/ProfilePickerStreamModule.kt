@@ -9,7 +9,7 @@ import org.koin.core.annotation.Module
 import org.koin.core.context.GlobalContext
 
 @Module
-@ComponentScan("com.codandotv.streamplayerapp.feature_profile")
+@ComponentScan("com.codandotv.streamplayerapp.profile")
 class ProfilePickerStreamModule {
 
     @Factory
