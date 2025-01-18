@@ -7,7 +7,6 @@ plugins {
 }
 
 dependencies {
-    implementation(projects.featureFavorites)
     implementation(projects.featureListStreams)
     implementation(projects.featureDetail)
     implementation(projects.featureSearch)
