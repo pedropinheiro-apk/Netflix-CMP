@@ -20,7 +20,7 @@ dependencyResolutionManagement {
 }
 
 
-include(":app")
+include(":composeApp")
 include(":feature-list-streams")
 include(":core-shared")
 include(":core-networking")
