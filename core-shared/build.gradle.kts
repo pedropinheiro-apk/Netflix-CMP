@@ -1,7 +1,12 @@
 plugins {
-    id("com.streamplayer.android-library")
+    id("com.streamplayer.kmp-library")
 }
 
-dependencies {
-    implementation(libs.bundles.koin)
+
+kotlin {
+    sourceSets {
+        androidMain.dependencies {
+            implementation(libs.bundles.koin)
+        }
+    }
 }

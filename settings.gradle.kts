@@ -20,7 +20,7 @@ dependencyResolutionManagement {
 }
 
 
-include(":app")
+include(":composeApp")
 include(":feature-list-streams")
 include(":core-shared")
 include(":core-networking")
@@ -28,7 +28,6 @@ include(":core-shared-ui")
 include(":core-navigation")
 include(":feature-profile")
 include(":core-local-storage")
-include(":feature-favorites")
 include(":feature-detail")
 include(":feature-search")
 
