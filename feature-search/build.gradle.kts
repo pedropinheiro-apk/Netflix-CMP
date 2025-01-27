@@ -12,9 +12,6 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.koin.annotations)
             implementation(libs.koin.core)
-        }
-
-        androidMain.dependencies {
             implementation(projects.coreNetworking)
             implementation(projects.coreNavigation)
             implementation(projects.coreShared)
@@ -31,7 +28,6 @@ kotlin {
             implementation(libs.coil)
             implementation(libs.koin.annotations)
             implementation(libs.bundles.androidSupport)
-
         }
     }
 }

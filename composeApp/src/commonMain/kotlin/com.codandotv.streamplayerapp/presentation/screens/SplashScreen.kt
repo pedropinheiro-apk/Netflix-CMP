@@ -1,4 +1,4 @@
-package com.codandotv.streamplayerapp.splah.presentation.screens
+package com.codandotv.streamplayerapp.presentation.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
