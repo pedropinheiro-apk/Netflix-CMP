@@ -17,8 +17,11 @@ kotlin {
             implementation(libs.bundles.kotlin)
             implementation(libs.bundles.androidSupport)
             implementation(libs.android.youtube.player)
-            implementation(libs.paging.compose)
             implementation(libs.coil)
+        }
+
+        commonMain.dependencies {
+            implementation(libs.paging.compose)
         }
     }
 }
