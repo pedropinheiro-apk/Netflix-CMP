@@ -10,6 +10,7 @@ plugins {
 kotlin {
     sourceSets {
         commonMain.dependencies {
+            implementation(libs.paging.compose)
             implementation(libs.koin.annotations)
             implementation(libs.koin.core)
         }
@@ -30,10 +31,6 @@ kotlin {
             implementation(libs.coil)
             implementation(libs.koin.annotations)
             implementation(libs.bundles.androidSupport)
-        }
-
-        commonMain.dependencies {
-            implementation(libs.paging.compose)
         }
     }
 }
