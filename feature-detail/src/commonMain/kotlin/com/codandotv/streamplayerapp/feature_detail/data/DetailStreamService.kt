@@ -6,7 +6,6 @@ import com.codandotv.streamplayerapp.feature_detail.data.model.DetailStreamRespo
 import com.codandotv.streamplayerapp.feature_detail.data.model.VideoStreamsResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.request.url
-import org.koin.core.annotation.Factory
 
 interface DetailStreamService {
     suspend fun getMovie(movieId: String): NetworkResponse<DetailStreamResponse>
