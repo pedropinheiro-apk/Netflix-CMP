@@ -12,12 +12,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import com.codandotv.streamplayerapp.feature.detail.R
+import org.jetbrains.compose.resources.stringResource
+import streamplayerapp_kmp.feature_detail.generated.resources.Res
+import streamplayerapp_kmp.feature_detail.generated.resources.detail_movie
 
 @Composable
 fun DetailStreamRowHeader(
@@ -36,7 +38,7 @@ fun DetailStreamRowHeader(
 
         )
         Text(
-            text = stringResource(id = R.string.detail_movie),
+            text = stringResource(Res.string.detail_movie),
             modifier = Modifier.offset(x = (-6).dp),
             style = MaterialTheme.typography.headlineMedium.copy(
                 color = Color.Gray,

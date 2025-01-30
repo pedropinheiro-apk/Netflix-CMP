@@ -14,10 +14,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.codandotv.streamplayerapp.feature.detail.R
+import org.jetbrains.compose.resources.stringResource
+import streamplayerapp_kmp.feature_detail.generated.resources.Res
+import streamplayerapp_kmp.feature_detail.generated.resources.detail_back
+import streamplayerapp_kmp.feature_detail.generated.resources.detail_search
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -32,7 +35,7 @@ fun DetailStreamToolbar(
             IconButton(onClick = { navController.navigateUp() }) {
                 Icon(
                     imageVector = Icons.Filled.ArrowBack,
-                    contentDescription = stringResource(id = R.string.detail_back)
+                    contentDescription = stringResource(Res.string.detail_back)
                 )
             }
         }, actions = {
@@ -42,7 +45,7 @@ fun DetailStreamToolbar(
                 Icon(
                     imageVector = Icons.Default.Search,
                     tint = Color.White,
-                    contentDescription = stringResource(id = R.string.detail_search)
+                    contentDescription = stringResource(Res.string.detail_search)
                 )
             }
             IconButton(onClick = { }) {

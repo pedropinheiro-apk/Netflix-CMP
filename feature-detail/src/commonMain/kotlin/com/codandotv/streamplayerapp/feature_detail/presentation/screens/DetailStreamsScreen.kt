@@ -29,7 +29,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLifecycleOwner
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
@@ -39,14 +38,17 @@ import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.codandotv.streamplayerapp.core_shared_ui.widget.SharingStreamCustomView
-import com.codandotv.streamplayerapp.feature.detail.R
 import com.codandotv.streamplayerapp.feature_detail.domain.DetailStream
 import com.codandotv.streamplayerapp.feature_detail.presentation.widget.DetailStreamActionOption
 import com.codandotv.streamplayerapp.feature_detail.presentation.widget.DetailStreamButtonAction
 import com.codandotv.streamplayerapp.feature_detail.presentation.widget.DetailStreamImagePreview
 import com.codandotv.streamplayerapp.feature_detail.presentation.widget.DetailStreamRowHeader
 import com.codandotv.streamplayerapp.feature_detail.presentation.widget.DetailStreamToolbar
+import org.jetbrains.compose.resources.stringResource
 import org.koin.androidx.compose.koinViewModel
+import streamplayerapp_kmp.feature_detail.generated.resources.Res
+import streamplayerapp_kmp.feature_detail.generated.resources.detail_default_text_secondary_button
+import streamplayerapp_kmp.feature_detail.generated.resources.detail_watch_primary_button
 
 @Composable
 fun DetailStreamScreen(
@@ -154,7 +156,7 @@ private fun SetupDetailScreen(
                         ),
                         imageVector = Icons.Filled.PlayArrow,
                         imageVectorColor = MaterialTheme.colorScheme.onSurface,
-                        text = stringResource(R.string.detail_watch_primary_button),
+                        text = stringResource(Res.string.detail_watch_primary_button),
                         textColor = MaterialTheme.colorScheme.onSurface
                     )
                     Spacer(modifier = Modifier.height(4.dp))
@@ -164,7 +166,7 @@ private fun SetupDetailScreen(
                         ),
                         imageVector = Icons.Filled.Add,
                         imageVectorColor = MaterialTheme.colorScheme.onSurface,
-                        text = stringResource(id = R.string.detail_default_text_secondary_button),
+                        text = stringResource(Res.string.detail_default_text_secondary_button),
                         textColor = MaterialTheme.colorScheme.onSurface,
                     )
                     Text(
