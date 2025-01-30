@@ -12,6 +12,7 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.koin.annotations)
             implementation(libs.koin.core)
+            implementation(libs.paging.compose)
         }
 
         androidMain.dependencies {
@@ -24,14 +25,12 @@ kotlin {
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.preview)
-            implementation(libs.paging.compose)
             implementation(libs.navigation.compose)
             implementation(libs.bundles.koin)
             implementation(libs.bundles.networking)
             implementation(libs.coil)
             implementation(libs.koin.annotations)
             implementation(libs.bundles.androidSupport)
-
         }
     }
 }
