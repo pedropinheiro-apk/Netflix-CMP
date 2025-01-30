@@ -25,7 +25,6 @@ kotlin {
             implementation(libs.bundles.networking)
             implementation(libs.coil)
             implementation(libs.bundles.androidSupport)
-            implementation(libs.paging.compose)
         }
     }
 }
