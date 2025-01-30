@@ -18,7 +18,7 @@ kotlin {
             implementation(compose.ui)
 
             implementation(libs.bundles.koin)
-            implementation(libs.koin.annotations)
+            api(libs.koin.annotations)
             implementation(libs.bundles.networking)
             implementation(libs.bundles.androidSupport)
             implementation(libs.coil)

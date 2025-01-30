@@ -11,7 +11,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.paging.compose)
-            implementation(libs.koin.annotations)
+            api(libs.koin.annotations)
             implementation(libs.koin.core)
             implementation(projects.coreNetworking)
             implementation(projects.coreNavigation)
@@ -26,16 +26,21 @@ kotlin {
             implementation(libs.bundles.koin)
             implementation(libs.bundles.networking)
             implementation(libs.coil)
-            implementation(libs.koin.annotations)
+            api(libs.koin.annotations)
             implementation(libs.bundles.androidSupport)
             implementation(libs.paging.compose)
     }
 }
 
 dependencies {
-    add("kspCommonMainMetadata",libs.koin.ksp.compiler)
+    add("kspCommonMainMetadata", libs.koin.ksp.compiler)
     add("kspAndroid", libs.koin.ksp.compiler)
+// add after with iOS
+//    add("kspIosX64", libs.koin.ksp.compiler)
+//    add("kspIosArm64", libs.koin.ksp.compiler)
+//    add("kspIosSimulatorArm64", libs.koin.ksp.compiler)
 }
+
 
 ksp {
     arg("KOIN_CONFIG_CHECK","true")

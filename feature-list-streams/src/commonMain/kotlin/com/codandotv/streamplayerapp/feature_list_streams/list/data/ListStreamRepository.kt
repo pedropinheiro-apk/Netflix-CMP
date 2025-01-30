@@ -10,7 +10,6 @@ import com.codandotv.streamplayerapp.feature_list_streams.list.domain.toGenres
 import com.codandotv.streamplayerapp.feature_list_streams.list.domain.toStream
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import org.koin.core.annotation.Factory
 
 interface ListStreamRepository {
     suspend fun getGenres(): Flow<List<Genre>>
@@ -20,7 +19,6 @@ interface ListStreamRepository {
     fun loadMovies(genre: Genre): Flow<PagingData<Stream>>
 }
 
-@Factory
 class ListStreamRepositoryImpl(
     private val service: ListStreamService,
 ) : ListStreamRepository {
