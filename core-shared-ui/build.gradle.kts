@@ -7,7 +7,7 @@ plugins {
 
 kotlin {
     sourceSets {
-        androidMain.dependencies {
+        commonMain.dependencies {
             implementation(projects.coreShared)
             implementation(compose.material3)
             implementation(compose.preview)
@@ -18,9 +18,6 @@ kotlin {
             implementation(libs.bundles.androidSupport)
             implementation(libs.android.youtube.player)
             implementation(libs.coil)
-        }
-
-        commonMain.dependencies {
             implementation(libs.paging.compose)
         }
     }
