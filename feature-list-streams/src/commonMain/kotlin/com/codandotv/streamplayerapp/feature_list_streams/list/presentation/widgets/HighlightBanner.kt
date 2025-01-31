@@ -1,6 +1,5 @@
 package com.codandotv.streamplayerapp.feature_list_streams.list.presentation.widgets
 
-import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -28,18 +27,29 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.codandotv.streamplayerapp.core_shared_ui.resources.StringCoreSharedUi
 import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreviews
 import com.codandotv.streamplayerapp.feature.list.streams.R
 import com.codandotv.streamplayerapp.feature_list_streams.core.ContentType
 import com.codandotv.streamplayerapp.feature_list_streams.list.domain.model.HighlightBanner
 import com.codandotv.streamplayerapp.feature_list_streams.list.domain.model.IconAndTextInfo
+import org.jetbrains.compose.resources.StringResource
+import org.jetbrains.compose.resources.stringResource
+import streamplayerapp_kmp.feature_list_streams.generated.resources.Res
+import streamplayerapp_kmp.feature_list_streams.generated.resources.list_highligh_banner_content
+import streamplayerapp_kmp.feature_list_streams.generated.resources.list_highlight_banner_add
+import streamplayerapp_kmp.feature_list_streams.generated.resources.list_highlight_banner_info
+import streamplayerapp_kmp.feature_list_streams.generated.resources.list_highlight_banner_watch
+import streamplayerapp_kmp.feature_list_streams.generated.resources.list_icon_add
+import streamplayerapp_kmp.feature_list_streams.generated.resources.list_icon_highligh_banner_ranking
+import streamplayerapp_kmp.feature_list_streams.generated.resources.list_icon_info
+import streamplayerapp_kmp.feature_list_streams.generated.resources.list_icon_play
 import com.codandotv.streamplayerapp.core.shared.ui.R as RSharedUI
 
 @Suppress("MagicNumber")
@@ -78,7 +88,7 @@ fun ContentImage(modifier: Modifier = Modifier, imageUrl: String) {
         modifier = modifier.fillMaxSize(),
         model = imageUrl,
         contentScale = ContentScale.Crop,
-        contentDescription = stringResource(id = R.string.list_highligh_banner_content)
+        contentDescription = stringResource(Res.string.list_highligh_banner_content)
     )
 }
 
@@ -115,20 +125,17 @@ fun ContentName(modifier: Modifier = Modifier, name: String) {
 fun ContentRanking(
     modifier: Modifier = Modifier,
     extraInfo: IconAndTextInfo,
-    @StringRes contentTypeAsPlural: Int
+    contentTypeAsPlural: StringResource
 ) {
     Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
         Icon(
             painter = painterResource(id = extraInfo.icon),
-            contentDescription = stringResource(id = R.string.list_icon_highligh_banner_ranking),
+            contentDescription = stringResource(Res.string.list_icon_highligh_banner_ranking),
             modifier = Modifier.size(24.dp),
             tint = Color.Unspecified
         )
         Text(
-            text = stringResource(
-                id = extraInfo.text,
-                stringResource(contentTypeAsPlural).lowercase()
-            ),
+            text = stringResource(contentTypeAsPlural).lowercase(),
             Modifier.padding(start = 4.dp),
             style = TextStyle(fontWeight = FontWeight.Bold),
             fontSize = 14.sp,
@@ -138,11 +145,11 @@ fun ContentRanking(
 }
 
 @Composable
-fun ContentType(modifier: Modifier = Modifier, @StringRes contentType: Int) {
+fun ContentType(modifier: Modifier = Modifier, contentType: StringResource) {
     Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
         Icon(
             painter = painterResource(id = RSharedUI.drawable.ic_netflix),
-            contentDescription = stringResource(id = RSharedUI.string.icon_netflix),
+            contentDescription = stringResource(StringCoreSharedUi.IconNetflix),
             modifier = Modifier.size(16.dp),
             tint = Color.Unspecified
         )
@@ -190,12 +197,12 @@ fun AddToListButton(
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Icon(
                 painter = painterResource(id = RSharedUI.drawable.ic_add),
-                contentDescription = stringResource(id = R.string.list_icon_add),
+                contentDescription = stringResource(Res.string.list_icon_add),
                 tint = Color.White,
             )
             Text(
                 fontSize = 10.sp,
-                text = stringResource(id = data.leftButton.text),
+                text = stringResource(data.leftButton.text),
                 color = Color.White,
             )
         }
@@ -212,11 +219,11 @@ fun InfoButton(
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Icon(
                 painter = painterResource(id = RSharedUI.drawable.ic_info),
-                contentDescription = stringResource(id = R.string.list_icon_info),
+                contentDescription = stringResource(Res.string.list_icon_info),
                 tint = Color.White
             )
             Text(
-                text = stringResource(id = data.rightButton.text),
+                text = stringResource(data.rightButton.text),
                 fontSize = 10.sp,
                 color = Color.White
             )
@@ -243,13 +250,13 @@ fun PlayButton(
     ) {
         Icon(
             painter = painterResource(RSharedUI.drawable.ic_play),
-            contentDescription = stringResource(id = R.string.list_icon_play),
+            contentDescription = stringResource(Res.string.list_icon_play),
             tint = Color.Black,
             modifier = Modifier.padding(vertical = 8.dp)
         )
         Spacer(modifier = Modifier.width(4.dp))
         Text(
-            text = stringResource(id = R.string.list_highlight_banner_watch),
+            text = stringResource(Res.string.list_highlight_banner_watch),
             color = Color.Black,
             fontSize = 14.sp,
             modifier = Modifier
@@ -264,7 +271,7 @@ fun PlayButton(
 fun HighlightBannerPreview() {
     HighlightBanner(
         data = HighlightBanner(
-            name = stringResource(id = RSharedUI.string.app_name),
+            name = stringResource(StringCoreSharedUi.AppName),
             imageUrl = String(),
             contentType = ContentType.getContentName(ContentType.SHOW),
             contentTypeAsPlural = ContentType.getContentNameAsPlural(ContentType.SHOW),
@@ -272,9 +279,9 @@ fun HighlightBannerPreview() {
                 R.drawable.ic_top_10,
                 ContentType.getContentName(ContentType.SHOW)
             ),
-            leftButton = IconAndTextInfo(RSharedUI.drawable.ic_add, R.string.list_highlight_banner_add),
-            centralButton = IconAndTextInfo(RSharedUI.drawable.ic_play, R.string.list_highlight_banner_watch),
-            rightButton = IconAndTextInfo(RSharedUI.drawable.ic_info, R.string.list_highlight_banner_info),
+            leftButton = IconAndTextInfo(RSharedUI.drawable.ic_add, Res.string.list_highlight_banner_add),
+            centralButton = IconAndTextInfo(RSharedUI.drawable.ic_play, Res.string.list_highlight_banner_watch),
+            rightButton = IconAndTextInfo(RSharedUI.drawable.ic_info, Res.string.list_highlight_banner_info),
         )
     )
 }

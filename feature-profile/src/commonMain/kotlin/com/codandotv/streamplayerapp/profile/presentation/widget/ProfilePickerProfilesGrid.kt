@@ -19,13 +19,15 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.codandotv.streamplayerapp.feature.profile.R
 import com.codandotv.streamplayerapp.profile.domain.ProfileStream
 import com.codandotv.streamplayerapp.profile.presentation.screens.ProfilePickerStreamsUIState
+import org.jetbrains.compose.resources.stringResource
+import streamplayerapp_kmp.feature_profile.generated.resources.Res
+import streamplayerapp_kmp.feature_profile.generated.resources.profile_current_profile_name
 
 @Composable
 fun ProfilePickerProfilesGrid(
@@ -94,9 +96,8 @@ private fun ProfileItem(
                 model = profile.imageUrl,
                 placeholder = painterResource(id = R.drawable.image_placeholder),
                 contentDescription = stringResource(
-                    id = R.string.profile_current_profile_name,
-                    profile.name
-                ),
+                    Res.string.profile_current_profile_name,
+                ).format(profile.name),
                 modifier = Modifier
                     .clip(RoundedCornerShape(5))
                     .alpha(if (selectedItem == profile) selectedImageAlpha else 1f)

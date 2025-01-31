@@ -17,6 +17,7 @@ kotlin {
             implementation(projects.coreSharedUi)
             implementation(projects.coreLocalStorage)
 
+            implementation(compose.components.resources)
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.preview)

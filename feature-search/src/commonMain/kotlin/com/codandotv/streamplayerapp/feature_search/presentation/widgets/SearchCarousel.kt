@@ -21,7 +21,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -36,6 +35,13 @@ import com.codandotv.streamplayerapp.core_shared_ui.widget.StreamsCardContent
 import com.codandotv.streamplayerapp.feature.search.R
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
+import org.jetbrains.compose.resources.stringResource
+import streamplayerapp_kmp.feature_search.generated.resources.Res
+import streamplayerapp_kmp.feature_search.generated.resources.bottom_search_list_error
+import streamplayerapp_kmp.feature_search.generated.resources.empty_search_list
+import streamplayerapp_kmp.feature_search.generated.resources.search_back
+import streamplayerapp_kmp.feature_search.generated.resources.search_list_describle
+import streamplayerapp_kmp.feature_search.generated.resources.search_list_error
 
 data class SearchCarousel(
     val genreTitle: String,
@@ -51,7 +57,7 @@ fun SearchCarouselStream(
     val lazyPagingItems = content.contentList.collectAsLazyPagingItems()
 
     Text(
-        text = stringResource(id = R.string.search_list_describle),
+        text = stringResource(Res.string.search_list_describle),
         color = Color.Black,
         fontSize = 14.sp
     )
@@ -105,12 +111,12 @@ fun StreamsError(
         }) {
             Icon(
                 imageVector = Icons.Filled.Close,
-                contentDescription = stringResource(id = R.string.search_back),
+                contentDescription = stringResource(Res.string.search_back),
                 tint = Color.White
             )
         }
         Text(
-            text = stringResource(id = R.string.search_list_error),
+            text = stringResource(Res.string.search_list_error),
             color = Color.White,
             fontWeight = FontWeight.SemiBold,
             fontSize = 20.sp,
@@ -132,7 +138,7 @@ fun StreamsError(
             ),
             shape = RoundedCornerShape(8.dp),
         ) {
-            Text(text = stringResource(id = R.string.bottom_search_list_error))
+            Text(text = stringResource(Res.string.bottom_search_list_error))
         }
     }
 }
@@ -143,7 +149,7 @@ fun StreamsEmpty() {
     Row(verticalAlignment = Alignment.CenterVertically) {
         Column {
             Text(
-                text = stringResource(id = R.string.empty_search_list),
+                text = stringResource(Res.string.empty_search_list),
                 color = Color.White,
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 20.sp,

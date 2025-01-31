@@ -25,7 +25,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.codandotv.streamplayerapp.core.shared.ui.R
@@ -33,6 +32,14 @@ import com.codandotv.streamplayerapp.core_shared.extension.empty
 import com.codandotv.streamplayerapp.core_shared_ui.resources.Colors
 import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreview
 import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreviews
+import org.jetbrains.compose.resources.stringResource
+import streamplayerapp_kmp.core_shared_ui.generated.resources.Res
+import streamplayerapp_kmp.core_shared_ui.generated.resources.icon_netflix
+import streamplayerapp_kmp.core_shared_ui.generated.resources.icon_profile
+import streamplayerapp_kmp.core_shared_ui.generated.resources.icon_search
+import streamplayerapp_kmp.core_shared_ui.generated.resources.topbar_categories
+import streamplayerapp_kmp.core_shared_ui.generated.resources.topbar_movies
+import streamplayerapp_kmp.core_shared_ui.generated.resources.topbar_shows
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -70,7 +77,7 @@ private fun StreamPlayerTopBar(
         ) {
             Icon(
                 painter = painterResource(R.drawable.ic_netflix),
-                contentDescription = stringResource(id = R.string.icon_netflix),
+                contentDescription = stringResource(Res.string.icon_netflix),
                 tint = Color.Unspecified,
             )
         }
@@ -84,7 +91,7 @@ private fun StreamPlayerTopBar(
         ) {
             Icon(
                 imageVector = Icons.Default.Search,
-                contentDescription = stringResource(id = R.string.icon_search),
+                contentDescription = stringResource(Res.string.icon_search),
                 tint = Color.White,
             )
         }
@@ -100,7 +107,7 @@ private fun StreamPlayerTopBar(
                 model = profilePicture,
                 error = painterResource(id = R.drawable.perfil_fake),
                 placeholder = painterResource(id = R.drawable.perfil_fake),
-                contentDescription = stringResource(id = R.string.icon_profile)
+                contentDescription = stringResource(Res.string.icon_profile)
             )
         }
     }
@@ -120,17 +127,17 @@ private fun StreamPlayerOptionsTopBar(modifier: Modifier, scrollBehavior: TopApp
                 modifier = Modifier.padding(horizontal = 40.dp)
             ) {
                 Text(
-                    text = stringResource(id = R.string.topbar_shows),
+                    text = stringResource(Res.string.topbar_shows),
                     modifier = Modifier.weight(1f),
                     color = Color.White
                 )
                 Text(
-                    text = stringResource(id = R.string.topbar_movies),
+                    text = stringResource(Res.string.topbar_movies),
                     modifier = Modifier.weight(1f),
                     color = Color.White
                 )
                 Text(
-                    text = stringResource(id = R.string.topbar_categories),
+                    text = stringResource(Res.string.topbar_categories),
                     modifier = Modifier.weight(1f),
                     color = Color.White
                 )

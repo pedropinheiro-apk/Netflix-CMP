@@ -16,7 +16,6 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -36,7 +35,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.codandotv.streamplayerapp.core.shared.ui.R
 import com.codandotv.streamplayerapp.core_shared_ui.resources.Colors
-import com.codandotv.streamplayerapp.feature.search.R.*
+import com.codandotv.streamplayerapp.core_shared_ui.resources.StringCoreSharedUi
+import org.jetbrains.compose.resources.stringResource
+import streamplayerapp_kmp.feature_search.generated.resources.Res
+import streamplayerapp_kmp.feature_search.generated.resources.search_list_main_search
 
 @Suppress("LongParameterList")
 @Composable
@@ -78,7 +80,7 @@ private fun StreamPlayerTopBar(
         ) {
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                contentDescription = stringResource(id = R.string.icon_back),
+                contentDescription = stringResource(StringCoreSharedUi.IconBack),
                 tint = Color.White,
             )
         }
@@ -90,7 +92,7 @@ private fun StreamPlayerTopBar(
         ) {
             Icon(
                 imageVector = Icons.Default.Check,
-                contentDescription = stringResource(id = R.string.icon_cast),
+                contentDescription = stringResource(StringCoreSharedUi.IconCast),
                 tint = Color.White,
             )
         }
@@ -104,7 +106,7 @@ private fun StreamPlayerTopBar(
                     .height(24.dp)
                     .clip(RoundedCornerShape(4.dp)),
                 painter = painterResource(R.drawable.perfil_fake),
-                contentDescription = stringResource(id = R.string.icon_profile),
+                contentDescription = stringResource(StringCoreSharedUi.IconProfile),
                 tint = Color.Unspecified,
             )
         }
@@ -140,7 +142,7 @@ fun SearchTopBar(
             },
             placeholder = {
                 Text(
-                    text = stringResource(id = string.search_list_main_search),
+                    text = stringResource(Res.string.search_list_main_search),
                     color = Color.Gray
                 )
             },
@@ -190,7 +192,7 @@ fun DefaultIcon(
 fun SearchIcon(action: () -> Unit = {}) {
     DefaultIcon(
         searchIcon = Icons.Filled.Search,
-        contentDescription = stringResource(id = R.string.icon_search),
+        contentDescription = stringResource(StringCoreSharedUi.IconSearch),
         onIconClickAction = action,
         iconColor = Color.Gray
     )
@@ -200,7 +202,7 @@ fun SearchIcon(action: () -> Unit = {}) {
 fun CloseButton(action: () -> Unit = {}) {
     DefaultIcon(
         searchIcon = Icons.Default.Close,
-        contentDescription = stringResource(id = R.string.icon_close),
+        contentDescription = stringResource(StringCoreSharedUi.IconClose),
         onIconClickAction = action,
         iconColor = Color.Gray
     )
@@ -210,7 +212,7 @@ fun CloseButton(action: () -> Unit = {}) {
 private fun MicButton(action: () -> Unit = {}) {
     DefaultIcon(
         searchIcon = Icons.Default.Check,
-        contentDescription = stringResource(id = R.string.icon_mic),
+        contentDescription = stringResource(StringCoreSharedUi.IconMic),
         onIconClickAction = action,
         iconColor = Color.Gray
     )

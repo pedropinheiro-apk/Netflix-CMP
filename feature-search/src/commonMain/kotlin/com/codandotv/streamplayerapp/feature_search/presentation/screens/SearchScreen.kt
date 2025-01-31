@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -19,20 +18,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalLifecycleOwner
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.NavController
 import com.codandotv.streamplayerapp.core_navigation.extensions.goBack
-import com.codandotv.streamplayerapp.feature.search.R
 import com.codandotv.streamplayerapp.feature_search.domain.mapper.toSearchStreamCardModel
 import com.codandotv.streamplayerapp.feature_search.presentation.widgets.SearchStreamCard
 import com.codandotv.streamplayerapp.feature_search.presentation.widgets.SearchableTopBar
 import com.codandotv.streamplayerapp.feature_search.presentation.widgets.StreamsEmpty
 import com.codandotv.streamplayerapp.feature_search.presentation.widgets.StreamsError
+import org.jetbrains.compose.resources.stringResource
 import org.koin.androidx.compose.koinViewModel
+import streamplayerapp_kmp.feature_search.generated.resources.Res
+import streamplayerapp_kmp.feature_search.generated.resources.search_list_describle
 
 @Composable
 fun SearchScreen(
@@ -127,7 +127,7 @@ private fun SetupSearchScreen(
                     .verticalScroll(rememberScrollState()),
             ) {
                 Text(
-                    text = stringResource(id = R.string.search_list_describle),
+                    text = stringResource(Res.string.search_list_describle),
                     color = Color.White,
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 20.sp,

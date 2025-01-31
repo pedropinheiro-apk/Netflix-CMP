@@ -43,7 +43,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
@@ -67,6 +66,19 @@ import com.codandotv.streamplayerapp.core_shared_ui.utils.isPackageInstalled
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.stringResource
+import streamplayerapp_kmp.core_shared_ui.generated.resources.Res
+import streamplayerapp_kmp.core_shared_ui.generated.resources.instagram_not_installed_message
+import streamplayerapp_kmp.core_shared_ui.generated.resources.sharing_link_copied_message
+import streamplayerapp_kmp.core_shared_ui.generated.resources.sharing_title_instagram
+import streamplayerapp_kmp.core_shared_ui.generated.resources.sharing_title_link
+import streamplayerapp_kmp.core_shared_ui.generated.resources.sharing_title_message
+import streamplayerapp_kmp.core_shared_ui.generated.resources.sharing_title_more_options
+import streamplayerapp_kmp.core_shared_ui.generated.resources.sharing_title_sms
+import streamplayerapp_kmp.core_shared_ui.generated.resources.sharing_title_whatsapp
+import streamplayerapp_kmp.core_shared_ui.generated.resources.sharing_whatsapp_message
+import streamplayerapp_kmp.core_shared_ui.generated.resources.sms_app_error_message
+import streamplayerapp_kmp.core_shared_ui.generated.resources.whatsapp_not_installed_message
 
 @Suppress("LongMethod")
 @Composable
@@ -80,12 +92,12 @@ fun SharingStreamCustomView(
     val animateTrigger = remember { mutableStateOf(false) }
     val context = LocalContext.current
 
-    val linkCopiedMessage = stringResource(id = R.string.sharing_link_copied_message)
+    val linkCopiedMessage = stringResource(Res.string.sharing_link_copied_message)
     val contentMessage =
-        stringResource(id = R.string.sharing_whatsapp_message, contentTitle, contentUrl)
-    val whatsAppNotInstalledMessage = stringResource(id = R.string.whatsapp_not_installed_message)
-    val instagramNotInstalledMessage = stringResource(id = R.string.instagram_not_installed_message)
-    val smsErrorMessage = stringResource(id = R.string.sms_app_error_message)
+        stringResource(Res.string.sharing_whatsapp_message, contentTitle, contentUrl)
+    val whatsAppNotInstalledMessage = stringResource(Res.string.whatsapp_not_installed_message)
+    val instagramNotInstalledMessage = stringResource(Res.string.instagram_not_installed_message)
+    val smsErrorMessage = stringResource(Res.string.sms_app_error_message)
 
     LaunchedEffect(key1 = Unit) {
         launch {
@@ -106,7 +118,7 @@ fun SharingStreamCustomView(
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Text(
-                            text = stringResource(id = R.string.sharing_title_message),
+                            text = stringResource(Res.string.sharing_title_message),
                             style = TextStyle(
                                 fontSize = 16.sp,
                                 fontFamily = FontFamily.Default,
@@ -130,7 +142,7 @@ fun SharingStreamCustomView(
                                 }
                         ) {
                             Image(
-                                painter = painterResource(id = R.drawable.ic_whatsapp),
+                                painter = painterResource(R.drawable.ic_whatsapp),
                                 contentDescription = null,
                                 modifier = Modifier
                                     .width(24.dp)
@@ -138,7 +150,7 @@ fun SharingStreamCustomView(
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(
-                                text = stringResource(id = R.string.sharing_title_whatsapp),
+                                text = stringResource(Res.string.sharing_title_whatsapp),
                                 style = TextStyle(
                                     fontSize = 18.sp,
                                     fontFamily = FontFamily.Default,
@@ -163,7 +175,7 @@ fun SharingStreamCustomView(
                                 }
                         ) {
                             Image(
-                                painter = painterResource(id = R.drawable.ic_message),
+                                painter = painterResource(R.drawable.ic_message),
                                 contentDescription = null,
                                 modifier = Modifier
                                     .width(24.dp)
@@ -171,7 +183,7 @@ fun SharingStreamCustomView(
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(
-                                text = stringResource(id = R.string.sharing_title_sms),
+                                text = stringResource(Res.string.sharing_title_sms),
                                 style = TextStyle(
                                     fontSize = 18.sp,
                                     fontFamily = FontFamily.Default,
@@ -192,7 +204,7 @@ fun SharingStreamCustomView(
                                 }
                         ) {
                             Image(
-                                painter = painterResource(id = R.drawable.ic_instagram),
+                                painter = painterResource(R.drawable.ic_instagram),
                                 contentDescription = null,
                                 modifier = Modifier
                                     .width(24.dp)
@@ -200,7 +212,7 @@ fun SharingStreamCustomView(
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(
-                                text = stringResource(id = R.string.sharing_title_instagram),
+                                text = stringResource(Res.string.sharing_title_instagram),
                                 style = TextStyle(
                                     fontSize = 18.sp,
                                     fontFamily = FontFamily.Default,
@@ -221,7 +233,7 @@ fun SharingStreamCustomView(
                                 }
                         ) {
                             Image(
-                                painter = painterResource(id = R.drawable.ic_copy_content),
+                                painter = painterResource(R.drawable.ic_copy_content),
                                 contentDescription = null,
                                 modifier = Modifier
                                     .width(28.dp)
@@ -234,7 +246,7 @@ fun SharingStreamCustomView(
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(
-                                text = stringResource(id = R.string.sharing_title_link),
+                                text = stringResource(Res.string.sharing_title_link),
                                 style = TextStyle(
                                     fontSize = 18.sp,
                                     fontFamily = FontFamily.Default,
@@ -244,7 +256,7 @@ fun SharingStreamCustomView(
                         }
                         Spacer(modifier = Modifier.height(20.dp))
                         Text(
-                            text = stringResource(id = R.string.sharing_title_more_options),
+                            text = stringResource(Res.string.sharing_title_more_options),
                             style = TextStyle(
                                 fontSize = 18.sp,
                                 fontFamily = FontFamily.Default,
@@ -281,7 +293,7 @@ fun SharingStreamCustomView(
                                 }
                         ) {
                             Image(
-                                painter = painterResource(id = R.drawable.ic_close),
+                                painter = painterResource(R.drawable.ic_close),
                                 contentDescription = null,
                                 modifier = Modifier
                                     .width(32.dp)

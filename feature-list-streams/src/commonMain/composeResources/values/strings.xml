@@ -10,5 +10,11 @@
     <string name="list_highlight_banner_info">Saiba mais</string>
     <string name="list_highlight_banner_watch">Assistir</string>
     <string name="list_highlight_banner_stream_ranking">Top 1 em %s hoje</string>
+
+    <string name="list_icon_play">Ícone Reprodução</string>
+    <string name="list_icon_add">Ícone adicionar</string>
+    <string name="list_icon_info">Ícone informações</string>
+    <string name="list_highligh_banner_content">Poster de conteúdo em destaque</string>
+    <string name="list_icon_highligh_banner_ranking">Ícone top 10</string>
     <!-- endregion Highlight banner -->
 </resources>
