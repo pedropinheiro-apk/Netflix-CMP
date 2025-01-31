@@ -1,6 +1,6 @@
 package com.codandotv.streamplayerapp.core_networking.handleError
 
-import com.codandotv.streamplayerapp.core.networking.R
+import com.codandotv.streamplayerapp.core_networking.resources.StringNetworking
 import kotlinx.serialization.Serializable
 import org.koin.core.component.KoinComponent
 
@@ -17,16 +17,16 @@ import org.koin.core.component.KoinComponent
 sealed class Failure(
     val code: Int? = -1,
     val errorMessage: String? = null,
-    val errorMessageRes: Int = R.string.core_networking_msg_default_error
+    val errorMessageResKey: String = StringNetworking.msgDefaultErrorKey()
 ) : Exception(), KoinComponent {
     data class NoDataContent(val codeStatus: Int? = null) :
-        Failure(codeStatus, errorMessageRes = R.string.core_networking_no_data_content)
+        Failure(codeStatus, errorMessageResKey = StringNetworking.msgNoDataContentKey())
 
     data class ServerError(val codeStatus: Int? = null) :
-        Failure(codeStatus, errorMessageRes = R.string.core_networking_no_server_error)
+        Failure(codeStatus, errorMessageResKey = StringNetworking.msgServerErrorKey())
 
     data class GenericError(
-        val codeStatus: Int? = -12, private val msg: String? = "Unknow error"
+        val codeStatus: Int? = -12, private val msg: String? = StringNetworking.msgNetworkErrorKey()
     ) : Failure(
         codeStatus
     )
@@ -34,7 +34,7 @@ sealed class Failure(
     data class NetworkError(
         val codeStatus: Int? = -13, private val throwable: Throwable
     ) : Failure(
-        codeStatus, errorMessageRes = R.string.core_networking_networking_error
+        codeStatus, errorMessageResKey = StringNetworking.msgNetworkErrorKey()
     )
 
     data class UnknownError(
