@@ -14,10 +14,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreviews
-import com.codandotv.streamplayerapp.feature.profile.R
+import org.jetbrains.compose.resources.painterResource
+import streamplayerapp_kmp.feature_profile.generated.resources.Res
+import streamplayerapp_kmp.feature_profile.generated.resources.netflix_horizontal_logo
 
 @Composable
 fun ProfilePickerStreamToolbar(modifier: Modifier = Modifier) {
@@ -34,7 +35,7 @@ fun ProfilePickerStreamToolbar(modifier: Modifier = Modifier) {
             horizontalArrangement = Arrangement.Center
         ) {
             Image(
-                painter = painterResource(id = R.drawable.netflix_horizontal_logo),
+                painter = painterResource(Res.drawable.netflix_horizontal_logo),
                 contentDescription = null,
                 modifier = Modifier
                     .height(28.dp)

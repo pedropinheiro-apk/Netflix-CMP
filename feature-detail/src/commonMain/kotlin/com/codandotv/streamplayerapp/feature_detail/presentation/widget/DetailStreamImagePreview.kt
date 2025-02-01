@@ -14,12 +14,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.codandotv.streamplayerapp.core_shared_ui.widget.PlayerComponent
-import com.codandotv.streamplayerapp.feature.detail.R
 import com.codandotv.streamplayerapp.feature_detail.presentation.screens.DetailStreamsUIState.DetailStreamsLoadedUIState
+import org.jetbrains.compose.resources.painterResource
+import streamplayerapp_kmp.feature_detail.generated.resources.Res
+import streamplayerapp_kmp.feature_detail.generated.resources.play_circle
 
 @Suppress("MagicNumber")
 @Composable
@@ -56,7 +57,7 @@ fun DetailStreamImagePreview(
                     .align(Alignment.Center),
             )
             Icon(
-                painter = painterResource(id = R.drawable.play_circle),
+                painter = painterResource(Res.drawable.play_circle),
                 tint = Color.White,
                 contentDescription = null,
                 modifier = Modifier

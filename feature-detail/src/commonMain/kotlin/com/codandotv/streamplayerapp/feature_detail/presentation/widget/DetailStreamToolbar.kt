@@ -13,12 +13,13 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.codandotv.streamplayerapp.feature.detail.R
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+import streamplayerapp_kmp.core_shared_ui.generated.resources.perfil_fake
 import streamplayerapp_kmp.feature_detail.generated.resources.Res
+import streamplayerapp_kmp.core_shared_ui.generated.resources.Res as SharedRes
 import streamplayerapp_kmp.feature_detail.generated.resources.detail_back
 import streamplayerapp_kmp.feature_detail.generated.resources.detail_search
 
@@ -50,7 +51,7 @@ fun DetailStreamToolbar(
             }
             IconButton(onClick = { }) {
                 Image(
-                    painter = painterResource(id = com.codandotv.streamplayerapp.core.shared.ui.R.drawable.perfil_fake),
+                    painter = painterResource(SharedRes.drawable.perfil_fake),
                     contentDescription = null
                 )
             }

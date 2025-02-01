@@ -14,16 +14,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.codandotv.streamplayerapp.feature.profile.R
 import com.codandotv.streamplayerapp.profile.presentation.screens.ProfilePickerStreamsUIState
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import streamplayerapp_kmp.feature_profile.generated.resources.Res
+import streamplayerapp_kmp.feature_profile.generated.resources.image_placeholder
 import streamplayerapp_kmp.feature_profile.generated.resources.profile_current_profile_name
 
 @SuppressLint("UnusedBoxWithConstraintsScope")
@@ -51,7 +51,7 @@ fun ProfilePickerSelectedProfileContainer(
                             .data(selectedItem?.imageUrl)
                             .crossfade(true)
                             .build(),
-                        placeholder = painterResource(id = R.drawable.image_placeholder),
+                        placeholder = painterResource(Res.drawable.image_placeholder),
                         contentDescription = selectedItem?.let {
                             stringResource(
                                 Res.string.profile_current_profile_name,

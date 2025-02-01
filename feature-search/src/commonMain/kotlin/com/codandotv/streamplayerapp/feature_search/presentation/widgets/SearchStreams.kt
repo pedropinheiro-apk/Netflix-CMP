@@ -14,8 +14,6 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -26,23 +24,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.codandotv.streamplayerapp.core.shared.ui.R
 import com.codandotv.streamplayerapp.core_shared_ui.resources.Colors
 import com.codandotv.streamplayerapp.core_shared_ui.widget.CloseButton
 import com.codandotv.streamplayerapp.core_shared_ui.widget.MicButton
 import com.codandotv.streamplayerapp.core_shared_ui.widget.SearchIcon
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-import streamplayerapp_kmp.core_shared_ui.generated.resources.*
+import streamplayerapp_kmp.core_shared_ui.generated.resources.icon_back
+import streamplayerapp_kmp.core_shared_ui.generated.resources.icon_cast
+import streamplayerapp_kmp.core_shared_ui.generated.resources.icon_profile
+import streamplayerapp_kmp.core_shared_ui.generated.resources.perfil_fake
 import streamplayerapp_kmp.feature_search.generated.resources.Res
-import streamplayerapp_kmp.core_shared_ui.generated.resources.Res as SharedRes
 import streamplayerapp_kmp.feature_search.generated.resources.search_list_main_search
+import streamplayerapp_kmp.core_shared_ui.generated.resources.Res as SharedRes
 
 @Suppress("LongParameterList")
 @Composable
@@ -109,7 +107,7 @@ private fun StreamPlayerTopBar(
                 modifier = Modifier
                     .height(24.dp)
                     .clip(RoundedCornerShape(4.dp)),
-                painter = painterResource(R.drawable.perfil_fake),
+                painter = painterResource(SharedRes.drawable.perfil_fake),
                 contentDescription = stringResource(SharedRes.string.icon_profile),
                 tint = Color.Unspecified,
             )
