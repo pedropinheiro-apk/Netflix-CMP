@@ -33,7 +33,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.codandotv.streamplayerapp.core_shared_ui.resources.StringCoreSharedUi
 import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreviews
 import com.codandotv.streamplayerapp.feature.list.streams.R
 import com.codandotv.streamplayerapp.feature_list_streams.core.ContentType
@@ -41,6 +40,8 @@ import com.codandotv.streamplayerapp.feature_list_streams.list.domain.model.High
 import com.codandotv.streamplayerapp.feature_list_streams.list.domain.model.IconAndTextInfo
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
+import streamplayerapp_kmp.core_shared_ui.generated.resources.app_name
+import streamplayerapp_kmp.core_shared_ui.generated.resources.icon_netflix
 import streamplayerapp_kmp.feature_list_streams.generated.resources.Res
 import streamplayerapp_kmp.feature_list_streams.generated.resources.list_highligh_banner_content
 import streamplayerapp_kmp.feature_list_streams.generated.resources.list_highlight_banner_add
@@ -51,6 +52,7 @@ import streamplayerapp_kmp.feature_list_streams.generated.resources.list_icon_hi
 import streamplayerapp_kmp.feature_list_streams.generated.resources.list_icon_info
 import streamplayerapp_kmp.feature_list_streams.generated.resources.list_icon_play
 import com.codandotv.streamplayerapp.core.shared.ui.R as RSharedUI
+import streamplayerapp_kmp.core_shared_ui.generated.resources.Res as SharedRes
 
 @Suppress("MagicNumber")
 @Composable
@@ -149,7 +151,7 @@ fun ContentType(modifier: Modifier = Modifier, contentType: StringResource) {
     Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
         Icon(
             painter = painterResource(id = RSharedUI.drawable.ic_netflix),
-            contentDescription = stringResource(StringCoreSharedUi.IconNetflix),
+            contentDescription = stringResource(SharedRes.string.icon_netflix),
             modifier = Modifier.size(16.dp),
             tint = Color.Unspecified
         )
@@ -271,7 +273,7 @@ fun PlayButton(
 fun HighlightBannerPreview() {
     HighlightBanner(
         data = HighlightBanner(
-            name = stringResource(StringCoreSharedUi.AppName),
+            name = stringResource(SharedRes.string.app_name),
             imageUrl = String(),
             contentType = ContentType.getContentName(ContentType.SHOW),
             contentTypeAsPlural = ContentType.getContentNameAsPlural(ContentType.SHOW),
