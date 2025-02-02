@@ -105,8 +105,8 @@ ktor_client_content_negotiation = { module = "io.ktor:ktor-client-content-negoti
 ktor_client_content_serialization_json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 
 #Room
-roomRuntime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
-roomCompiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+room_runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room_compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room_bundled = { group = "androidx.sqlite", name = "sqlite-bundled", version.ref = "sqlite" }
 
 android_youtube_player = { group = "com.pierfrancescosoffritti.androidyoutubeplayer", name = "core", version.ref = "android_youtube_player_version" }
@@ -115,7 +115,6 @@ ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit"
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 
 [bundles]
-room = ["roomRuntime", "roomCompiler","room_bundled"]
 networking = ["moshi", "okhttp", "interceptor", "ktor_client_core", "ktor_client_okhttp", "ktor_client_content_serialization_json", "ktor_client_content_negotiation", "ktor_client_logger", "ktor_client_auth"]
 koin = ["koin_android", "koin_compose"]
 
