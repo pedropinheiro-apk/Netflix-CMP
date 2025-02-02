@@ -42,13 +42,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
-import com.codandotv.streamplayerapp.core.shared.ui.R
 import com.codandotv.streamplayerapp.core_shared.extension.getUriFromUrlImage
 import com.codandotv.streamplayerapp.core_shared_ui.resources.Colors
 import com.codandotv.streamplayerapp.core_shared_ui.utils.Sharing.ANIMATION_DURATION
@@ -66,8 +64,14 @@ import com.codandotv.streamplayerapp.core_shared_ui.utils.isPackageInstalled
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import streamplayerapp_kmp.core_shared_ui.generated.resources.Res
+import streamplayerapp_kmp.core_shared_ui.generated.resources.ic_close
+import streamplayerapp_kmp.core_shared_ui.generated.resources.ic_copy_content
+import streamplayerapp_kmp.core_shared_ui.generated.resources.ic_instagram
+import streamplayerapp_kmp.core_shared_ui.generated.resources.ic_message
+import streamplayerapp_kmp.core_shared_ui.generated.resources.ic_whatsapp
 import streamplayerapp_kmp.core_shared_ui.generated.resources.instagram_not_installed_message
 import streamplayerapp_kmp.core_shared_ui.generated.resources.sharing_link_copied_message
 import streamplayerapp_kmp.core_shared_ui.generated.resources.sharing_title_instagram
@@ -142,7 +146,7 @@ fun SharingStreamCustomView(
                                 }
                         ) {
                             Image(
-                                painter = painterResource(R.drawable.ic_whatsapp),
+                                painter = painterResource(Res.drawable.ic_whatsapp),
                                 contentDescription = null,
                                 modifier = Modifier
                                     .width(24.dp)
@@ -175,7 +179,7 @@ fun SharingStreamCustomView(
                                 }
                         ) {
                             Image(
-                                painter = painterResource(R.drawable.ic_message),
+                                painter = painterResource(Res.drawable.ic_message),
                                 contentDescription = null,
                                 modifier = Modifier
                                     .width(24.dp)
@@ -204,7 +208,7 @@ fun SharingStreamCustomView(
                                 }
                         ) {
                             Image(
-                                painter = painterResource(R.drawable.ic_instagram),
+                                painter = painterResource(Res.drawable.ic_instagram),
                                 contentDescription = null,
                                 modifier = Modifier
                                     .width(24.dp)
@@ -233,7 +237,7 @@ fun SharingStreamCustomView(
                                 }
                         ) {
                             Image(
-                                painter = painterResource(R.drawable.ic_copy_content),
+                                painter = painterResource(Res.drawable.ic_copy_content),
                                 contentDescription = null,
                                 modifier = Modifier
                                     .width(28.dp)
@@ -293,7 +297,7 @@ fun SharingStreamCustomView(
                                 }
                         ) {
                             Image(
-                                painter = painterResource(R.drawable.ic_close),
+                                painter = painterResource(Res.drawable.ic_close),
                                 contentDescription = null,
                                 modifier = Modifier
                                     .width(32.dp)

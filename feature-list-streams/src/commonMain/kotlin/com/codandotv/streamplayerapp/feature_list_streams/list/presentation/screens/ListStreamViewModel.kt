@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import androidx.paging.map
 import com.codandotv.streamplayerapp.core_networking.handleError.catchFailure
-import com.codandotv.streamplayerapp.feature.list.streams.R
 import com.codandotv.streamplayerapp.feature_list_streams.core.ContentType
 import com.codandotv.streamplayerapp.feature_list_streams.list.domain.GetGenresUseCase
 import com.codandotv.streamplayerapp.feature_list_streams.list.domain.GetTopRatedStream
@@ -25,12 +24,16 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import streamplayerapp_kmp.core_shared_ui.generated.resources.ic_add
+import streamplayerapp_kmp.core_shared_ui.generated.resources.ic_info
+import streamplayerapp_kmp.core_shared_ui.generated.resources.ic_play
 import streamplayerapp_kmp.feature_list_streams.generated.resources.Res
+import streamplayerapp_kmp.feature_list_streams.generated.resources.ic_top_10
+import streamplayerapp_kmp.core_shared_ui.generated.resources.Res as SharedRes
 import streamplayerapp_kmp.feature_list_streams.generated.resources.list_highlight_banner_add
 import streamplayerapp_kmp.feature_list_streams.generated.resources.list_highlight_banner_info
 import streamplayerapp_kmp.feature_list_streams.generated.resources.list_highlight_banner_stream_ranking
 import streamplayerapp_kmp.feature_list_streams.generated.resources.list_highlight_banner_watch
-import com.codandotv.streamplayerapp.core.shared.ui.R as SharedUiR
 
 class ListStreamViewModel(
     private val listStreams: ListStreamUseCase,
@@ -86,19 +89,19 @@ class ListStreamViewModel(
             contentType = ContentType.getContentName(ContentType.FILM),
             contentTypeAsPlural = ContentType.getContentNameAsPlural(ContentType.FILM),
             extraInfo = IconAndTextInfo(
-                R.drawable.ic_top_10,
+                Res.drawable.ic_top_10,
                 Res.string.list_highlight_banner_stream_ranking
             ),
             leftButton = IconAndTextInfo(
-                SharedUiR.drawable.ic_add,
+                SharedRes.drawable.ic_add,
                 Res.string.list_highlight_banner_add
             ),
             centralButton = IconAndTextInfo(
-                SharedUiR.drawable.ic_play,
+                SharedRes.drawable.ic_play,
                 Res.string.list_highlight_banner_watch
             ),
             rightButton = IconAndTextInfo(
-                SharedUiR.drawable.ic_info,
+                SharedRes.drawable.ic_info,
                 Res.string.list_highlight_banner_info
             ),
         )

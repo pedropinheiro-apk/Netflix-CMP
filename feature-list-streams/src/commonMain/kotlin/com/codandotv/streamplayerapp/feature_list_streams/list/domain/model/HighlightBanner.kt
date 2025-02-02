@@ -1,6 +1,6 @@
 package com.codandotv.streamplayerapp.feature_list_streams.list.domain.model
 
-import androidx.annotation.DrawableRes
+import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.StringResource
 
 data class HighlightBanner(
@@ -15,6 +15,6 @@ data class HighlightBanner(
 )
 
 data class IconAndTextInfo(
-    @DrawableRes val icon: Int,
+    val icon: DrawableResource,
     val text: StringResource
 )

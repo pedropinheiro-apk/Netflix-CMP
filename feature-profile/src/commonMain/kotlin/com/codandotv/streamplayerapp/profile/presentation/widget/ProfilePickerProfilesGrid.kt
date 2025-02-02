@@ -18,15 +18,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.codandotv.streamplayerapp.feature.profile.R
 import com.codandotv.streamplayerapp.profile.domain.ProfileStream
 import com.codandotv.streamplayerapp.profile.presentation.screens.ProfilePickerStreamsUIState
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import streamplayerapp_kmp.feature_profile.generated.resources.Res
+import streamplayerapp_kmp.feature_profile.generated.resources.image_placeholder
 import streamplayerapp_kmp.feature_profile.generated.resources.profile_current_profile_name
 
 @Composable
@@ -94,7 +95,7 @@ private fun ProfileItem(
         ) {
             AsyncImage(
                 model = profile.imageUrl,
-                placeholder = painterResource(id = R.drawable.image_placeholder),
+                placeholder = painterResource(Res.drawable.image_placeholder),
                 contentDescription = stringResource(
                     Res.string.profile_current_profile_name,
                 ).format(profile.name),

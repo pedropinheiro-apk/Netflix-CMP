@@ -11,10 +11,10 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.codandotv.streamplayerapp.core_navigation.helper.currentRoute
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 private val bottomMenuItems = listOf(
@@ -62,7 +62,7 @@ private fun NavItemIcon(
     item: BottomNavItem
 ) {
     Icon(
-        painterResource(id = if (currentRoute == item.screenRoute) item.iconSelected else item.iconUnselected),
+        painterResource(if (currentRoute == item.screenRoute) item.iconSelected else item.iconUnselected),
         contentDescription = stringResource(item.title),
     )
 }

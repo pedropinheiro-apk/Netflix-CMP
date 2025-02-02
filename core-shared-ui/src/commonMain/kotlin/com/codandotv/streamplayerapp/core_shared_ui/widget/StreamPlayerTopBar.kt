@@ -24,19 +24,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.codandotv.streamplayerapp.core.shared.ui.R
 import com.codandotv.streamplayerapp.core_shared.extension.empty
 import com.codandotv.streamplayerapp.core_shared_ui.resources.Colors
 import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreview
 import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreviews
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import streamplayerapp_kmp.core_shared_ui.generated.resources.Res
+import streamplayerapp_kmp.core_shared_ui.generated.resources.ic_netflix
 import streamplayerapp_kmp.core_shared_ui.generated.resources.icon_netflix
 import streamplayerapp_kmp.core_shared_ui.generated.resources.icon_profile
 import streamplayerapp_kmp.core_shared_ui.generated.resources.icon_search
+import streamplayerapp_kmp.core_shared_ui.generated.resources.perfil_fake
 import streamplayerapp_kmp.core_shared_ui.generated.resources.topbar_categories
 import streamplayerapp_kmp.core_shared_ui.generated.resources.topbar_movies
 import streamplayerapp_kmp.core_shared_ui.generated.resources.topbar_shows
@@ -76,7 +77,7 @@ private fun StreamPlayerTopBar(
             onClick = { /* todo */ }
         ) {
             Icon(
-                painter = painterResource(R.drawable.ic_netflix),
+                painter = painterResource(Res.drawable.ic_netflix),
                 contentDescription = stringResource(Res.string.icon_netflix),
                 tint = Color.Unspecified,
             )
@@ -105,8 +106,8 @@ private fun StreamPlayerTopBar(
                     .height(24.dp)
                     .clip(RoundedCornerShape(4.dp)),
                 model = profilePicture,
-                error = painterResource(id = R.drawable.perfil_fake),
-                placeholder = painterResource(id = R.drawable.perfil_fake),
+                error = painterResource(Res.drawable.perfil_fake),
+                placeholder = painterResource(Res.drawable.perfil_fake),
                 contentDescription = stringResource(Res.string.icon_profile)
             )
         }
