@@ -1,27 +1,42 @@
 plugins {
     id("com.streamplayer.kmp-library")
     id("com.google.devtools.ksp")
+    alias(libs.plugins.room)
 }
 
 kotlin {
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.bundles.room)
+            implementation(libs.room.bundled)
+            implementation(libs.room.runtime)
             implementation(libs.bundles.kotlin)
             implementation(libs.bundles.koin)
+        }
+    }
+
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach { iosTarget ->
+        iosTarget.binaries.framework {
+            baseName = "composeApp"
+            isStatic = true
         }
     }
 }
 
 dependencies {
-    add("kspCommonMainMetadata",libs.koin.ksp.compiler)
-    add("kspAndroid", libs.koin.ksp.compiler)
+    add("kspAndroid", libs.room.compiler)
+    add("kspIosSimulatorArm64", libs.room.compiler)
+    add("kspIosX64", libs.room.compiler)
+    add("kspIosArm64", libs.room.compiler)
 }
 
-ksp {
-    arg("KOIN_CONFIG_CHECK","true")
+configurations.implementation{
+    exclude(group = "com.intellij", module = "annotations")
 }
 
-dependencies {
-    ksp(libs.roomCompiler)
+room {
+    schemaDirectory("$projectDir/schemas")
 }

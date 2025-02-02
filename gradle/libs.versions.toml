@@ -10,7 +10,7 @@ kover = "0.7.5"
 detekt = "1.23.6"
 compose_plugin_multiplataform = "1.7.1"
 navigation-compose-version = "2.7.0-alpha07"
-paging-compose="3.3.5"
+paging-compose = "3.3.5"
 
 #Test
 test_junit = "4.13.2"
@@ -36,7 +36,9 @@ coil = "2.3.0"
 lottie = "5.2.0"
 
 #Room Database
-room = "2.5.2"
+room = "2.7.0-alpha13"
+sqlite = "2.5.0-SNAPSHOT"
+
 android_youtube_player_version = "12.0.0"
 uiAndroid = "1.7.5"
 junit = "1.2.1"
@@ -103,9 +105,9 @@ ktor_client_content_negotiation = { module = "io.ktor:ktor-client-content-negoti
 ktor_client_content_serialization_json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 
 #Room
-roomRuntime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
-roomCompiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
-roomKtx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room_runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room_compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+room_bundled = { group = "androidx.sqlite", name = "sqlite-bundled", version.ref = "sqlite" }
 
 android_youtube_player = { group = "com.pierfrancescosoffritti.androidyoutubeplayer", name = "core", version.ref = "android_youtube_player_version" }
 dokka = { group = "org.jetbrains.dokka", name = "android-documentation-plugin", version.ref = "dokka" }
@@ -113,9 +115,8 @@ ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit"
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 
 [bundles]
-room = ["roomRuntime", "roomKtx"]
 networking = ["moshi", "okhttp", "interceptor", "ktor_client_core", "ktor_client_okhttp", "ktor_client_content_serialization_json", "ktor_client_content_negotiation", "ktor_client_logger", "ktor_client_auth"]
-koin = ["koin_android","koin_compose"]
+koin = ["koin_android", "koin_compose"]
 
 test = ["junit", "mockk", "mockk_android", "viewmodel_test", "koin_test", "coroutines_test"]
 androidSupport = ["androidx_core", "androidx_appcompat", "androidx_dynamicanimation", "google_material"]
@@ -131,6 +132,7 @@ serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref 
 jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose_plugin_multiplataform" }
 kotlin_multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 compose_compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+room = { id = "androidx.room", version.ref = "room" }
 
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
