@@ -33,6 +33,10 @@ dependencies {
     add("kspIosArm64", libs.koin.ksp.compiler)
 }
 
+configurations.implementation{
+    exclude(group = "com.intellij", module = "annotations")
+}
+
 room {
     schemaDirectory("$projectDir/schemas")
 }
