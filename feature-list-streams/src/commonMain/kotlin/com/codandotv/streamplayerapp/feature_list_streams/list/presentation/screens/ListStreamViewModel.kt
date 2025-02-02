@@ -25,6 +25,11 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import streamplayerapp_kmp.feature_list_streams.generated.resources.Res
+import streamplayerapp_kmp.feature_list_streams.generated.resources.list_highlight_banner_add
+import streamplayerapp_kmp.feature_list_streams.generated.resources.list_highlight_banner_info
+import streamplayerapp_kmp.feature_list_streams.generated.resources.list_highlight_banner_stream_ranking
+import streamplayerapp_kmp.feature_list_streams.generated.resources.list_highlight_banner_watch
 import com.codandotv.streamplayerapp.core.shared.ui.R as SharedUiR
 
 class ListStreamViewModel(
@@ -62,7 +67,6 @@ class ListStreamViewModel(
                 }
                 .collect { pair ->
                     val (latest, genres) = pair
-
                     _uiState.update {
                         it.copy(
                             streamsCarouselContent = genres.map { genreTarget ->
@@ -83,21 +87,22 @@ class ListStreamViewModel(
             contentTypeAsPlural = ContentType.getContentNameAsPlural(ContentType.FILM),
             extraInfo = IconAndTextInfo(
                 R.drawable.ic_top_10,
-                R.string.list_highlight_banner_stream_ranking
+                Res.string.list_highlight_banner_stream_ranking
             ),
             leftButton = IconAndTextInfo(
                 SharedUiR.drawable.ic_add,
-                R.string.list_highlight_banner_add
+                Res.string.list_highlight_banner_add
             ),
             centralButton = IconAndTextInfo(
                 SharedUiR.drawable.ic_play,
-                R.string.list_highlight_banner_watch
+                Res.string.list_highlight_banner_watch
             ),
             rightButton = IconAndTextInfo(
                 SharedUiR.drawable.ic_info,
-                R.string.list_highlight_banner_info
+                Res.string.list_highlight_banner_info
             ),
         )
+
 
     private fun getStreamsByGenre(genre: Genre): StreamsCarouselContent {
         return StreamsCarouselContent(

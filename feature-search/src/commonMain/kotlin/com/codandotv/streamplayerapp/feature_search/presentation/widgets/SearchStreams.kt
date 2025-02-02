@@ -16,7 +16,6 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -36,7 +35,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.codandotv.streamplayerapp.core.shared.ui.R
 import com.codandotv.streamplayerapp.core_shared_ui.resources.Colors
-import com.codandotv.streamplayerapp.feature.search.R.*
+import com.codandotv.streamplayerapp.core_shared_ui.widget.CloseButton
+import com.codandotv.streamplayerapp.core_shared_ui.widget.MicButton
+import com.codandotv.streamplayerapp.core_shared_ui.widget.SearchIcon
+import org.jetbrains.compose.resources.stringResource
+import streamplayerapp_kmp.core_shared_ui.generated.resources.*
+import streamplayerapp_kmp.feature_search.generated.resources.Res
+import streamplayerapp_kmp.core_shared_ui.generated.resources.Res as SharedRes
+import streamplayerapp_kmp.feature_search.generated.resources.search_list_main_search
 
 @Suppress("LongParameterList")
 @Composable
@@ -78,7 +84,7 @@ private fun StreamPlayerTopBar(
         ) {
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                contentDescription = stringResource(id = R.string.icon_back),
+                contentDescription = stringResource(SharedRes.string.icon_back),
                 tint = Color.White,
             )
         }
@@ -90,7 +96,7 @@ private fun StreamPlayerTopBar(
         ) {
             Icon(
                 imageVector = Icons.Default.Check,
-                contentDescription = stringResource(id = R.string.icon_cast),
+                contentDescription = stringResource(SharedRes.string.icon_cast),
                 tint = Color.White,
             )
         }
@@ -104,7 +110,7 @@ private fun StreamPlayerTopBar(
                     .height(24.dp)
                     .clip(RoundedCornerShape(4.dp)),
                 painter = painterResource(R.drawable.perfil_fake),
-                contentDescription = stringResource(id = R.string.icon_profile),
+                contentDescription = stringResource(SharedRes.string.icon_profile),
                 tint = Color.Unspecified,
             )
         }
@@ -140,7 +146,7 @@ fun SearchTopBar(
             },
             placeholder = {
                 Text(
-                    text = stringResource(id = string.search_list_main_search),
+                    text = stringResource(Res.string.search_list_main_search),
                     color = Color.Gray
                 )
             },
@@ -166,55 +172,6 @@ fun SearchTopBar(
     }
 }
 
-@Composable
-fun DefaultIcon(
-    modifier: Modifier = Modifier,
-    searchIcon: ImageVector = Icons.Default.Search,
-    iconColor: Color = Color.White,
-    contentDescription: String = "",
-    onIconClickAction: () -> Unit = {}
-) {
-    IconButton(
-        modifier = modifier,
-        onClick = onIconClickAction
-    ) {
-        Icon(
-            imageVector = searchIcon,
-            contentDescription = contentDescription,
-            tint = iconColor
-        )
-    }
-}
-
-@Composable
-fun SearchIcon(action: () -> Unit = {}) {
-    DefaultIcon(
-        searchIcon = Icons.Filled.Search,
-        contentDescription = stringResource(id = R.string.icon_search),
-        onIconClickAction = action,
-        iconColor = Color.Gray
-    )
-}
-
-@Composable
-fun CloseButton(action: () -> Unit = {}) {
-    DefaultIcon(
-        searchIcon = Icons.Default.Close,
-        contentDescription = stringResource(id = R.string.icon_close),
-        onIconClickAction = action,
-        iconColor = Color.Gray
-    )
-}
-
-@Composable
-private fun MicButton(action: () -> Unit = {}) {
-    DefaultIcon(
-        searchIcon = Icons.Default.Check,
-        contentDescription = stringResource(id = R.string.icon_mic),
-        onIconClickAction = action,
-        iconColor = Color.Gray
-    )
-}
 
 @Composable
 @Preview

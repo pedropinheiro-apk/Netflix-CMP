@@ -16,6 +16,7 @@ kotlin {
             implementation(libs.navigation.compose)
             implementation(compose.material3)
             implementation(compose.ui)
+            implementation(compose.components.resources)
 
             implementation(libs.bundles.koin)
             api(libs.koin.annotations)

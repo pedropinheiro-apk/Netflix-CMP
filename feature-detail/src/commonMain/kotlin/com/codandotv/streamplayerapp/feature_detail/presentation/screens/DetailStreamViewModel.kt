@@ -3,6 +3,7 @@ package com.codandotv.streamplayerapp.feature_detail.presentation.screens
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.codandotv.streamplayerapp.core_networking.handleError.catchFailure
+import com.codandotv.streamplayerapp.core_networking.resources.StringNetworking
 import com.codandotv.streamplayerapp.feature_detail.domain.DetailStream
 import com.codandotv.streamplayerapp.feature_detail.domain.DetailStreamUseCase
 import com.codandotv.streamplayerapp.feature_detail.domain.VideoStreamsUseCase
@@ -44,7 +45,7 @@ class  DetailStreamViewModel(
                 .flowOn(dispatcher)
                 .onStart { onLoading() }
                 .catchFailure {
-                    println(">>>> ${it.errorMessage}")
+                    println(">>>> ${StringNetworking.getStringResource(it.errorMessageResKey)}")
                 }
                 .collect { result ->
                     _uiState.update {

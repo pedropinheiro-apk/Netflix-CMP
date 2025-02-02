@@ -12,6 +12,7 @@ kotlin {
             implementation(compose.material3)
             implementation(compose.preview)
             implementation(compose.ui)
+            implementation(compose.components.resources)
             implementation(libs.navigation.compose)
             implementation(libs.bundles.koin)
             implementation(libs.bundles.kotlin)
@@ -23,3 +24,6 @@ kotlin {
     }
 }
 
+compose.resources {
+    publicResClass = true
+}

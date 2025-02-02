@@ -4,16 +4,22 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.codandotv.streamplayerapp.core.navigation.R
 import com.codandotv.streamplayerapp.core_navigation.routes.BottomNavRoutes
+import org.jetbrains.compose.resources.StringResource
+import streamplayerapp_kmp.core_navigation.generated.resources.Res
+import streamplayerapp_kmp.core_navigation.generated.resources.bottom_nav_downloads
+import streamplayerapp_kmp.core_navigation.generated.resources.bottom_nav_games
+import streamplayerapp_kmp.core_navigation.generated.resources.bottom_nav_home
+import streamplayerapp_kmp.core_navigation.generated.resources.bottom_nav_news
 
 sealed class BottomNavItem(
-    @StringRes var title: Int,
+    var title: StringResource,
     @DrawableRes var iconUnselected: Int,
     @DrawableRes var iconSelected: Int,
     var screenRoute: String
 ) {
     object Home :
         BottomNavItem(
-            R.string.bottom_nav_home,
+            Res.string.bottom_nav_home,
             R.drawable.ic_home_unselected,
             R.drawable.ic_home_selected,
             BottomNavRoutes.HOME
@@ -21,7 +27,7 @@ sealed class BottomNavItem(
 
     object Games :
         BottomNavItem(
-            R.string.bottom_nav_games,
+            Res.string.bottom_nav_games,
             R.drawable.ic_games_unselected,
             R.drawable.ic_games_selected,
             BottomNavRoutes.GAMES
@@ -29,14 +35,14 @@ sealed class BottomNavItem(
 
     object News :
         BottomNavItem(
-            R.string.bottom_nav_news,
+            Res.string.bottom_nav_news,
             R.drawable.ic_news_unselected,
             R.drawable.ic_news_selected,
             BottomNavRoutes.NEWS
         )
 
     object Downloads : BottomNavItem(
-        R.string.bottom_nav_downloads,
+        Res.string.bottom_nav_downloads,
         R.drawable.ic_downloads_unselected,
         R.drawable.ic_downloads_selected,
         BottomNavRoutes.DOWNLOADS

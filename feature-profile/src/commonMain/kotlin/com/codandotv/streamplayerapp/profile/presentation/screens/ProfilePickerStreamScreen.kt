@@ -16,7 +16,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalLifecycleOwner
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.LifecycleOwner
@@ -31,7 +30,13 @@ import com.codandotv.streamplayerapp.profile.presentation.widget.ProfilePickerPr
 import com.codandotv.streamplayerapp.profile.presentation.widget.ProfilePickerSelectedProfileContainer
 import com.codandotv.streamplayerapp.profile.presentation.widget.ProfilePickerStreamToolbar
 import com.codandotv.streamplayerapp.profile.presentation.widget.dpToPx
+import org.jetbrains.compose.resources.stringResource
 import org.koin.androidx.compose.koinViewModel
+import streamplayerapp_kmp.feature_profile.generated.resources.Res
+import streamplayerapp_kmp.feature_profile.generated.resources.profile_animation_background_opacity
+import streamplayerapp_kmp.feature_profile.generated.resources.profile_animation_selected_image_position
+import streamplayerapp_kmp.feature_profile.generated.resources.profile_animation_selected_image_size
+import streamplayerapp_kmp.feature_profile.generated.resources.profile_animation_showing_all_profiles
 
 @Composable
 fun ProfilePickerStreamScreen(
@@ -81,7 +86,7 @@ private fun SetupProfilePickerScreen(
         } else {
             Color.Transparent
         },
-        label = stringResource(R.string.profile_animation_background_opacity),
+        label = stringResource(Res.string.profile_animation_background_opacity),
         animationSpec = tween(durationMillis = 1000),
         finishedListener = {
             onSetCenterImageAlpha(0f)
@@ -109,13 +114,13 @@ private fun SetupProfilePickerScreen(
                 // Preparing animations
                 val animatedSizeImage by animateDpAsState(
                     targetValue = if (expandImage) expandedImageSize.dp else defaultImageSize.dp,
-                    label = stringResource(R.string.profile_animation_selected_image_size),
+                    label = stringResource(Res.string.profile_animation_selected_image_size),
                     animationSpec = tween(durationMillis = 1000),
                 )
 
                 val animatedProfileAlpha: Float by animateFloatAsState(
                     if (lastItemPositioned) 1f else 0f,
-                    label = stringResource(R.string.profile_animation_showing_all_profiles),
+                    label = stringResource(Res.string.profile_animation_showing_all_profiles),
                 )
 
                 val animatedOffsetSelectedProfileImage by animateIntOffsetAsState(
@@ -130,7 +135,7 @@ private fun SetupProfilePickerScreen(
                             IntOffset(0, 0)
                         }
                     },
-                    label = stringResource(R.string.profile_animation_selected_image_position),
+                    label = stringResource(Res.string.profile_animation_selected_image_position),
                     animationSpec = tween(durationMillis = if (!showCenterImage) 100 else 800)
                 )
 

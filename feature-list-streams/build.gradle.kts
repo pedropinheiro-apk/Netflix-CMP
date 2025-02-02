@@ -9,21 +9,22 @@ plugins {
 kotlin {
     sourceSets {
         commonMain.dependencies {
-                implementation(libs.bundles.koin)
-                implementation(libs.paging.compose)
-                implementation(projects.coreNetworking)
-                implementation(projects.coreNavigation)
-                implementation(projects.coreShared)
-                implementation(projects.coreSharedUi)
-                implementation(projects.coreLocalStorage)
+            implementation(libs.bundles.koin)
+            implementation(libs.paging.compose)
+            implementation(projects.coreNetworking)
+            implementation(projects.coreNavigation)
+            implementation(projects.coreShared)
+            implementation(projects.coreSharedUi)
+            implementation(projects.coreLocalStorage)
 
-                implementation(compose.material3)
-                implementation(compose.ui)
-                implementation(compose.preview)
-                implementation(libs.navigation.compose)
-                implementation(libs.bundles.networking)
-                implementation(libs.coil)
-                implementation(libs.bundles.androidSupport)
-            }
+            implementation(compose.components.resources)
+            implementation(compose.material3)
+            implementation(compose.ui)
+            implementation(compose.preview)
+            implementation(libs.navigation.compose)
+            implementation(libs.bundles.networking)
+            implementation(libs.coil)
+            implementation(libs.bundles.androidSupport)
         }
+    }
 }

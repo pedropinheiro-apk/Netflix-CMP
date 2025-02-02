@@ -1,5 +1,7 @@
 plugins {
     id("com.streamplayer.kmp-library")
+    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -23,10 +25,11 @@ android {
 
 kotlin {
     sourceSets {
-        androidMain.dependencies {
+        commonMain.dependencies {
             implementation(libs.bundles.kotlin)
             implementation(libs.bundles.networking)
             implementation(libs.bundles.koin)
+            implementation(compose.components.resources)
         }
     }
 }
