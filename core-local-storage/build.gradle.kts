@@ -9,8 +9,7 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.room.bundled)
             implementation(libs.room.runtime)
-            implementation(libs.bundles.kotlin)
-            implementation(libs.bundles.koin)
+            implementation(libs.koin.core)
         }
     }
 
