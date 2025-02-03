@@ -7,6 +7,9 @@ plugins {
 }
 kotlin {
     sourceSets {
+        androidMain.dependencies {
+            implementation(libs.koin.android)
+        }
         commonMain.dependencies {
             implementation(projects.featureListStreams)
             implementation(projects.featureDetail)
@@ -19,13 +22,15 @@ kotlin {
             implementation(projects.coreLocalStorage)
 
             implementation(libs.navigation.compose)
+
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.preview)
-            implementation(libs.bundles.koin)
-            implementation(libs.bundles.androidSupport)
-            implementation(libs.bundles.kotlin)
+
             implementation(libs.lottie)
+
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
         }
     }
 }

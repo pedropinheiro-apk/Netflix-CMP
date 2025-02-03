@@ -6,7 +6,7 @@ plugins {
 kotlin {
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.bundles.koin)
+            implementation(libs.koin.core)
         }
     }
 }

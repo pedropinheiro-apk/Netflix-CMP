@@ -21,19 +21,23 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.kotlin.stdlib)
+
             implementation(libs.koin.core)
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.serialization.json)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.client.logger)
             implementation(libs.ktor.client.auth)
+
             implementation(compose.components.resources)
             implementation(compose.runtime)
         }
 
         androidMain.dependencies {
             implementation(libs.okhttp)
+
             implementation(libs.interceptor)
+
             implementation(libs.ktor.client.okhttp)
         }
     }

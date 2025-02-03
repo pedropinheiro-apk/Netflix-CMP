@@ -112,11 +112,7 @@ ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit"
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 
 [bundles]
-koin = ["koin_android", "koin_compose"]
-
 test = ["junit", "mockk", "mockk_android", "viewmodel_test", "koin_test", "coroutines_test"]
-androidSupport = ["androidx_core", "androidx_appcompat", "androidx_dynamicanimation", "google_material"]
-kotlin = ["androidx_core", "kotlin_stdlib", "kotlin_reflect"]
 
 [plugins]
 android_application = { id = "com.android.application", version.ref = "android_gradle_plugin" }
