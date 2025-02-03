@@ -1,5 +1,6 @@
 object Config {
-    const val applicationId = "com.codandotv.streamplayerapp"
+    const val appName = "streamplayerapp"
+    const val applicationId = "com.codandotv.$appName"
     const val compileSdkVersion = 34
     const val minSdkVersion = 24
     const val targetSdkVersion = 34

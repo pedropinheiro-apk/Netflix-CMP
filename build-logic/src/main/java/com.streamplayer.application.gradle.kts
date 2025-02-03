@@ -2,6 +2,7 @@
 
 import extensions.dokkaPlugin
 import extensions.getLibrary
+import extensions.iosTarget
 import extensions.setupAndroidDefaultConfig
 import extensions.setupCompileOptions
 import extensions.setupPackingOptions
@@ -28,6 +29,8 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_17)
         }
     }
+
+    iosTarget()
 }
 
 android {

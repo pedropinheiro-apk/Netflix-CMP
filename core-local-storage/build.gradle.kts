@@ -19,10 +19,6 @@ dependencies {
     add("kspAndroid", libs.room.compiler)
 }
 
-configurations.implementation{
-    exclude(group = "com.intellij", module = "annotations")
-}
-
 room {
     schemaDirectory("$projectDir/schemas")
 }
