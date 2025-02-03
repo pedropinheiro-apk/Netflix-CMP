@@ -22,9 +22,11 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.preview)
             implementation(libs.navigation.compose)
-            implementation(libs.bundles.networking)
             implementation(libs.coil)
             implementation(libs.bundles.androidSupport)
+
+            implementation(libs.ktor.client.content.serialization.json)
+            implementation(libs.ktor.client.content.negotiation)
         }
     }
 }

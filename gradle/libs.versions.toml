@@ -29,7 +29,6 @@ viewmodel = "2.8.6"
 androidx_core_ktx = "1.13.1"
 
 #Networking
-moshi = "1.14.0"
 okhttp = "4.12.0"
 ktor = "3.0.1"
 
@@ -89,12 +88,9 @@ google_material = { group = "com.google.android.material", name = "material", ve
 koin_test = { group = "io.insert-koin", name = "koin-test-junit4", version.ref = "koin" }
 koin_android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
 koin_core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
-koin_annotations = { group = "io.insert-koin", name = "koin-annotations", version.ref = "koin-ksp" }
-koin_ksp_compiler = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koin-ksp" }
 koin_compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
 
 #Networking
-moshi = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 
@@ -116,7 +112,6 @@ ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit"
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 
 [bundles]
-networking = ["moshi", "okhttp", "interceptor", "ktor_client_core", "ktor_client_okhttp", "ktor_client_content_serialization_json", "ktor_client_content_negotiation", "ktor_client_logger", "ktor_client_auth"]
 koin = ["koin_android", "koin_compose"]
 
 test = ["junit", "mockk", "mockk_android", "viewmodel_test", "koin_test", "coroutines_test"]

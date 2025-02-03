@@ -21,10 +21,12 @@ kotlin {
             implementation(compose.preview)
             implementation(libs.navigation.compose)
             implementation(libs.bundles.koin)
-            implementation(libs.bundles.networking)
             implementation(libs.coil)
             implementation(libs.bundles.androidSupport)
             implementation(compose.components.resources)
+
+            implementation(libs.ktor.client.content.serialization.json)
+            implementation(libs.ktor.client.content.negotiation)
         }
         commonTest.dependencies {
             implementation(libs.bundles.test)

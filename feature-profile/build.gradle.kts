@@ -19,10 +19,11 @@ kotlin {
             implementation(compose.components.resources)
 
             implementation(libs.bundles.koin)
-            api(libs.koin.annotations)
-            implementation(libs.bundles.networking)
             implementation(libs.bundles.androidSupport)
             implementation(libs.coil)
+
+            implementation(libs.ktor.client.content.serialization.json)
+            implementation(libs.ktor.client.content.negotiation)
 
         }
     }
