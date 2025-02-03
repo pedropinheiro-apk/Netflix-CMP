@@ -9,6 +9,7 @@ kotlin {
     sourceSets {
         androidMain.dependencies {
             implementation(libs.koin.android)
+            implementation(libs.lottie)
         }
         commonMain.dependencies {
             implementation(projects.featureListStreams)
@@ -26,8 +27,6 @@ kotlin {
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.preview)
-
-            implementation(libs.lottie)
 
             implementation(libs.koin.core)
             implementation(libs.koin.compose)
