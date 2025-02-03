@@ -1,9 +1,9 @@
 package com.codandotv.streamplayerapp.core_networking.di
 
 import android.util.Log
-import com.codandotv.streamplayerapp.core.networking.BuildConfig
 import com.codandotv.streamplayerapp.core_networking.di.Network.TIMEOUT
 import com.codandotv.streamplayerapp.core_networking.httpClientEngine
+import core.networking.BuildKonfig
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.auth.Auth
@@ -23,8 +23,8 @@ import org.koin.dsl.module
 
 object NetworkModule {
     val module = module {
-        single(QualifierHost) { BuildConfig.HOST }
-        single(QualifierProfile) { BuildConfig.PROFILE }
+        single(QualifierHost) { BuildKonfig.HOST }
+        single(QualifierProfile) { BuildKonfig.PROFILE }
 
         single {
             provideKtorHttpClient(
@@ -68,7 +68,7 @@ object NetworkModule {
                 bearer {
                     loadTokens {
                         BearerTokens(
-                            accessToken = BuildConfig.API_BEARER_AUTH,
+                            accessToken = BuildKonfig.API_BEARER_AUTH,
                             refreshToken = ""
                         )
                     }
