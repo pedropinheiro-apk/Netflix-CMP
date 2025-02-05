@@ -2,7 +2,7 @@ package com.codandotv.streamplayerapp.core_networking.di
 
 import android.util.Log
 import com.codandotv.streamplayerapp.core_networking.di.Network.TIMEOUT
-import com.codandotv.streamplayerapp.core_networking.httpClientEngine
+import com.codandotv.streamplayerapp.core_networking.httpClientEnginePlatform
 import core.networking.BuildKonfig
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.HttpTimeout
@@ -42,7 +42,7 @@ object NetworkModule {
     private fun provideKtorHttpClient(
         baseUrl: String,
     ): HttpClient {
-        return HttpClient(engine = httpClientEngine()) {
+        return HttpClient(engine = httpClientEnginePlatform()) {
             expectSuccess = false
 
             install(ContentNegotiation) {
