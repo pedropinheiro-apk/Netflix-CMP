@@ -6,5 +6,5 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-expect fun PlayerComponent(videoId: String, modifier: Modifier = Modifier)
+expect fun PlayerComponentPlatform(videoId: String, modifier: Modifier = Modifier)
 

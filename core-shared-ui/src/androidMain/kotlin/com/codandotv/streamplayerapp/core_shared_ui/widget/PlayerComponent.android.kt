@@ -19,7 +19,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.You
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 
 @Composable
-actual fun PlayerComponent(videoId: String, modifier: Modifier) {
+actual fun PlayerComponentPlatform(videoId: String, modifier: Modifier) {
 
     val context = LocalContext.current
 
