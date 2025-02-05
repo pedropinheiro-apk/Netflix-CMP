@@ -11,9 +11,15 @@ buildkonfig {
     packageName = "core.networking"
 
     defaultConfigs {
-        buildConfigField(FieldSpec.Type.STRING, "HOST", Config.BuildField.host)
-        buildConfigField(FieldSpec.Type.STRING, "API_BEARER_AUTH", Config.BuildField.api_bearer)
-        buildConfigField(FieldSpec.Type.STRING, "PROFILE", Config.BuildField.api_profile)
+        buildConfigField(FieldSpec.Type.STRING, "HOST", Config.BuildField.host_debug)
+        buildConfigField(FieldSpec.Type.STRING, "API_BEARER_AUTH", Config.BuildField.api_bearer_debug)
+        buildConfigField(FieldSpec.Type.STRING, "PROFILE", Config.BuildField.api_profile_debug)
+    }
+
+    defaultConfigs("release") {
+        buildConfigField(FieldSpec.Type.STRING, "HOST", Config.BuildField.host_release)
+        buildConfigField(FieldSpec.Type.STRING, "API_BEARER_AUTH", Config.BuildField.api_bearer_release)
+        buildConfigField(FieldSpec.Type.STRING, "PROFILE", Config.BuildField.api_profile_release)
     }
 }
 
