@@ -2,7 +2,6 @@
 kotlin = "2.0.21"
 android_gradle_plugin = "8.2.2"
 koin = "3.5.3"
-koin-ksp = "1.3.1"
 ksp = "2.0.21-1.0.27"
 
 dokka = "1.9.10"
@@ -11,6 +10,7 @@ detekt = "1.23.6"
 compose_plugin_multiplataform = "1.7.1"
 navigation-compose-version = "2.7.0-alpha07"
 paging-compose = "3.3.5"
+buildkonfig = "0.15.2"
 
 #Test
 test_junit = "4.13.2"
@@ -18,17 +18,7 @@ androidx_core_testing = "2.2.0"
 mockk = "1.13.7"
 kotlinx-coroutines-test = "1.8.1"
 
-#Android Support
-android_core_ktx = "1.7.0"
-androidx_appcompat = "1.7.0"
-material = "1.12.0"
-dynamic_animation = "1.0.0"
-constraint_motion = "2.1.3"
-viewmodel = "2.8.6"
-androidx_core_ktx = "1.13.1"
-
 #Networking
-moshi = "1.14.0"
 okhttp = "4.12.0"
 ktor = "3.0.1"
 
@@ -40,9 +30,6 @@ room = "2.7.0-alpha13"
 sqlite = "2.5.0-SNAPSHOT"
 
 android_youtube_player_version = "12.0.0"
-uiAndroid = "1.7.5"
-junit = "1.2.1"
-espressoCore = "3.6.1"
 
 
 [libraries]
@@ -50,50 +37,32 @@ kotlin_gradle_plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-p
 android_gradle_plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "android_gradle_plugin" }
 detekt-gradle-plugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
 serialization = { module = "org.jetbrains.kotlin.plugin.serialization:org.jetbrains.kotlin.plugin.serialization.gradle.plugin", version.ref = "kotlin" }
+
 com-google-devtools-ksp-gradle-plugin = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 
-#Kover
 kover-gradle-plugin = { module = "org.jetbrains.kotlinx:kover-gradle-plugin", version.ref = "kover" }
 
-#Coil
 coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 
-#Lottie
 lottie = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottie" }
 
-# Kotlin
 kotlin_stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk7", version.ref = "kotlin" }
-kotlin_reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
 
-# Android Support
-androidx_core = { group = "androidx.core", name = "core-ktx", version.ref = "androidx_core_ktx" }
-androidx_appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx_appcompat" }
-androidx_dynamicanimation = { group = "androidx.dynamicanimation", name = "dynamicanimation", version.ref = "dynamic_animation" }
-
-# Test
 junit = { group = "junit", name = "junit", version.ref = "test_junit" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 mockk_android = { group = "io.mockk", name = "mockk-android", version.ref = "mockk" }
 viewmodel_test = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidx_core_testing" }
 coroutines_test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines-test" }
-
-#Navigation
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigation-compose-version" }
 paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging-compose" }
-
-# Google
-google_material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 # Koin
 koin_test = { group = "io.insert-koin", name = "koin-test-junit4", version.ref = "koin" }
 koin_android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
 koin_core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
-koin_annotations = { group = "io.insert-koin", name = "koin-annotations", version.ref = "koin-ksp" }
-koin_ksp_compiler = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koin-ksp" }
 koin_compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
 
 #Networking
-moshi = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 
@@ -111,16 +80,9 @@ room_bundled = { group = "androidx.sqlite", name = "sqlite-bundled", version.ref
 
 android_youtube_player = { group = "com.pierfrancescosoffritti.androidyoutubeplayer", name = "core", version.ref = "android_youtube_player_version" }
 dokka = { group = "org.jetbrains.dokka", name = "android-documentation-plugin", version.ref = "dokka" }
-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit" }
-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 
 [bundles]
-networking = ["moshi", "okhttp", "interceptor", "ktor_client_core", "ktor_client_okhttp", "ktor_client_content_serialization_json", "ktor_client_content_negotiation", "ktor_client_logger", "ktor_client_auth"]
-koin = ["koin_android", "koin_compose"]
-
 test = ["junit", "mockk", "mockk_android", "viewmodel_test", "koin_test", "coroutines_test"]
-androidSupport = ["androidx_core", "androidx_appcompat", "androidx_dynamicanimation", "google_material"]
-kotlin = ["androidx_core", "kotlin_stdlib", "kotlin_reflect"]
 
 [plugins]
 android_application = { id = "com.android.application", version.ref = "android_gradle_plugin" }
@@ -138,4 +100,4 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
-detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+buildkonfig_plugin = { id = "com.codingfeline.buildkonfig", version.ref = "buildkonfig" }

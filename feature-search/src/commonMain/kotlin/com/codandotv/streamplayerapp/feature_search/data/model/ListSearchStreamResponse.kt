@@ -1,22 +1,22 @@
 package com.codandotv.streamplayerapp.feature_search.data.model
 
-import com.squareup.moshi.Json
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class ListSearchStreamResponse(
-    @Json(name = "results")
+    @SerialName("results")
     val results: List<SearchStreamResponse>
 ) {
     @Serializable
     data class SearchStreamResponse(
-        @Json(name = "id")
+        @SerialName("id")
         val id: Int,
-        @Json(name = "title")
+        @SerialName("title")
         val title: String,
-        @Json(name="overview")
+        @SerialName("overview")
         val overview: String,
-        @Json(name = "poster_path")
+        @SerialName("poster_path")
         val posterPath: String? = null
     )
 }

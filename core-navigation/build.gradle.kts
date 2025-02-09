@@ -8,8 +8,8 @@ plugins {
 kotlin {
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.bundles.kotlin)
             implementation(libs.navigation.compose)
+
             implementation(compose.material3)
             implementation(compose.components.resources)
         }

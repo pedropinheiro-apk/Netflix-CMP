@@ -9,19 +9,8 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.room.bundled)
             implementation(libs.room.runtime)
-            implementation(libs.bundles.kotlin)
-            implementation(libs.bundles.koin)
-        }
-    }
 
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            baseName = "composeApp"
-            isStatic = true
+            implementation(libs.koin.core)
         }
     }
 }
@@ -31,10 +20,6 @@ dependencies {
     add("kspIosSimulatorArm64", libs.room.compiler)
     add("kspIosX64", libs.room.compiler)
     add("kspIosArm64", libs.room.compiler)
-}
-
-configurations.implementation{
-    exclude(group = "com.intellij", module = "annotations")
 }
 
 room {

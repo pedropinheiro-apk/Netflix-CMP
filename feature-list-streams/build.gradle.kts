@@ -9,8 +9,6 @@ plugins {
 kotlin {
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.bundles.koin)
-            implementation(libs.paging.compose)
             implementation(projects.coreNetworking)
             implementation(projects.coreNavigation)
             implementation(projects.coreShared)
@@ -21,10 +19,18 @@ kotlin {
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.preview)
+
+            implementation(libs.paging.compose)
+
             implementation(libs.navigation.compose)
-            implementation(libs.bundles.networking)
+
             implementation(libs.coil)
-            implementation(libs.bundles.androidSupport)
+
+            implementation(libs.ktor.client.content.serialization.json)
+            implementation(libs.ktor.client.content.negotiation)
+
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
         }
     }
 }

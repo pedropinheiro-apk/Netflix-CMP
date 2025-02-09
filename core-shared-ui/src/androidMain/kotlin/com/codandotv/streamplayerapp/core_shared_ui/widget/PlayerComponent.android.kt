@@ -13,14 +13,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
-import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreviews
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 
 @Composable
-fun PlayerComponent(videoId: String, modifier: Modifier = Modifier) {
+actual fun PlayerComponentPlatform(videoId: String, modifier: Modifier) {
 
     val context = LocalContext.current
 
@@ -92,14 +91,5 @@ fun PlayerComponent(videoId: String, modifier: Modifier = Modifier) {
         effect = {
             onDispose { youtubePlayerView.release() }
         },
-    )
-}
-
-@Composable
-@ThemePreviews
-fun PlayerComponentPreview() {
-    PlayerComponent(
-        videoId = "BigBuckBunny.mp4",
-        modifier = Modifier.fillMaxWidth()
     )
 }

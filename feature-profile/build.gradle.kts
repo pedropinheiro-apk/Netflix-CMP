@@ -13,17 +13,20 @@ kotlin {
             implementation(projects.coreNavigation)
             implementation(projects.coreShared)
             implementation(projects.coreSharedUi)
+
             implementation(libs.navigation.compose)
+
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
 
-            implementation(libs.bundles.koin)
-            api(libs.koin.annotations)
-            implementation(libs.bundles.networking)
-            implementation(libs.bundles.androidSupport)
             implementation(libs.coil)
 
+            implementation(libs.ktor.client.content.serialization.json)
+            implementation(libs.ktor.client.content.negotiation)
+
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
         }
     }
 }
