@@ -25,7 +25,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreviews
 
 @Suppress("MagicNumber")
 @Composable
@@ -106,23 +105,4 @@ fun PlayerIcon(modifier: Modifier) {
             modifier = modifier
         )
     }
-}
-
-@ThemePreviews
-@Composable
-fun SearchStreamCardPreview() {
-    SearchStreamCard(
-        content = SearchStreamCardModel(
-            id = "1",
-            title = "The Witcher",
-            url = "https://image.tmdb.org/t/p/w200/iwsMu0ehRPbtaSxqiaUDQB9qMWT.jpg"
-        ),
-        onSearchStreamPressed = {}
-    )
-}
-
-@ThemePreviews
-@Composable
-fun PlayerPreview() {
-    PlayerIcon(modifier = Modifier)
 }

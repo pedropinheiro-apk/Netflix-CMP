@@ -26,7 +26,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.codandotv.streamplayerapp.core_shared_ui.resources.Colors
 import com.codandotv.streamplayerapp.core_shared_ui.widget.CloseButton
@@ -67,7 +66,7 @@ fun SearchableTopBar(
 }
 
 @Composable
-private fun StreamPlayerTopBar(
+internal fun StreamPlayerTopBar(
     onBackPressed: () -> Unit
 ) {
     Row(
@@ -168,37 +167,4 @@ fun SearchTopBar(
             }),
         )
     }
-}
-
-
-@Composable
-@Preview
-fun SearchBarPreview() {
-    StreamPlayerTopBar(
-        onBackPressed = {}
-    )
-}
-
-@Composable
-@Preview
-fun SearchTopBarEmptyPreview() {
-    SearchTopBar(
-        currentSearchText = "",
-        onSearchTextChanged = {},
-        onSearchDispatched = {},
-        onCleanTextPressed = {},
-        onSearchIconPressed = {}
-    )
-}
-
-@Composable
-@Preview
-fun SearchTopBarPreview() {
-    SearchTopBar(
-        currentSearchText = "Texto de busca",
-        onSearchTextChanged = {},
-        onSearchDispatched = {},
-        onCleanTextPressed = {},
-        onSearchIconPressed = {}
-    )
 }

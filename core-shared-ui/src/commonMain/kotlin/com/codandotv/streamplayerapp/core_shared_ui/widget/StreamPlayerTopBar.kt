@@ -28,8 +28,6 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.codandotv.streamplayerapp.core_shared.extension.empty
 import com.codandotv.streamplayerapp.core_shared_ui.resources.Colors
-import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreview
-import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreviews
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import streamplayerapp_kmp.core_shared_ui.generated.resources.Res
@@ -145,19 +143,4 @@ private fun StreamPlayerOptionsTopBar(modifier: Modifier, scrollBehavior: TopApp
             }
         }, colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
     )
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@ThemePreviews
-@Composable
-fun StreamPlayerTopBarPreview() {
-    ThemePreview {
-        StreamPlayerTopBar(
-            scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(
-                rememberTopAppBarState()
-            ),
-            onNavigateProfilePicker = {},
-            onSelectedProfilePicture = String.empty()
-        )
-    }
 }
