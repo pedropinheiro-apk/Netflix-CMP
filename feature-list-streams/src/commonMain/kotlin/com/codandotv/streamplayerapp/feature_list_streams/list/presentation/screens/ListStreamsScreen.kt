@@ -44,20 +44,12 @@ fun ListStreamsScreen(
     onNavigateDetailList: (String) -> Unit = {},
     onNavigateProfilePicker: () -> Unit = {},
     onNavigateSearchScreen: () -> Unit = {},
-    disposable: () -> Unit = {},
     profilePicture: String
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-    val lifecycleOwner = LocalLifecycleOwner.current
     val scrollBehavior =
         TopAppBarDefaults.exitUntilCollapsedScrollBehavior(rememberTopAppBarState())
     val baseScrollState = rememberScrollState()
-
-    DisposableEffect(lifecycleOwner) {
-        onDispose {
-            disposable.invoke()
-        }
-    }
 
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
