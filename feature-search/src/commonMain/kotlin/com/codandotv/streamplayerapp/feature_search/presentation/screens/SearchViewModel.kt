@@ -1,6 +1,5 @@
 package com.codandotv.streamplayerapp.feature_search.presentation.screens
 
-import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.codandotv.streamplayerapp.core_networking.handleError.catchFailure
@@ -18,7 +17,7 @@ import kotlinx.coroutines.launch
 class SearchViewModel(
     private val searchUseCase: SearchUseCase,
     private val mostPopularMoviesUseCase: MostPopularMoviesUseCase
-) : ViewModel(), DefaultLifecycleObserver {
+) : ViewModel() {
 
     private var tryAgain: () -> Unit = {}
 

@@ -42,11 +42,8 @@ import streamplayerapp_kmp.feature_profile.generated.resources.profile_animation
 fun ProfilePickerStreamScreen(
     viewModel: ProfilePickerStreamViewModel = koinViewModel(),
     onNavigateListStreams: (String) -> Unit = {},
-    disposable: () -> Unit = {}
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-    val lifecycleOwner = LocalLifecycleOwner.current
-    Lifecycle(lifecycleOwner, viewModel, disposable)
 
     if (uiState.isLoading) {
         LoadScreen()
@@ -157,22 +154,6 @@ private fun SetupProfilePickerScreen(
             }
         }
     )
-}
-
-@Composable
-private fun Lifecycle(
-    lifecycleOwner: LifecycleOwner, viewModel: ProfilePickerStreamViewModel, disposable: () -> Unit
-) {
-    DisposableEffect(lifecycleOwner) {
-        val lifecycle = lifecycleOwner.lifecycle
-
-        lifecycle.addObserver(viewModel)
-
-        onDispose {
-            lifecycle.removeObserver(viewModel)
-            disposable.invoke()
-        }
-    }
 }
 
 @ThemePreviews
