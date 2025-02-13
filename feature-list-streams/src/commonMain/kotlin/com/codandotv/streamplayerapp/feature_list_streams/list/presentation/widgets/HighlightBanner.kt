@@ -32,7 +32,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreviews
 import com.codandotv.streamplayerapp.feature.list.streams.R
 import com.codandotv.streamplayerapp.feature_list_streams.core.ContentType
 import com.codandotv.streamplayerapp.feature_list_streams.list.domain.model.HighlightBanner
@@ -271,24 +270,4 @@ fun PlayButton(
                 .padding(end = 8.dp)
         )
     }
-}
-
-@ThemePreviews
-@Composable
-fun HighlightBannerPreview() {
-    HighlightBanner(
-        data = HighlightBanner(
-            name = stringResource(SharedRes.string.app_name),
-            imageUrl = String(),
-            contentType = ContentType.getContentName(ContentType.SHOW),
-            contentTypeAsPlural = ContentType.getContentNameAsPlural(ContentType.SHOW),
-            extraInfo = IconAndTextInfo(
-                Res.drawable.ic_top_10,
-                ContentType.getContentName(ContentType.SHOW)
-            ),
-            leftButton = IconAndTextInfo(SharedRes.drawable.ic_add, Res.string.list_highlight_banner_add),
-            centralButton = IconAndTextInfo(SharedRes.drawable.ic_play, Res.string.list_highlight_banner_watch),
-            rightButton = IconAndTextInfo(SharedRes.drawable.ic_info, Res.string.list_highlight_banner_info),
-        )
-    )
 }

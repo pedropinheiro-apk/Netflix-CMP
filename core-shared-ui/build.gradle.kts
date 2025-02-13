@@ -7,11 +7,13 @@ plugins {
 
 kotlin {
     sourceSets {
+        androidMain.dependencies {
+            implementation(compose.preview)
+        }
         commonMain.dependencies {
             implementation(projects.coreShared)
 
             implementation(compose.material3)
-            implementation(compose.preview)
             implementation(compose.ui)
             implementation(compose.components.resources)
 

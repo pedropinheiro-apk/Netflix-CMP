@@ -8,6 +8,10 @@ plugins {
 
 kotlin {
     sourceSets {
+        androidMain.dependencies {
+            implementation(compose.preview)
+        }
+
         commonMain.dependencies {
             implementation(projects.coreNetworking)
             implementation(projects.coreNavigation)
@@ -18,7 +22,6 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.material3)
             implementation(compose.ui)
-            implementation(compose.preview)
 
             implementation(libs.paging.compose)
 
