@@ -12,24 +12,18 @@ import com.codandotv.streamplayerapp.core_navigation.routes.Routes.DETAIL
 import com.codandotv.streamplayerapp.core_navigation.routes.Routes.PROFILE_PICKER
 import com.codandotv.streamplayerapp.feature_list_streams.list.di.ListStreamModule
 import com.codandotv.streamplayerapp.feature_list_streams.list.presentation.screens.ListStreamsScreen
-import org.koin.compose.module.rememberKoinModules
-import org.koin.core.annotation.KoinExperimentalAPI
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
 
 internal const val DEFAULT_ID = ""
 
-@OptIn(KoinExperimentalAPI::class)
 fun NavGraphBuilder.listStreamsNavGraph(navController: NavHostController) {
     composable(HOME_COMPLETE) { nav ->
         BackHandler(true) {}
-
-        rememberKoinModules {
-            listOf(ListStreamModule.module)
+        if (nav.lifecycle.currentState == Lifecycle.State.STARTED) {
+            loadKoinModules(ListStreamModule.module)
         }
-
-        ListStreamsScreen(
-            navController = navController,
+        ListStreamsScreen(navController = navController,
             onNavigateDetailList = { id ->
                 navController.navigate("${DETAIL}${id}")
             },
@@ -38,6 +32,9 @@ fun NavGraphBuilder.listStreamsNavGraph(navController: NavHostController) {
             },
             onNavigateSearchScreen = {
                 navController.navigate(Routes.SEARCH)
+            },
+            disposable = {
+                unloadKoinModules(ListStreamModule.module)
             },
             profilePicture = nav.arguments?.getString(PROFILE_ID) ?: DEFAULT_ID
         )

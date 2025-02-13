@@ -1,5 +1,6 @@
 package com.codandotv.streamplayerapp.profile.presentation.navigation
 
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
@@ -8,19 +9,20 @@ import com.codandotv.streamplayerapp.core_navigation.routes.BottomNavRoutes.PARA
 import com.codandotv.streamplayerapp.core_navigation.routes.Routes
 import com.codandotv.streamplayerapp.profile.di.ProfilePickerStreamModule
 import com.codandotv.streamplayerapp.profile.presentation.screens.ProfilePickerStreamScreen
-import org.koin.compose.module.rememberKoinModules
-import org.koin.core.annotation.KoinExperimentalAPI
+import org.koin.core.context.loadKoinModules
+import org.koin.core.context.unloadKoinModules
 
-@OptIn(KoinExperimentalAPI::class)
 fun NavGraphBuilder.profilePickerStreamNavGraph(navController: NavHostController) {
-    composable(Routes.PROFILE_PICKER) {
-        rememberKoinModules {
-            listOf(ProfilePickerStreamModule.module)
+    composable(Routes.PROFILE_PICKER) { nav ->
+        if (nav.lifecycle.currentState == Lifecycle.State.STARTED) {
+            loadKoinModules(ProfilePickerStreamModule.module)
         }
         ProfilePickerStreamScreen(
             onNavigateListStreams = { profilePic ->
                 navController.navigate("$HOME?$PROFILE_ID=$profilePic")
             }
-        )
+        ) {
+            unloadKoinModules(ProfilePickerStreamModule.module)
+        }
     }
 }

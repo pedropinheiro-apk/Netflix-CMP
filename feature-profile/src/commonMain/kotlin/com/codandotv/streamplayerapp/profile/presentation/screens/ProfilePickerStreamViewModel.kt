@@ -1,5 +1,7 @@
 package com.codandotv.streamplayerapp.profile.presentation.screens
 
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.codandotv.streamplayerapp.core_networking.handleError.catchFailure
@@ -14,7 +16,7 @@ import kotlinx.coroutines.launch
 
 class ProfilePickerStreamViewModel(
     private val useCase: ProfilePickerStreamUseCase,
-) : ViewModel() {
+) : ViewModel(), DefaultLifecycleObserver {
 
     private val _uiState = MutableStateFlow(ProfilePickerStreamsUIState())
     val uiState = _uiState.stateIn(
@@ -23,7 +25,9 @@ class ProfilePickerStreamViewModel(
         initialValue = _uiState.value
     )
 
-    init {
+    override fun onCreate(owner: LifecycleOwner) {
+        super.onCreate(owner)
+
         viewModelScope.launch {
             useCase.getProfile()
                 .catchFailure {

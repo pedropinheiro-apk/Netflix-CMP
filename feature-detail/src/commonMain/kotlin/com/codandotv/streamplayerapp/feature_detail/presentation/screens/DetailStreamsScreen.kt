@@ -21,12 +21,14 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
@@ -52,11 +54,21 @@ import streamplayerapp_kmp.feature_detail.generated.resources.detail_watch_prima
 fun DetailStreamScreen(
     viewModel: DetailStreamViewModel = koinViewModel(),
     navController: NavController,
+    disposable: () -> Unit = {},
     onNavigateSearchScreen: () -> Unit = {},
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+    val lifecycleOwner = LocalLifecycleOwner.current
+
     LifecycleEventEffect(Lifecycle.Event.ON_START) {
         viewModel.loadDetail()
+    }
+
+    DisposableEffect(lifecycleOwner) {
+        onDispose {
+            disposable.invoke()
+        }
     }
 
     when (uiState) {

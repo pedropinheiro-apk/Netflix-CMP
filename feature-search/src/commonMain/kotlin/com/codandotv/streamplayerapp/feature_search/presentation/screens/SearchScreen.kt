@@ -39,9 +39,16 @@ fun SearchScreen(
     viewModel: SearchViewModel = koinViewModel(),
     onNavigateDetailList: (String) -> Unit = {},
     navController: NavController,
+    disposable: () -> Unit = {}
 ) {
 
     val uiState by viewModel.uiState.collectAsState()
+    Lifecycle(
+        lifecycleOwner = LocalLifecycleOwner.current,
+        viewModel = viewModel,
+        disposable = disposable
+    )
+
     when (uiState) {
         is SearchUIState.Success -> {
             SetupSearchScreen(
@@ -145,4 +152,20 @@ private fun SetupSearchScreen(
         navController.goBack()
     }
 
+}
+
+@Composable
+private fun Lifecycle(
+    lifecycleOwner: LifecycleOwner, viewModel: SearchViewModel, disposable: () -> Unit
+) {
+    DisposableEffect(lifecycleOwner) {
+        val lifecycle = lifecycleOwner.lifecycle
+
+        lifecycle.addObserver(viewModel)
+
+        onDispose {
+            lifecycle.removeObserver(viewModel)
+            disposable.invoke()
+        }
+    }
 }

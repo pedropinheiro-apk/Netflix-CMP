@@ -8,22 +8,22 @@ import androidx.navigation.compose.composable
 import com.codandotv.streamplayerapp.core_navigation.routes.Routes
 import com.codandotv.streamplayerapp.feature_search.di.SearchModule
 import com.codandotv.streamplayerapp.feature_search.presentation.screens.SearchScreen
-import org.koin.compose.module.rememberKoinModules
-import org.koin.core.annotation.KoinExperimentalAPI
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
 
-@OptIn(KoinExperimentalAPI::class)
 fun NavGraphBuilder.searchStreamsNavGraph(navController: NavHostController) {
-    composable(Routes.SEARCH) { _ ->
+    composable(Routes.SEARCH) { nav ->
         BackHandler(true) {}
-        rememberKoinModules {
-            listOf(SearchModule.module)
+        if (nav.lifecycle.currentState == Lifecycle.State.STARTED) {
+            loadKoinModules(SearchModule.module)
         }
         SearchScreen(
             navController = navController,
             onNavigateDetailList = { id ->
                 navController.navigate("${Routes.DETAIL}${id}")
+            },
+            disposable = {
+                unloadKoinModules(SearchModule.module)
             }
         )
     }
