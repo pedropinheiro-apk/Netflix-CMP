@@ -23,7 +23,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.paging.PagingData
@@ -86,17 +85,6 @@ fun SearchCarouselStream(
 }
 
 @Composable
-@Preview
-fun StreamsCarouselPreview() {
-    SearchCarouselStream(
-        content = SearchCarousel(
-            genreTitle = "Comédia",
-            contentList = emptyFlow()
-        )
-    )
-}
-
-@Composable
 fun StreamsError(
     onRetry: () -> Unit,
     onCloseButton: () -> Unit
@@ -144,7 +132,6 @@ fun StreamsError(
 }
 
 @Composable
-@Preview
 fun StreamsEmpty() {
     Row(verticalAlignment = Alignment.CenterVertically) {
         Column {
@@ -159,13 +146,4 @@ fun StreamsEmpty() {
             )
         }
     }
-}
-
-@Composable
-@Preview
-fun StreamsErrorPreview() {
-    StreamsError(
-        onRetry = {},
-        onCloseButton = {}
-    )
 }

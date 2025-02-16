@@ -28,7 +28,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.codandotv.streamplayerapp.core_navigation.bottomnavigation.StreamPlayerBottomNavigation
-import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreviews
 import com.codandotv.streamplayerapp.core_shared_ui.widget.StreamPlayerTopBar
 import com.codandotv.streamplayerapp.feature_list_streams.list.presentation.widgets.HighlightBanner
 import com.codandotv.streamplayerapp.core_shared_ui.widget.StreamsCarousel
@@ -100,8 +99,3 @@ fun ListStreamsScreen(
     }
 }
 
-@ThemePreviews
-@Composable
-fun ListStreamsScreenPreview() {
-    ListStreamsScreen(navController = rememberNavController(), profilePicture = "")
-}

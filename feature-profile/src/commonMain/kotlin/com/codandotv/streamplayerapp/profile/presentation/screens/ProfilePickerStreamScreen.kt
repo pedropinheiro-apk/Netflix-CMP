@@ -20,8 +20,6 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreview
-import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreviews
 import com.codandotv.streamplayerapp.feature.profile.R
 import com.codandotv.streamplayerapp.profile.domain.ProfileStream
 import com.codandotv.streamplayerapp.profile.presentation.widget.LoadScreen
@@ -67,7 +65,7 @@ fun ProfilePickerStreamScreen(
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-private fun SetupProfilePickerScreen(
+fun SetupProfilePickerScreen(
     uiState: ProfilePickerStreamsUIState,
     onSetCenterImageAlpha: (Float) -> Unit = {},
     onSetScreenSize: (Float, Float, Int, Int) -> Unit = { _, _, _, _ -> },
