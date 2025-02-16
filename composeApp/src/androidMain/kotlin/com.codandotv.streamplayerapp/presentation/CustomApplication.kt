@@ -1,4 +1,4 @@
-package com.codandotv.streamplayerapp
+package com.codandotv.streamplayerapp.presentation
 
 import android.app.Application
 import com.codandotv.streamplayerapp.di.AppModule
