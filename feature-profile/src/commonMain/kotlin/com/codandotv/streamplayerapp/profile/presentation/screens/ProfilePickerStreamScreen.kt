@@ -20,6 +20,8 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreview
+import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreviews
 import com.codandotv.streamplayerapp.feature.profile.R
 import com.codandotv.streamplayerapp.profile.domain.ProfileStream
 import com.codandotv.streamplayerapp.profile.presentation.widget.LoadScreen
@@ -40,11 +42,8 @@ import streamplayerapp_kmp.feature_profile.generated.resources.profile_animation
 fun ProfilePickerStreamScreen(
     viewModel: ProfilePickerStreamViewModel = koinViewModel(),
     onNavigateListStreams: (String) -> Unit = {},
-    disposable: () -> Unit = {}
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-    val lifecycleOwner = LocalLifecycleOwner.current
-    Lifecycle(lifecycleOwner, viewModel, disposable)
 
     if (uiState.isLoading) {
         LoadScreen()
@@ -155,20 +154,4 @@ fun SetupProfilePickerScreen(
             }
         }
     )
-}
-
-@Composable
-private fun Lifecycle(
-    lifecycleOwner: LifecycleOwner, viewModel: ProfilePickerStreamViewModel, disposable: () -> Unit
-) {
-    DisposableEffect(lifecycleOwner) {
-        val lifecycle = lifecycleOwner.lifecycle
-
-        lifecycle.addObserver(viewModel)
-
-        onDispose {
-            lifecycle.removeObserver(viewModel)
-            disposable.invoke()
-        }
-    }
 }
