@@ -1,6 +1,5 @@
 package com.codandotv.streamplayerapp.core_shared_ui.widget
 
-import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -33,6 +32,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -47,20 +47,14 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
-import com.codandotv.streamplayerapp.core_shared.extension.getUriFromUrlImage
 import com.codandotv.streamplayerapp.core_shared_ui.resources.Colors
 import com.codandotv.streamplayerapp.core_shared_ui.utils.Sharing.ANIMATION_DURATION
 import com.codandotv.streamplayerapp.core_shared_ui.utils.Sharing.ANIMATION_EXECUTION_DELAY
 import com.codandotv.streamplayerapp.core_shared_ui.utils.Sharing.COPY_CONTENT_TYPE_TEXT
-import com.codandotv.streamplayerapp.core_shared_ui.utils.Sharing.INSTAGRAM_PACKAGE_SHARING
-import com.codandotv.streamplayerapp.core_shared_ui.utils.Sharing.INSTAGRAM_STORY_DESTINATION
 import com.codandotv.streamplayerapp.core_shared_ui.utils.Sharing.OPTIONS_TITLE_MESSAGE
-import com.codandotv.streamplayerapp.core_shared_ui.utils.Sharing.SHARING_DATA_TYPE_IMAGE
 import com.codandotv.streamplayerapp.core_shared_ui.utils.Sharing.SHARING_DATA_TYPE_TEXT
 import com.codandotv.streamplayerapp.core_shared_ui.utils.Sharing.SMS_CONTENT_BODY
 import com.codandotv.streamplayerapp.core_shared_ui.utils.Sharing.SMS_CONTENT_TYPE
-import com.codandotv.streamplayerapp.core_shared_ui.utils.Sharing.WHATSAPP_PACKAGE_SHARING
-import com.codandotv.streamplayerapp.core_shared_ui.utils.isPackageInstalled
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -84,9 +78,9 @@ import streamplayerapp_kmp.core_shared_ui.generated.resources.sharing_whatsapp_m
 import streamplayerapp_kmp.core_shared_ui.generated.resources.sms_app_error_message
 import streamplayerapp_kmp.core_shared_ui.generated.resources.whatsapp_not_installed_message
 
-@Suppress("LongMethod")
 @Composable
-fun SharingStreamCustomView(
+actual fun SharingStreamPlatform(
+    modifier: Modifier,
     contentTitle: String,
     contentUrl: String,
     setShowDialog: (Boolean) -> Unit
@@ -322,29 +316,30 @@ private fun shareInstagramStory(
     contentUrl: String,
     errorMessage: String
 ) {
-    if (isPackageInstalled(WHATSAPP_PACKAGE_SHARING, context)) {
-        Thread {
-            val imgBitmapUri = getUriFromUrlImage(contentUrl, context)
-
-            val storiesIntent = Intent(INSTAGRAM_STORY_DESTINATION)
-            storiesIntent.setDataAndType(imgBitmapUri, SHARING_DATA_TYPE_IMAGE)
-            storiesIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            storiesIntent.setPackage(INSTAGRAM_PACKAGE_SHARING)
-
-            context.grantUriPermission(
-                INSTAGRAM_PACKAGE_SHARING, imgBitmapUri, Intent.FLAG_GRANT_READ_URI_PERMISSION
-            )
-            (context as Activity).runOnUiThread {
-                context.startActivity(storiesIntent)
-            }
-        }.start()
-    } else {
-        Toast.makeText(
-            context,
-            errorMessage,
-            Toast.LENGTH_SHORT
-        ).show()
-    }
+//    if (isPackageInstalled(WHATSAPP_PACKAGE_SHARING)) {
+//        Thread {
+            //TODO:
+//            val imgBitmapUri = getUriFromUrlImage(contentUrl)
+//
+//            val storiesIntent = Intent(INSTAGRAM_STORY_DESTINATION)
+//            storiesIntent.setDataAndType(imgBitmapUri, SHARING_DATA_TYPE_IMAGE)
+//            storiesIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+//            storiesIntent.setPackage(INSTAGRAM_PACKAGE_SHARING)
+//
+//            context.grantUriPermission(
+//                INSTAGRAM_PACKAGE_SHARING, imgBitmapUri, Intent.FLAG_GRANT_READ_URI_PERMISSION
+//            )
+//            (context as Activity).runOnUiThread {
+//                context.startActivity(storiesIntent)
+//            }
+//        }.start()
+//    } else {
+//        Toast.makeText(
+//            context,
+//            errorMessage,
+//            Toast.LENGTH_SHORT
+//        ).show()
+//    }
 }
 
 private fun shareWhatsAppMessage(
@@ -352,19 +347,19 @@ private fun shareWhatsAppMessage(
     message: String,
     errorMessage: String
 ) {
-    if (isPackageInstalled(WHATSAPP_PACKAGE_SHARING, context)) {
-        val intent = Intent(Intent.ACTION_SEND)
-        intent.type = SHARING_DATA_TYPE_TEXT
-        intent.setPackage(WHATSAPP_PACKAGE_SHARING)
-        intent.putExtra(Intent.EXTRA_TEXT, message)
-        context.startActivity(intent)
-    } else {
+//    if (isPackageInstalled(WHATSAPP_PACKAGE_SHARING)) {
+//        val intent = Intent(Intent.ACTION_SEND)
+//        intent.type = SHARING_DATA_TYPE_TEXT
+//        intent.setPackage(WHATSAPP_PACKAGE_SHARING)
+//        intent.putExtra(Intent.EXTRA_TEXT, message)
+//        context.startActivity(intent)
+//    } else {
         Toast.makeText(
             context,
             errorMessage,
             Toast.LENGTH_SHORT
         ).show()
-    }
+//    }
 }
 
 private fun copyContentLink(context: Context, linkCopiedMessage: String, contentUrl: String) {

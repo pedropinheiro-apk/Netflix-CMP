@@ -26,6 +26,10 @@ class  DetailStreamViewModel(
     private val dispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
+    init {
+        loadDetail()
+    }
+
     private val _uiState = MutableStateFlow<DetailStreamsUIState>(LoadingStreamUIState)
     val uiState: StateFlow<DetailStreamsUIState> = _uiState.stateIn(
         viewModelScope,
