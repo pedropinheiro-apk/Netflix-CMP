@@ -1,6 +1,5 @@
 package com.codandotv.streamplayerapp.core_networking.di
 
-import android.util.Log
 import com.codandotv.streamplayerapp.core_networking.di.Network.TIMEOUT
 import com.codandotv.streamplayerapp.core_networking.httpClientEnginePlatform
 import core.networking.BuildKonfig
@@ -79,7 +78,8 @@ object NetworkModule {
                 level = LogLevel.ALL
                 logger = object : Logger {
                     override fun log(message: String) {
-                        Log.i("HttpClient", message)
+                        //TODO: Migrar Logs para Utilizar Kermit
+                        println("HttpClient${message}")
                     }
                 }
             }
