@@ -14,6 +14,7 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.koin.core)
             implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
 
             implementation(projects.coreNetworking)
             implementation(projects.coreNavigation)
@@ -27,12 +28,10 @@ kotlin {
 
             implementation(libs.navigation.compose)
 
-            implementation(libs.coil)
-
             implementation(libs.ktor.client.content.serialization.json)
             implementation(libs.ktor.client.content.negotiation)
         }
-        commonTest.dependencies {
+        androidUnitTest.dependencies {
             implementation(libs.bundles.test)
         }
     }

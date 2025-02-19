@@ -17,7 +17,7 @@ import com.codandotv.streamplayerapp.feature_search.domain.MostPopularMoviesUseC
 import com.codandotv.streamplayerapp.feature_search.domain.SearchUseCase
 import com.codandotv.streamplayerapp.feature_search.domain.SearchUseCaseImpl
 import com.codandotv.streamplayerapp.feature_search.presentation.screens.SearchViewModel
-import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 object SearchModule {

@@ -24,7 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
+import com.codandotv.streamplayerapp.core_shared_ui.widget.WebImage
 
 @Suppress("MagicNumber")
 @Composable
@@ -79,8 +79,8 @@ fun ImageStream(modifier: Modifier, url: String) {
         shape = RoundedCornerShape(4.dp),
         modifier = modifier
     ) {
-        AsyncImage(
-            model = url,
+        WebImage(
+            imageUrl = url,
             contentScale = ContentScale.FillBounds,
             contentDescription = "",
             modifier = Modifier.fillMaxSize()

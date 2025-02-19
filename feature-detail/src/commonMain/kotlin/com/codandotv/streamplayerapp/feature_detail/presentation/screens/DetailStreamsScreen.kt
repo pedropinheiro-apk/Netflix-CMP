@@ -1,6 +1,5 @@
 package com.codandotv.streamplayerapp.feature_detail.presentation.screens
 
-import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -15,11 +14,11 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -30,7 +29,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.codandotv.streamplayerapp.core_shared_ui.widget.SharingStreamPlatform
 import com.codandotv.streamplayerapp.feature_detail.domain.DetailStream
@@ -40,7 +38,7 @@ import com.codandotv.streamplayerapp.feature_detail.presentation.widget.DetailSt
 import com.codandotv.streamplayerapp.feature_detail.presentation.widget.DetailStreamRowHeader
 import com.codandotv.streamplayerapp.feature_detail.presentation.widget.DetailStreamToolbar
 import org.jetbrains.compose.resources.stringResource
-import org.koin.androidx.compose.koinViewModel
+import org.koin.compose.viewmodel.koinViewModel
 import streamplayerapp_kmp.feature_detail.generated.resources.Res
 import streamplayerapp_kmp.feature_detail.generated.resources.detail_default_text_secondary_button
 import streamplayerapp_kmp.feature_detail.generated.resources.detail_watch_primary_button
@@ -51,7 +49,7 @@ fun DetailStreamScreen(
     navController: NavController,
     onNavigateSearchScreen: () -> Unit = {},
 ) {
-    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val uiState by viewModel.uiState.collectAsState()
 
     when (uiState) {
         is DetailStreamsUIState.DetailStreamsLoadedUIState -> {
@@ -174,12 +172,12 @@ private fun SetupDetailScreen(
                         showDialog.value = it
                     })
             }
-            BackHandler {
+            /*BackHandler {
                 if (showDialog.value) {
                     showDialog.value = false
                 } else {
                     navController.navigateUp()
                 }
-            }
+            }*/
         })
 }

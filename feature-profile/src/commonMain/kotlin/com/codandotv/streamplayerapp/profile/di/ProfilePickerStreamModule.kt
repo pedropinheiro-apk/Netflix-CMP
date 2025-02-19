@@ -7,7 +7,7 @@ import com.codandotv.streamplayerapp.profile.data.ProfilePickerStreamServiceImpl
 import com.codandotv.streamplayerapp.profile.domain.ProfilePickerStreamUseCase
 import com.codandotv.streamplayerapp.profile.domain.ProfilePickerStreamUseCaseImpl
 import com.codandotv.streamplayerapp.profile.presentation.screens.ProfilePickerStreamViewModel
-import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 object ProfilePickerStreamModule {

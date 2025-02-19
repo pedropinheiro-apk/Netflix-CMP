@@ -19,14 +19,12 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
-import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
-import com.codandotv.streamplayerapp.core_shared.extension.empty
+import coil3.compose.AsyncImage
 import com.codandotv.streamplayerapp.core_shared_ui.resources.Colors
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource

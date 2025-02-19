@@ -11,8 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
-import com.codandotv.streamplayerapp.core_shared.Url.IMAGE_URL_SIZE_300
+import coil3.compose.AsyncImage
 import kotlinx.parcelize.Parcelize
 
 @Composable

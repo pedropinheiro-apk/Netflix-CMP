@@ -13,7 +13,7 @@ import com.codandotv.streamplayerapp.feature_list_streams.list.domain.ListStream
 import com.codandotv.streamplayerapp.feature_list_streams.list.domain.ListStreamUseCase
 import com.codandotv.streamplayerapp.feature_list_streams.list.domain.ListStreamUseCaseImpl
 import com.codandotv.streamplayerapp.feature_list_streams.list.presentation.screens.ListStreamViewModel
-import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 object ListStreamModule {
