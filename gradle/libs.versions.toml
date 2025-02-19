@@ -9,7 +9,7 @@ kover = "0.7.5"
 detekt = "1.23.6"
 compose_plugin_multiplataform = "1.7.1"
 navigation-compose-version = "2.7.0-alpha07"
-paging-compose = "3.3.6"
+paging-compose = "3.3.0-alpha02-0.5.1"
 buildkonfig = "0.15.2"
 
 #Test
@@ -54,7 +54,7 @@ mockk_android = { group = "io.mockk", name = "mockk-android", version.ref = "moc
 viewmodel_test = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidx_core_testing" }
 coroutines_test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines-test" }
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigation-compose-version" }
-paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging-compose" }
+paging-compose = { module = "app.cash.paging:paging-compose-common", version.ref = "paging-compose" }
 
 # Koin
 koin_test = { group = "io.insert-koin", name = "koin-test-junit4", version.ref = "koin" }
