@@ -1,7 +1,5 @@
 package com.codandotv.streamplayerapp.feature_search.presentation.navigation
 
-import androidx.activity.compose.BackHandler
-import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
@@ -10,13 +8,11 @@ import com.codandotv.streamplayerapp.feature_search.di.SearchModule
 import com.codandotv.streamplayerapp.feature_search.presentation.screens.SearchScreen
 import org.koin.compose.module.rememberKoinModules
 import org.koin.core.annotation.KoinExperimentalAPI
-import org.koin.core.context.loadKoinModules
-import org.koin.core.context.unloadKoinModules
 
 @OptIn(KoinExperimentalAPI::class)
 fun NavGraphBuilder.searchStreamsNavGraph(navController: NavHostController) {
     composable(Routes.SEARCH) { _ ->
-        BackHandler(true) {}
+//        BackHandler(true) {}
         rememberKoinModules {
             listOf(SearchModule.module)
         }

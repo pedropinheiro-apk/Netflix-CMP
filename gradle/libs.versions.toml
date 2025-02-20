@@ -1,13 +1,13 @@
 [versions]
-kotlin = "2.0.21"
+kotlin = "2.1.10"
 android_gradle_plugin = "8.8.0"
 koin = "4.0.1"
-ksp = "2.0.21-1.0.27"
+ksp = "2.1.10-1.0.29"
 
 dokka = "1.9.10"
 kover = "0.7.5"
 detekt = "1.23.6"
-compose_plugin_multiplataform = "1.7.1"
+compose_plugin_multiplataform = "1.7.3"
 navigation-compose-version = "2.7.0-alpha07"
 paging-compose = "3.3.0-alpha02-0.5.1"
 buildkonfig = "0.15.2"
@@ -26,8 +26,8 @@ coil = "3.1.0"
 lottie = "5.2.0"
 
 #Room Database
-room = "2.7.0-alpha11"
-sqlite = "2.5.0-alpha11"
+room = "2.7.0-alpha13"
+sqlite = "2.5.0-SNAPSHOT"
 
 android_youtube_player_version = "12.0.0"
 

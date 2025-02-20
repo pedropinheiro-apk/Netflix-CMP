@@ -1,7 +1,5 @@
 package com.codandotv.streamplayerapp.feature_list_streams.core
 
-import androidx.annotation.StringRes
-import com.codandotv.streamplayerapp.feature.list.streams.R
 import org.jetbrains.compose.resources.StringResource
 import streamplayerapp_kmp.feature_list_streams.generated.resources.Res
 import streamplayerapp_kmp.feature_list_streams.generated.resources.list_content_type_film

@@ -1,6 +1,5 @@
 package com.codandotv.streamplayerapp.core_shared_ui.widget
 
-import android.os.Parcelable
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -12,7 +11,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import kotlinx.parcelize.Parcelize
 
 @Composable
 fun StreamsCard(
@@ -42,9 +40,8 @@ fun StreamsCard(
     }
 }
 
-@Parcelize
 data class StreamsCardContent(
     val id: String,
     val url: String,
     val contentDescription: String,
-) : Parcelable
+)
