@@ -9,21 +9,24 @@ kotlin {
     sourceSets {
         androidMain.dependencies {
             implementation(compose.preview)
+            implementation(libs.android.youtube.player)
+            implementation(libs.ktor.client.okhttp)
         }
         commonMain.dependencies {
             implementation(projects.coreShared)
-
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
-
             implementation(libs.navigation.compose)
 
-            implementation(libs.android.youtube.player)
-
             implementation(libs.coil)
+            implementation(libs.coil.network.ktor3)
 
             implementation(libs.paging.compose)
+        }
+
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
         }
     }
 }

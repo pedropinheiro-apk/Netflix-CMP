@@ -31,31 +31,24 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
-import com.codandotv.streamplayerapp.feature.list.streams.R
-import com.codandotv.streamplayerapp.feature_list_streams.core.ContentType
+import com.codandotv.streamplayerapp.core_shared_ui.widget.WebImage
 import com.codandotv.streamplayerapp.feature_list_streams.list.domain.model.HighlightBanner
 import com.codandotv.streamplayerapp.feature_list_streams.list.domain.model.IconAndTextInfo
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-import streamplayerapp_kmp.core_shared_ui.generated.resources.app_name
 import streamplayerapp_kmp.core_shared_ui.generated.resources.ic_add
 import streamplayerapp_kmp.core_shared_ui.generated.resources.ic_info
 import streamplayerapp_kmp.core_shared_ui.generated.resources.ic_netflix
 import streamplayerapp_kmp.core_shared_ui.generated.resources.ic_play
 import streamplayerapp_kmp.core_shared_ui.generated.resources.icon_netflix
 import streamplayerapp_kmp.feature_list_streams.generated.resources.Res
-import streamplayerapp_kmp.feature_list_streams.generated.resources.ic_top_10
 import streamplayerapp_kmp.feature_list_streams.generated.resources.list_highligh_banner_content
-import streamplayerapp_kmp.feature_list_streams.generated.resources.list_highlight_banner_add
-import streamplayerapp_kmp.feature_list_streams.generated.resources.list_highlight_banner_info
 import streamplayerapp_kmp.feature_list_streams.generated.resources.list_highlight_banner_watch
 import streamplayerapp_kmp.feature_list_streams.generated.resources.list_icon_add
 import streamplayerapp_kmp.feature_list_streams.generated.resources.list_icon_highligh_banner_ranking
 import streamplayerapp_kmp.feature_list_streams.generated.resources.list_icon_info
 import streamplayerapp_kmp.feature_list_streams.generated.resources.list_icon_play
-import com.codandotv.streamplayerapp.core.shared.ui.R as RSharedUI
 import streamplayerapp_kmp.core_shared_ui.generated.resources.Res as SharedRes
 
 @Suppress("MagicNumber")
@@ -90,9 +83,9 @@ fun HighlightBanner(modifier: Modifier = Modifier, data: HighlightBanner?) {
 
 @Composable
 fun ContentImage(modifier: Modifier = Modifier, imageUrl: String) {
-    AsyncImage(
+    WebImage(
         modifier = modifier.fillMaxSize(),
-        model = imageUrl,
+        imageUrl = imageUrl,
         contentScale = ContentScale.Crop,
         contentDescription = stringResource(Res.string.list_highligh_banner_content)
     )

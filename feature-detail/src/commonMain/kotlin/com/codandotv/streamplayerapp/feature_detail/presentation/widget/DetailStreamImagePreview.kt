@@ -15,8 +15,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
 import com.codandotv.streamplayerapp.core_shared_ui.widget.PlayerComponentPlatform
+import com.codandotv.streamplayerapp.core_shared_ui.widget.WebImage
 import com.codandotv.streamplayerapp.feature_detail.presentation.screens.DetailStreamsUIState.DetailStreamsLoadedUIState
 import org.jetbrains.compose.resources.painterResource
 import streamplayerapp_kmp.feature_detail.generated.resources.Res
@@ -41,8 +41,8 @@ fun DetailStreamImagePreview(
                 videoId = uiState.videoId ?: ""
             )
         } else {
-            AsyncImage(
-                model = uiState.detailStream.url,
+            WebImage(
+                imageUrl = uiState.detailStream.url,
                 contentScale = ContentScale.FillBounds,
                 contentDescription = uiState.detailStream.tagline,
                 modifier = Modifier

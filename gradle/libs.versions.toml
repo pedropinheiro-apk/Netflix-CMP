@@ -1,15 +1,15 @@
 [versions]
-kotlin = "2.0.21"
-android_gradle_plugin = "8.2.2"
-koin = "3.5.3"
-ksp = "2.0.21-1.0.27"
+kotlin = "2.1.10"
+android_gradle_plugin = "8.8.0"
+koin = "4.0.1"
+ksp = "2.1.10-1.0.29"
 
 dokka = "1.9.10"
 kover = "0.7.5"
 detekt = "1.23.6"
-compose_plugin_multiplataform = "1.7.1"
+compose_plugin_multiplataform = "1.7.3"
 navigation-compose-version = "2.7.0-alpha07"
-paging-compose = "3.3.5"
+paging-compose = "3.3.0-alpha02-0.5.1"
 buildkonfig = "0.15.2"
 
 #Test
@@ -22,7 +22,7 @@ kotlinx-coroutines-test = "1.8.1"
 okhttp = "4.12.0"
 ktor = "3.0.1"
 
-coil = "2.3.0"
+coil = "3.1.0"
 lottie = "5.2.0"
 
 #Room Database
@@ -42,7 +42,8 @@ com-google-devtools-ksp-gradle-plugin = { module = "com.google.devtools.ksp:com.
 
 kover-gradle-plugin = { module = "org.jetbrains.kotlinx:kover-gradle-plugin", version.ref = "kover" }
 
-coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+coil = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
+coil-network-ktor3 = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref="coil"}
 
 lottie = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottie" }
 
@@ -54,13 +55,14 @@ mockk_android = { group = "io.mockk", name = "mockk-android", version.ref = "moc
 viewmodel_test = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidx_core_testing" }
 coroutines_test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines-test" }
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigation-compose-version" }
-paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging-compose" }
+paging-compose = { module = "app.cash.paging:paging-compose-common", version.ref = "paging-compose" }
 
 # Koin
 koin_test = { group = "io.insert-koin", name = "koin-test-junit4", version.ref = "koin" }
 koin_android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
 koin_core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
-koin_compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
+koin_compose = { module = "io.insert-koin:koin-compose", version.ref = "koin" }
+koin_compose_viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin" }
 
 #Networking
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
@@ -70,6 +72,7 @@ ktor_client_core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor_client_okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 ktor_client_logger = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 ktor_client_auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor" }
+ktor_client_darwin = { group = "io.ktor", name = "ktor-client-darwin", version.ref = "ktor" }
 ktor_client_content_negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor_client_content_serialization_json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 

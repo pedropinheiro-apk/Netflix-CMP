@@ -1,6 +1,5 @@
 package com.codandotv.streamplayerapp.profile.data
 
-import android.util.Log
 import com.codandotv.streamplayerapp.core_networking.handleError.toFlow
 import com.codandotv.streamplayerapp.core_networking.handleError.toResult
 import com.codandotv.streamplayerapp.profile.domain.ProfileStream
@@ -21,7 +20,7 @@ class ProfilePickerStreamRepositoryImpl(
 
         with(service.getProfiles()) {
             if (this.toResult().isFailure || this.toResult().getOrNull() == null) {
-                Log.i("ProfilePickerStreamRepositoryImpl", "versão off carregada")
+                // Log.i("ProfilePickerStreamRepositoryImpl", "versão off carregada")
                 return flowOf(mockProfiles)
             } else {
                 return this.toFlow().map { it.toProfiles() }

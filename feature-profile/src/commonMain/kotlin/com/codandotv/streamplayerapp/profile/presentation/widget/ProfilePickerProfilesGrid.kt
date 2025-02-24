@@ -18,10 +18,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
-import com.codandotv.streamplayerapp.feature.profile.R
+import com.codandotv.streamplayerapp.core_shared_ui.widget.WebImage
 import com.codandotv.streamplayerapp.profile.domain.ProfileStream
 import com.codandotv.streamplayerapp.profile.presentation.screens.ProfilePickerStreamsUIState
 import org.jetbrains.compose.resources.painterResource
@@ -93,12 +93,14 @@ private fun ProfileItem(
                     profileItemPosition
                 }
         ) {
-            AsyncImage(
-                model = profile.imageUrl,
-                placeholder = painterResource(Res.drawable.image_placeholder),
+            WebImage(
+                imageUrl = profile.imageUrl,
+                //placeholder = painterResource(Res.drawable.image_placeholder),
                 contentDescription = stringResource(
                     Res.string.profile_current_profile_name,
-                ).format(profile.name),
+                    profile.name
+                ),
+                contentScale = ContentScale.Fit,
                 modifier = Modifier
                     .clip(RoundedCornerShape(5))
                     .alpha(if (selectedItem == profile) selectedImageAlpha else 1f)

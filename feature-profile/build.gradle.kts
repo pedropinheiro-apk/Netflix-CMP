@@ -20,13 +20,12 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
 
-            implementation(libs.coil)
-
             implementation(libs.ktor.client.content.serialization.json)
             implementation(libs.ktor.client.content.negotiation)
 
             implementation(libs.koin.core)
             implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
         }
     }
 }

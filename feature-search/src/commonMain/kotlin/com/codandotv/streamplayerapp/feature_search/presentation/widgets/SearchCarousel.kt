@@ -26,14 +26,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.paging.PagingData
-import androidx.paging.compose.collectAsLazyPagingItems
-import androidx.paging.compose.itemContentType
-import androidx.paging.compose.itemKey
+import app.cash.paging.compose.collectAsLazyPagingItems
+import app.cash.paging.compose.itemContentType
+import app.cash.paging.compose.itemKey
 import com.codandotv.streamplayerapp.core_shared_ui.widget.StreamsCard
 import com.codandotv.streamplayerapp.core_shared_ui.widget.StreamsCardContent
-import com.codandotv.streamplayerapp.feature.search.R
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.emptyFlow
 import org.jetbrains.compose.resources.stringResource
 import streamplayerapp_kmp.feature_search.generated.resources.Res
 import streamplayerapp_kmp.feature_search.generated.resources.bottom_search_list_error

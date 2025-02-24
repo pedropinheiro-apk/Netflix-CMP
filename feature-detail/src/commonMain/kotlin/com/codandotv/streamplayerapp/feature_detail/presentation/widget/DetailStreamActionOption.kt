@@ -18,7 +18,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.codandotv.streamplayerapp.core_shared_ui.widget.IconWithText
-import com.codandotv.streamplayerapp.feature.detail.R
 import com.codandotv.streamplayerapp.feature_detail.domain.DetailStream
 import org.jetbrains.compose.resources.stringResource
 import streamplayerapp_kmp.feature_detail.generated.resources.Res

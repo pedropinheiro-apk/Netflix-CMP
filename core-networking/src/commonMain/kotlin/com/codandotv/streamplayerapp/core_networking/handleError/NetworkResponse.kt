@@ -3,6 +3,7 @@ package com.codandotv.streamplayerapp.core_networking.handleError
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
 
 @Serializable
 sealed class NetworkResponse<out T> {

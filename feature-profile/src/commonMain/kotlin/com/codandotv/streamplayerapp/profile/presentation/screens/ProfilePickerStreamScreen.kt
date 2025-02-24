@@ -1,28 +1,20 @@
 package com.codandotv.streamplayerapp.profile.presentation.screens
 
-import android.annotation.SuppressLint
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.animateIntOffsetAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreview
-import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreviews
-import com.codandotv.streamplayerapp.feature.profile.R
 import com.codandotv.streamplayerapp.profile.domain.ProfileStream
 import com.codandotv.streamplayerapp.profile.presentation.widget.LoadScreen
 import com.codandotv.streamplayerapp.profile.presentation.widget.ProfilePickerOpacityLayer
@@ -31,7 +23,7 @@ import com.codandotv.streamplayerapp.profile.presentation.widget.ProfilePickerSe
 import com.codandotv.streamplayerapp.profile.presentation.widget.ProfilePickerStreamToolbar
 import com.codandotv.streamplayerapp.profile.presentation.widget.dpToPx
 import org.jetbrains.compose.resources.stringResource
-import org.koin.androidx.compose.koinViewModel
+import org.koin.compose.viewmodel.koinViewModel
 import streamplayerapp_kmp.feature_profile.generated.resources.Res
 import streamplayerapp_kmp.feature_profile.generated.resources.profile_animation_background_opacity
 import streamplayerapp_kmp.feature_profile.generated.resources.profile_animation_selected_image_position
@@ -43,7 +35,7 @@ fun ProfilePickerStreamScreen(
     viewModel: ProfilePickerStreamViewModel = koinViewModel(),
     onNavigateListStreams: (String) -> Unit = {},
 ) {
-    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val uiState by viewModel.uiState.collectAsState()
 
     if (uiState.isLoading) {
         LoadScreen()
@@ -64,8 +56,6 @@ fun ProfilePickerStreamScreen(
 }
 
 @Suppress("LongMethod", "LongParameterList")
-@OptIn(ExperimentalMaterial3Api::class)
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun SetupProfilePickerScreen(
     uiState: ProfilePickerStreamsUIState,

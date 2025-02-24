@@ -10,7 +10,8 @@ import com.codandotv.streamplayerapp.feature_detail.domain.VideoStreamsUseCase
 import com.codandotv.streamplayerapp.feature_detail.domain.VideoStreamsUseCaseImpl
 import com.codandotv.streamplayerapp.feature_detail.presentation.screens.DetailStreamViewModel
 import kotlinx.coroutines.Dispatchers
-import org.koin.androidx.viewmodel.dsl.viewModel
+import kotlinx.coroutines.IO
+import org.koin.core.module.dsl.viewModel
 import org.koin.core.parameter.parametersOf
 import org.koin.dsl.module
 
