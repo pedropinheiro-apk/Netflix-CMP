@@ -50,10 +50,15 @@ class LottieView : UIView {
         animationView.loopMode = .loop
         animationView.frame = bounds
         
+        if let animation = loadLottieAnimation(from: animationContentJson) {
+            animationView.animation = animation
+            animationView.loopMode = .loop
+            animationView.play()
+        }
+    }
+    
+    func loadLottieAnimation(from jsonString: String) -> LottieAnimation? {
         guard let data = jsonString.data(using: .utf8) else { return nil }
-        let animation = JSONDecoder().decode(LottieAnimation.self, from: data)
-        animationView.animation = animation
-        animationView.loopMode = .loop
-        animationView.play()
+        return try? JSONDecoder().decode(LottieAnimation.self, from: data)
     }
 }
