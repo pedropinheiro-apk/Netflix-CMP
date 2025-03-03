@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import com.codandotv.streamplayerapp.core_shared_ui.widget.PlayerComponentPlatform
+import com.codandotv.streamplayerapp.core_shared_ui.widget.YoutubePlayerComponentPlatform
 import com.codandotv.streamplayerapp.core_shared_ui.widget.WebImage
 import com.codandotv.streamplayerapp.feature_detail.presentation.screens.DetailStreamsUIState.DetailStreamsLoadedUIState
 import org.jetbrains.compose.resources.painterResource
@@ -37,7 +37,7 @@ fun DetailStreamImagePreview(
         contentAlignment = Alignment.Center
     ) {
         if (showPlayer) {
-            PlayerComponentPlatform(
+            YoutubePlayerComponentPlatform(
                 videoId = uiState.videoId ?: ""
             )
         } else {

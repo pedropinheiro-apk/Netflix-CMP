@@ -12,7 +12,6 @@ import org.koin.core.annotation.KoinExperimentalAPI
 @OptIn(KoinExperimentalAPI::class)
 fun NavGraphBuilder.searchStreamsNavGraph(navController: NavHostController) {
     composable(Routes.SEARCH) { _ ->
-//        BackHandler(true) {}
         rememberKoinModules {
             listOf(SearchModule.module)
         }

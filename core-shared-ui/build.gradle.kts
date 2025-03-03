@@ -9,7 +9,6 @@ kotlin {
     sourceSets {
         androidMain.dependencies {
             implementation(compose.preview)
-            implementation(libs.android.youtube.player)
             implementation(libs.ktor.client.okhttp)
         }
         commonMain.dependencies {

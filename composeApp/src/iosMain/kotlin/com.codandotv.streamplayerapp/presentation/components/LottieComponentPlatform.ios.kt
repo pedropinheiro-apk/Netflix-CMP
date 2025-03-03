@@ -4,4 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-actual fun LottieComponent(modifier: Modifier, onAnimationFinished: () -> Unit) = Unit
+actual fun LottieComponent(modifier: Modifier, onAnimationFinished: () -> Unit) {
+
+    onAnimationFinished.invoke()
+}

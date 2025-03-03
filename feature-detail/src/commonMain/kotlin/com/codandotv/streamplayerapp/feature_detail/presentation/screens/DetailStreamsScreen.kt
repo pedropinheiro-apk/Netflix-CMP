@@ -172,12 +172,5 @@ private fun SetupDetailScreen(
                         showDialog.value = it
                     })
             }
-            /*BackHandler {
-                if (showDialog.value) {
-                    showDialog.value = false
-                } else {
-                    navController.navigateUp()
-                }
-            }*/
         })
 }

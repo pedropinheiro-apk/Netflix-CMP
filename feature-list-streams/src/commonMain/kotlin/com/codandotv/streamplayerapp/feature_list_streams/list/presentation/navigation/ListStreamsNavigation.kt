@@ -18,8 +18,6 @@ internal const val DEFAULT_ID = ""
 @OptIn(KoinExperimentalAPI::class)
 fun NavGraphBuilder.listStreamsNavGraph(navController: NavHostController) {
     composable(HOME_COMPLETE) { nav ->
-        // BackHandler(true) {}
-
         rememberKoinModules {
             listOf(ListStreamModule.module)
         }
