@@ -1,11 +1,3 @@
-//
-//  Lottie.swift
-//  iosApp
-//
-//  Created by Gabriel Bronzatti Moro on 25/02/25.
-//  Copyright © 2025 orgName. All rights reserved.
-//
-
 import Lottie
 import UIKit
 import streamplayerapp
