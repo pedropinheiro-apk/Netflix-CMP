@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.UIKitView
 import org.koin.mp.KoinPlatform
+import platform.UIKit.UIColor
 import platform.UIKit.UIView
 
 @Composable
@@ -19,7 +20,9 @@ actual fun LottieComponent(
     UIKitView(
         modifier = modifier,
         factory = {
-            provider.provideLottieView(jsonString)
+            val view = provider.provideLottieView(jsonString)
+            view.backgroundColor = UIColor.blackColor()
+            view
         }
     )
 }
