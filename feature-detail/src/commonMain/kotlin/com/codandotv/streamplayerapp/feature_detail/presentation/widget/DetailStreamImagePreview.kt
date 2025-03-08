@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -38,12 +39,15 @@ fun DetailStreamImagePreview(
     ) {
         if (showPlayer) {
             YoutubePlayerComponentPlatform(
-                videoId = uiState.videoId ?: ""
+                videoId = uiState.videoId ?: "",
+                modifier = Modifier
+                    .align(Alignment.TopCenter)
+                    .fillMaxSize()
             )
         } else {
             WebImage(
                 imageUrl = uiState.detailStream.url,
-                contentScale = ContentScale.FillBounds,
+                contentScale = ContentScale.Fit,
                 contentDescription = uiState.detailStream.tagline,
                 modifier = Modifier
                     .fillMaxWidth()
