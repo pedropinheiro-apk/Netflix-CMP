@@ -14,6 +14,8 @@ actual fun LottieComponent(
 ) {
     val provider = KoinPlatform.getKoin().get<LottieViewProvider>()
 
+    println(">>>> ${provider.hashCode()}")
+
     UIKitView(
         modifier = modifier,
         factory = {

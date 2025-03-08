@@ -3,7 +3,9 @@ package com.codandotv.streamplayerapp.presentation.screens
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -42,7 +44,9 @@ fun SplashScreen(
             lottieAnimationString?.let {
                 LottieComponent(
                     jsonString = it,
-                    modifier = Modifier,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .fillMaxHeight(),
                     onAnimationFinished = onAnimationFinished
                 )
             }
