@@ -15,12 +15,10 @@ actual fun LottieComponent(
 ) {
     val provider = KoinPlatform.getKoin().get<LottieViewProvider>()
 
-    println(">>>> ${provider.hashCode()}")
-
     UIKitView(
         modifier = modifier,
         factory = {
-            val view = provider.provideLottieView(jsonString)
+            val view = provider.provideLottieView(jsonString,onAnimationFinished)
             view.backgroundColor = UIColor.blackColor()
             view
         }

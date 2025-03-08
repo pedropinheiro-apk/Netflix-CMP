@@ -3,22 +3,22 @@ import UIKit
 import streamplayerapp
 
 class LottieViewProviderImpl : LottieViewProvider {
-    func provideLottieView(lottieAnimationJson: String) -> UIView {
+    func provideLottieView(lottieAnimationJson: String,onAnimationFinish: @escaping () -> Void) -> UIView {
         let lottieView = LottieView()
         lottieView.setupLottieAnimationView(
-            animationContentJson: lottieAnimationJson
+            animationContentJson: lottieAnimationJson,
+            onAnimationFinished: onAnimationFinish
         )
         return lottieView
     }
 }
-
 class LottieView : UIView {
     
     private let animationView: LottieAnimationView
+    var onAnimationFinished: (() -> Void)?
     
     override init(frame: CGRect) {
         animationView = LottieAnimationView()
-
         super.init(frame: frame)
     }
     
@@ -26,26 +26,30 @@ class LottieView : UIView {
         fatalError("init(coder:) has not been implemented.")
     }
     
-    func setupLottieAnimationView(animationContentJson: String) {
-        
+    func setupLottieAnimationView(animationContentJson: String, onAnimationFinished: @escaping () -> Void) {
+        self.onAnimationFinished = onAnimationFinished
+
         animationView.contentMode = .scaleAspectFit
-        
         addSubview(animationView)
-        
+
         animationView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            animationView.leftAnchor.constraint(equalTo: leftAnchor),
+            animationView.rightAnchor.constraint(equalTo: rightAnchor),
+            animationView.topAnchor.constraint(equalTo: topAnchor),
+            animationView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
 
-        animationView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        animationView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        animationView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        animationView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-
-        animationView.loopMode = .loop
+        animationView.loopMode = .playOnce // Toca apenas uma vez
         animationView.frame = bounds
         
         if let animation = loadLottieAnimation(from: animationContentJson) {
             animationView.animation = animation
-            animationView.loopMode = .loop
-            animationView.play()
+            animationView.play { finished in
+                if finished {
+                    self.onAnimationFinished?() // Chama o callback quando terminar
+                }
+            }
         }
     }
     
