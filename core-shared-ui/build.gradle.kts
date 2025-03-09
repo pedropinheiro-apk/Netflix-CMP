@@ -10,6 +10,7 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.ktor.client.okhttp)
+            implementation(libs.koin.android)
         }
         commonMain.dependencies {
             implementation(projects.coreShared)
