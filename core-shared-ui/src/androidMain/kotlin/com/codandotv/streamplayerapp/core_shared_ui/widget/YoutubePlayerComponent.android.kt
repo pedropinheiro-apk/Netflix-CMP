@@ -30,12 +30,14 @@ actual fun YoutubePlayerComponentPlatform(videoId: String, modifier: Modifier) {
         }
     }
 
-    val embedHTML = """
+    val embedHTML = remember {
+        """
         <html>
         <head><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
         <body>${videoId.videoIdToEmbedHTML()}</body>
         </html>
-    """.trimIndent()
+        """.trimIndent()
+    }
 
     AndroidView(
         modifier = modifier,

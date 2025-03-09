@@ -39,7 +39,7 @@ fun DetailStreamImagePreview(
     ) {
         if (showPlayer) {
             YoutubePlayerComponentPlatform(
-                videoId = uiState.videoId ?: "",
+                videoId = uiState.videoId.orEmpty(),
                 modifier = Modifier
                     .align(Alignment.TopCenter)
                     .fillMaxSize()
