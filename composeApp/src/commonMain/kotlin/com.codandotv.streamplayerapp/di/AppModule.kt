@@ -9,7 +9,6 @@ import org.koin.dsl.module
 
 object AppModule {
     private val module = module {
-//        single<Resources> { androidContext().resources }
         single(QualifierDispatcherIO) { Dispatchers.IO }
     }
     val list  = module + NetworkModule.module + LocalStorageModule.module

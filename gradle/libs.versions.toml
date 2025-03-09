@@ -29,7 +29,6 @@ lottie = "5.2.0"
 room = "2.7.0-alpha13"
 sqlite = "2.5.0-SNAPSHOT"
 
-android_youtube_player_version = "12.0.0"
 
 
 [libraries]
@@ -81,7 +80,6 @@ room_runtime = { group = "androidx.room", name = "room-runtime", version.ref = "
 room_compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room_bundled = { group = "androidx.sqlite", name = "sqlite-bundled", version.ref = "sqlite" }
 
-android_youtube_player = { group = "com.pierfrancescosoffritti.androidyoutubeplayer", name = "core", version.ref = "android_youtube_player_version" }
 dokka = { group = "org.jetbrains.dokka", name = "android-documentation-plugin", version.ref = "dokka" }
 
 [bundles]
