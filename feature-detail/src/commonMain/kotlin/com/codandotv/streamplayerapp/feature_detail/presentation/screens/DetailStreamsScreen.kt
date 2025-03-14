@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.codandotv.streamplayerapp.core_shared_ui.widget.SharedHandlerPlatform
 import com.codandotv.streamplayerapp.core_shared_ui.widget.SharingStreamPlatform
 import com.codandotv.streamplayerapp.feature_detail.domain.DetailStream
 import com.codandotv.streamplayerapp.feature_detail.presentation.widget.DetailStreamActionOption
@@ -47,6 +48,7 @@ import streamplayerapp_kmp.feature_detail.generated.resources.detail_watch_prima
 fun DetailStreamScreen(
     viewModel: DetailStreamViewModel = koinViewModel(),
     navController: NavController,
+    sharedHandlerPlatform: SharedHandlerPlatform,
     onNavigateSearchScreen: () -> Unit = {},
 ) {
     val uiState by viewModel.uiState.collectAsState()
@@ -57,7 +59,8 @@ fun DetailStreamScreen(
                 onToggleToMyList = { detailStream -> viewModel.toggleItemInFavorites(detailStream) },
                 uiState = uiState as DetailStreamsUIState.DetailStreamsLoadedUIState,
                 navController = navController,
-                onNavigateSearchScreen = onNavigateSearchScreen
+                onNavigateSearchScreen = onNavigateSearchScreen,
+                sharedHandlerPlatform = sharedHandlerPlatform
             )
         }
 
@@ -80,6 +83,7 @@ private fun SetupDetailScreen(
     onToggleToMyList: (DetailStream) -> Unit,
     uiState: DetailStreamsUIState.DetailStreamsLoadedUIState,
     navController: NavController,
+    sharedHandlerPlatform : SharedHandlerPlatform,
     onNavigateSearchScreen: () -> Unit = {},
 ) {
     val showDialog = remember { mutableStateOf(false) }
@@ -168,6 +172,7 @@ private fun SetupDetailScreen(
                 SharingStreamPlatform(
                     contentTitle = uiState.detailStream.title,
                     contentUrl = uiState.detailStream.url,
+                    shareHandler = sharedHandlerPlatform,
                     setShowDialog = {
                         showDialog.value = it
                     })

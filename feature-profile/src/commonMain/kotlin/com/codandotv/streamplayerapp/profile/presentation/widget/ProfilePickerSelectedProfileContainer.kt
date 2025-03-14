@@ -18,6 +18,9 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import com.codandotv.streamplayerapp.core_shared_ui.widget.WebImage
 import com.codandotv.streamplayerapp.profile.presentation.screens.ProfilePickerStreamsUIState
+import org.jetbrains.compose.resources.stringResource
+import streamplayerapp_kmp.feature_profile.generated.resources.Res
+import streamplayerapp_kmp.feature_profile.generated.resources.profile_current_profile_name
 
 @Suppress("MagicNumber")
 @Composable
@@ -40,18 +43,12 @@ fun ProfilePickerSelectedProfileContainer(
                 ) {
                     selectedItem?.imageUrl?.let { imageUrl ->
                         WebImage(
-                            imageUrl =imageUrl, /*ImageRequest.Builder(LocalPlatformContext.current)
-                                .data(selectedItem?.imageUrl)
-                                .crossfade(true)
-                                .build()*/
+                            imageUrl =imageUrl,
                             contentScale = ContentScale.Fit,
-                            contentDescription = null,
-                            //placeholder = painterResource(Res.drawable.image_placeholder),
-                            /*contentDescription = selectedItem?.let {
-                                stringResource(
-                                    Res.string.profile_current_profile_name,
-                                ).format(it.name)
-                            },*/
+                            contentDescription = stringResource(
+                                Res.string.profile_current_profile_name,
+                                selectedItem.name
+                            ),
                             modifier = Modifier
                                 .clip(RoundedCornerShape(5))
                                 .size(animatedSizeImage)

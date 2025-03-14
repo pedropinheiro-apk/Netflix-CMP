@@ -1,5 +1,7 @@
 package com.codandotv.streamplayerapp.feature_detail.di
 
+import com.codandotv.streamplayerapp.core_shared_ui.widget.SharedHandlerPlatform
+import com.codandotv.streamplayerapp.core_shared_ui.widget.getSharedHandlerPlatform
 import com.codandotv.streamplayerapp.feature_detail.data.DetailStreamRepository
 import com.codandotv.streamplayerapp.feature_detail.data.DetailStreamRepositoryImpl
 import com.codandotv.streamplayerapp.feature_detail.data.DetailStreamService
@@ -55,5 +57,7 @@ object DetailStreamModule {
                 client = get()
             )
         }
+
+        factory { getSharedHandlerPlatform() }
     }
 }
