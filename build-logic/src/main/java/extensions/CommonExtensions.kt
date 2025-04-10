@@ -51,8 +51,6 @@ internal fun CommonExtension<*, *, *, *, *, *>.setupNameSpace(project: Project) 
         .replace("-", ".")
 
     namespace = "${Config.applicationId}$moduleName"
-
-    println(">>>> $namespace")
 }
 
 internal val Project.libs: VersionCatalog
