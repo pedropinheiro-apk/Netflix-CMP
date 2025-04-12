@@ -55,3 +55,9 @@ jobs:
             -sdk iphonesimulator \
             -configuration Debug \
             build
+
+      - name: Run commonTest (JVM)
+        run: ./gradlew :composeApp:jvmTest
+
+      - name: Run Android unit tests
+        run: ./gradlew :composeApp:testDebugUnitTest

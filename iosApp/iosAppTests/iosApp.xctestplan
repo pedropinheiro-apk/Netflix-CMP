@@ -1,0 +1,18 @@
+{
+  "configurations" : [
+    {
+      "id" : "556579A3-BB66-45EF-BD01-344AAC7724C2",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+
+  ],
+  "version" : 1
+}
