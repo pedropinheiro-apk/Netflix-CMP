@@ -56,8 +56,8 @@ jobs:
             -configuration Debug \
             build
 
-      - name: Run commonTest (JVM)
-        run: ./gradlew :composeApp:jvmTest
-
       - name: Run Android unit tests
-        run: ./gradlew :composeApp:testDebugUnitTest
+        run: ./gradlew testDebugUnitTest
+
+      - name: Run iOS/KMP unit tests
+        run: ./gradlew iosSimulatorArm64Test
