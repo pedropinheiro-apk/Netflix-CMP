@@ -48,11 +48,6 @@ lottie = { group = "com.airbnb.android", name = "lottie-compose", version.ref = 
 
 kotlin_stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk7", version.ref = "kotlin" }
 
-junit = { group = "junit", name = "junit", version.ref = "test_junit" }
-mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
-mockk_android = { group = "io.mockk", name = "mockk-android", version.ref = "mockk" }
-viewmodel_test = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidx_core_testing" }
-coroutines_test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines-test" }
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigation-compose-version" }
 paging-compose = { module = "app.cash.paging:paging-compose-common", version.ref = "paging-compose" }
 
@@ -82,8 +77,18 @@ room_bundled = { group = "androidx.sqlite", name = "sqlite-bundled", version.ref
 
 dokka = { group = "org.jetbrains.dokka", name = "android-documentation-plugin", version.ref = "dokka" }
 
+#Test
+kotlin_test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
+kotlin_test_common = { group = "org.jetbrains.kotlin", name = "kotlin-test-common", version.ref = "kotlin" }
+junit = { group = "junit", name = "junit", version.ref = "test_junit" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+mockk_android = { group = "io.mockk", name = "mockk-android", version.ref = "mockk" }
+viewmodel_test = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidx_core_testing" }
+coroutines_test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines-test" }
+
 [bundles]
 test = ["junit", "mockk", "mockk_android", "viewmodel_test", "koin_test", "coroutines_test"]
+test_multiplatform = ["kotlin_test", "kotlin_test_common", "coroutines_test",]
 
 [plugins]
 android_application = { id = "com.android.application", version.ref = "android_gradle_plugin" }
