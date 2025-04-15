@@ -20,14 +20,17 @@ xcodebuild \
   build
 
 echo "🧪 Rodando testes Android..."
-./gradlew :composeApp:testDebugUnitTest
+./gradlew testDebugUnitTest
 
-echo "🧪 Rodando testes iOS (Swift/ObjC)..."
-xcodebuild \
-  -project iosApp/iosApp.xcodeproj \
-  -scheme iosApp \
-  -sdk iphonesimulator \
-  -destination 'platform=iOS Simulator,name=iPhone 14' \
-  test
+echo "🧪 Rodando testes iOS/KMP..."
+./gradlew iosSimulatorArm64Test
+
+
+#xcodebuild \
+#  -project iosApp/iosApp.xcodeproj \
+#  -scheme iosApp \
+#  -sdk iphonesimulator \
+#  -destination 'platform=iOS Simulator,name=iPhone 14' \
+#  test
 
 echo "✅ Tudo finalizado com sucesso!"
