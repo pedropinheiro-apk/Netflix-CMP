@@ -60,4 +60,5 @@ jobs:
         run: ./gradlew testDebugUnitTest
 
       - name: Run iOS/CommonMain unit tests
+        if: github.event.inputs.run_ios == 'true'
         run: ./gradlew iosSimulatorArm64Test
