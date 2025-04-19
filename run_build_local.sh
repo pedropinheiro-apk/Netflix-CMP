@@ -19,7 +19,7 @@ xcodebuild \
   -configuration Debug \
   build
 
-echo "🧪 Rodando testes Android..."
+echo "🧪 Rodando testes Android/KMP..."
 ./gradlew testDebugUnitTest
 
 echo "🧪 Rodando testes iOS/KMP..."
