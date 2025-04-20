@@ -19,15 +19,14 @@ plugins {
     id("kotlin-kapt")
     id("kotlin-parcelize")
     id("com.streamplayer.dokka")
-    id("org.jetbrains.kotlinx.kover")
     id("com.streamplayer.detekt")
 }
 
 kotlin {
     androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_17)
+            freeCompilerArgs.add("-Xstring-concat=inline")
         }
     }
 
@@ -47,7 +46,10 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = true
-            proguardFiles("proguard-android.txt", "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
             consumerProguardFiles("proguard-rules.pro")
         }
 

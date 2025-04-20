@@ -5,7 +5,7 @@ koin = "4.0.1"
 ksp = "2.1.10-1.0.29"
 
 dokka = "1.9.10"
-kover = "0.7.5"
+kover = "0.9.1"
 detekt = "1.23.6"
 compose_plugin_multiplataform = "1.7.3"
 navigation-compose-version = "2.7.0-alpha07"
