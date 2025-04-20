@@ -15,7 +15,6 @@ repositories {
 dependencies {
     implementation(libs.android.gradle.plugin)
     implementation(libs.kotlin.gradle.plugin)
-    implementation(libs.kover.gradle.plugin)
     implementation(libs.detekt.gradle.plugin)
     implementation(libs.serialization)
     implementation(libs.com.google.devtools.ksp.gradle.plugin)
