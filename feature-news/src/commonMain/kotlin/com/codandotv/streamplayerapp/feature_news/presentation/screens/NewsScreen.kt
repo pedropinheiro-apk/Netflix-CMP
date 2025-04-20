@@ -1,5 +1,6 @@
 package com.codandotv.streamplayerapp.feature_news.presentation.screens
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -32,41 +33,41 @@ fun NewsScreen(
 ) {
     Scaffold(
         topBar = {
-            BasicToolbar(
-                navController = navController,
-            )
+            BasicToolbar(navController = navController)
         },
         content = { innerPadding ->
-            Column(
+            Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(innerPadding)
-                    .padding(horizontal = 16.dp, vertical = 8.dp)
-                    .verticalScroll(rememberScrollState()),
-                horizontalAlignment = Alignment.CenterHorizontally
+                    .padding(innerPadding),
+                contentAlignment = Alignment.Center
             ) {
-                Text(
-                    text = stringResource(Res.string.select_image_title),
-                    style = MaterialTheme.typography.headlineMedium.copy(
-                        fontWeight = FontWeight.SemiBold,
-                        color = MaterialTheme.colorScheme.onSurface
-                    ),
-                    modifier = Modifier.padding(bottom = 4.dp)
-                )
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = stringResource(Res.string.select_image_title),
+                        style = MaterialTheme.typography.headlineMedium.copy(
+                            fontWeight = FontWeight.SemiBold,
+                            color = MaterialTheme.colorScheme.onSurface
+                        ),
+                        modifier = Modifier.padding(bottom = 4.dp)
+                    )
 
-                Text(
-                    text = stringResource(Res.string.select_image_subtitle),
-                    style = MaterialTheme.typography.bodyLarge.copy(
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    ),
-                    modifier = Modifier.padding(bottom = 12.dp)
-                )
+                    Text(
+                        text = stringResource(Res.string.select_image_subtitle),
+                        style = MaterialTheme.typography.bodyLarge.copy(
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        ),
+                        modifier = Modifier.padding(bottom = 16.dp)
+                    )
 
-                ImagePickerContent(
-                    imageBitmap = imageBitmap,
-                    onClickCamera = onClickCamera,
-                    onClickGallery = onClickGallery
-                )
+                    ImagePickerContent(
+                        imageBitmap = imageBitmap,
+                        onClickCamera = onClickCamera,
+                        onClickGallery = onClickGallery
+                    )
+                }
             }
         }
     )
