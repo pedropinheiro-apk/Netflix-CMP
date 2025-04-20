@@ -17,6 +17,7 @@ kotlin {
             implementation(projects.featureDetail)
             implementation(projects.featureSearch)
             implementation(projects.featureProfile)
+            implementation(projects.featureNews)
             implementation(projects.coreShared)
             implementation(projects.coreSharedUi)
             implementation(projects.coreNavigation)

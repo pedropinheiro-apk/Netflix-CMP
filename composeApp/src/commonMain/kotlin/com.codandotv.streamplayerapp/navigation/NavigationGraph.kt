@@ -17,6 +17,7 @@ import com.codandotv.streamplayerapp.profile.presentation.navigation.profilePick
 
 import com.codandotv.streamplayerapp.presentation.navigation.splashNavGraph
 import com.codandotv.streamplayerapp.feature_detail.presentation.navigation.detailStreamNavGraph
+import com.codandotv.streamplayerapp.feature_news.presentation.navigation.newsStreamNavGraph
 import com.codandotv.streamplayerapp.feature_search.presentation.navigation.searchStreamsNavGraph
 
 @Composable
@@ -27,9 +28,8 @@ fun NavigationGraph(navController: NavHostController) {
         searchStreamsNavGraph(navController = navController)
         detailStreamNavGraph(navController = navController)
         profilePickerStreamNavGraph(navController = navController)
+        newsStreamNavGraph(navController = navController)
         temporaryFun(BottomNavRoutes.GAMES, navController)
-        temporaryFun(BottomNavRoutes.NEWS, navController)
-        temporaryFun(BottomNavRoutes.SCENES, navController)
         temporaryFun(BottomNavRoutes.DOWNLOADS, navController)
     }
 }

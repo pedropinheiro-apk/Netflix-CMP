@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.codandotv.streamplayerapp.core_shared_ui.widget.BasicToolbar
 import com.codandotv.streamplayerapp.core_shared_ui.widget.SharedHandlerPlatform
 import com.codandotv.streamplayerapp.core_shared_ui.widget.SharingStreamPlatform
 import com.codandotv.streamplayerapp.feature_detail.domain.DetailStream
@@ -37,7 +38,6 @@ import com.codandotv.streamplayerapp.feature_detail.presentation.widget.DetailSt
 import com.codandotv.streamplayerapp.feature_detail.presentation.widget.DetailStreamButtonAction
 import com.codandotv.streamplayerapp.feature_detail.presentation.widget.DetailStreamImagePreview
 import com.codandotv.streamplayerapp.feature_detail.presentation.widget.DetailStreamRowHeader
-import com.codandotv.streamplayerapp.feature_detail.presentation.widget.DetailStreamToolbar
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 import streamplayerapp_kmp.feature_detail.generated.resources.Res
@@ -92,9 +92,8 @@ private fun SetupDetailScreen(
 
     Scaffold(
         topBar = {
-            DetailStreamToolbar(
+            BasicToolbar(
                 navController = navController,
-                onNavigateSearchScreen = onNavigateSearchScreen
             )
         },
         content = { innerPadding ->
