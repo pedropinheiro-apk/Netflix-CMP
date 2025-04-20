@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.codandotv.streamplayerapp.core_navigation.bottomnavigation.StreamPlayerBottomNavigation
 import com.codandotv.streamplayerapp.core_shared_ui.widget.BasicToolbar
 import com.codandotv.streamplayerapp.feature_news.presentation.widget.ImagePickerContent
 import org.jetbrains.compose.resources.stringResource
@@ -32,8 +33,8 @@ fun NewsScreen(
     imageBitmap: ImageBitmap? = null
 ) {
     Scaffold(
-        topBar = {
-            BasicToolbar(navController = navController)
+        bottomBar = {
+            StreamPlayerBottomNavigation(navController = navController)
         },
         content = { innerPadding ->
             Box(
