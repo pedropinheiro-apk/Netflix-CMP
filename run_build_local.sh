@@ -25,6 +25,9 @@ echo "🧪 Rodando testes Android/KMP..."
 echo "🧪 Rodando testes iOS/KMP..."
 ./gradlew iosSimulatorArm64Test
 
+echo "🧪 Rodando Kover"
+./gradlew koverHtmlReport
+
 
 #xcodebuild \
 #  -project iosApp/iosApp.xcodeproj \

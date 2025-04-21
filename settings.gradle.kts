@@ -9,6 +9,10 @@ pluginManagement {
     }
 }
 
+plugins {
+    id("org.jetbrains.kotlinx.kover.aggregation") version "0.9.1"
+}
+
 dependencyResolutionManagement {
     repositories {
         google()
@@ -30,6 +34,30 @@ include(":feature-profile")
 include(":core-local-storage")
 include(":feature-detail")
 include(":feature-search")
-
-
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
+kover {
+    enableCoverage()
+
+    reports {
+        includedProjects.addAll(
+            ":composeApp",
+            ":feature-detail",
+            ":core-networking"
+        )
+        excludedClasses.add("*.BuildConfig")
+        excludedClasses.add("*.ComposableSingletons")
+        excludedClasses.add("*ScreenKt*")
+        excludedClasses.add("*.di.*")
+        excludesAnnotatedBy.add("Generated")
+
+        verify {
+            rule {
+                name = "Minimum Coverage"
+                bound {
+                    minValue = 80
+                }
+            }
+        }
+    }
+}
