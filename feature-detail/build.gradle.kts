@@ -31,8 +31,8 @@ kotlin {
             implementation(libs.ktor.client.content.serialization.json)
             implementation(libs.ktor.client.content.negotiation)
         }
-        androidUnitTest.dependencies {
-            implementation(libs.bundles.test)
+        commonTest.dependencies {
+            implementation(libs.bundles.test.multiplatform)
         }
     }
 }
