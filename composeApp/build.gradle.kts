@@ -20,6 +20,7 @@ kotlin {
             implementation(projects.featureNews)
             implementation(projects.coreShared)
             implementation(projects.coreSharedUi)
+            implementation(projects.corePermission)
             implementation(projects.coreNavigation)
             implementation(projects.coreNetworking)
             implementation(projects.coreLocalStorage)

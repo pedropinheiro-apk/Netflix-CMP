@@ -1,5 +1,6 @@
 package com.codandotv.streamplayerapp.di
 
+import PermissionsModule
 import com.codandotv.streamplayerapp.core_local_storage.di.LocalStorageModule
 import com.codandotv.streamplayerapp.core_networking.di.NetworkModule
 import com.codandotv.streamplayerapp.core_shared.qualifier.QualifierDispatcherIO
@@ -11,5 +12,5 @@ object AppModule {
     private val module = module {
         single(QualifierDispatcherIO) { Dispatchers.IO }
     }
-    val list  = module + NetworkModule.module + LocalStorageModule.module
+    val list  = module + NetworkModule.module + LocalStorageModule.module + PermissionsModule.module
 }

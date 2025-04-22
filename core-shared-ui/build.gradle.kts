@@ -10,7 +10,6 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.ktor.client.okhttp)
-            implementation(libs.koin.android)
         }
         commonMain.dependencies {
             implementation(projects.coreShared)
@@ -18,11 +17,10 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(libs.navigation.compose)
-
             implementation(libs.coil)
             implementation(libs.coil.network.ktor3)
-
             implementation(libs.paging.compose)
+            implementation(libs.koin.core)
         }
 
         iosMain.dependencies {
