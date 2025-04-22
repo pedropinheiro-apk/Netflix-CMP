@@ -19,8 +19,8 @@ import org.jetbrains.compose.resources.stringResource
 
 private val bottomMenuItems = listOf(
     BottomNavItem.Home,
-    BottomNavItem.Games,
     BottomNavItem.News,
+    BottomNavItem.Games,
     BottomNavItem.Downloads
 )
 
@@ -62,7 +62,11 @@ private fun NavItemIcon(
     item: BottomNavItem
 ) {
     Icon(
-        painterResource(if (currentRoute == item.screenRoute) item.iconSelected else item.iconUnselected),
+        painterResource(if (currentRoute == item.screenRoute || currentRoute?.contains(item.screenRoute) == true){
+            item.iconSelected
+        } else {
+            item.iconUnselected
+        }),
         contentDescription = stringResource(item.title),
     )
 }

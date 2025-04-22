@@ -114,7 +114,7 @@ private fun StreamPlayerTopBar(
 @Composable
 private fun StreamPlayerOptionsTopBar(modifier: Modifier, scrollBehavior: TopAppBarScrollBehavior) {
     TopAppBar(
-        modifier = modifier,
+        modifier = modifier.padding(top = 4.dp),
         windowInsets = WindowInsets(top = 0.dp),
         title = {},
         scrollBehavior = scrollBehavior,

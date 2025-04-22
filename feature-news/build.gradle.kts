@@ -1,4 +1,5 @@
 @file:Suppress("UnstableApiUsage")
+
 plugins {
     id("com.streamplayer.kmp-library")
     alias(libs.plugins.jetbrains.compose)
@@ -9,26 +10,25 @@ kotlin {
     sourceSets {
         androidMain.dependencies {
             implementation(compose.preview)
-            implementation(libs.ktor.client.okhttp)
         }
         commonMain.dependencies {
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
+
+            implementation(projects.coreNetworking)
+            implementation(projects.coreNavigation)
             implementation(projects.coreShared)
+            implementation(projects.coreSharedUi)
+            implementation(projects.corePermission)
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
-            implementation(libs.navigation.compose)
-            implementation(libs.coil)
-            implementation(libs.coil.network.ktor3)
-            implementation(libs.paging.compose)
-            implementation(libs.koin.core)
-        }
 
-        iosMain.dependencies {
-            implementation(libs.ktor.client.darwin)
+            implementation(libs.navigation.compose)
+        }
+        androidUnitTest.dependencies {
+            implementation(libs.bundles.test)
         }
     }
-}
-
-compose.resources {
-    publicResClass = true
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="select_image_title">Tem aquela foto de cinema?</string>
+    <string name="select_image_subtitle">Compartilhe com a gente aqui.</string>
+    <string name="open_camera">Abrir Câmera</string>
+    <string name="open_gallery">Abrir Galeria</string>
+</resources>

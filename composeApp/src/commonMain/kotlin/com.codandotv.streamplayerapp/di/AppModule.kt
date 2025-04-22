@@ -1,5 +1,6 @@
 package com.codandotv.streamplayerapp.di
 
+import PermissionsModule
 import com.codandotv.streamplayerapp.core_local_storage.di.LocalStorageModule
 import com.codandotv.streamplayerapp.core_networking.di.NetworkModule
 import com.codandotv.streamplayerapp.core_shared.qualifier.QualifierDispatcherIO

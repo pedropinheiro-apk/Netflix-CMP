@@ -10,6 +10,8 @@ compose_plugin_multiplataform = "1.7.3"
 navigation-compose-version = "2.7.0-alpha07"
 paging-compose = "3.3.0-alpha02-0.5.1"
 buildkonfig = "0.15.2"
+cameraCore = "1.4.2"
+moko-permissions = "0.19.1"
 
 #Test
 test_junit = "4.13.2"
@@ -27,8 +29,13 @@ lottie = "5.2.0"
 #Room Database
 room = "2.7.0-alpha13"
 sqlite = "2.5.0-SNAPSHOT"
-
-
+core-ktx = "1.15.0"
+junit = "1.2.1"
+espresso-core = "3.6.1"
+appcompat = "1.7.0"
+material = "1.12.0"
+accompanist = "0.31.3-beta"
+activity-compose = "1.8.2"
 
 [libraries]
 kotlin_gradle_plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -47,6 +54,13 @@ kotlin_stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk7", v
 
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigation-compose-version" }
 paging-compose = { module = "app.cash.paging:paging-compose-common", version.ref = "paging-compose" }
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist" }
+
+#Camera
+androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "cameraCore" }
+androidx-camera-core = { module = "androidx.camera:camera-core", version.ref = "cameraCore" }
+androidx-camera-lifecycle = { module = "androidx.camera:camera-lifecycle", version.ref = "cameraCore" }
+androidx-camera-view = { module = "androidx.camera:camera-view", version.ref = "cameraCore" }
 
 # Koin
 koin_test = { group = "io.insert-koin", name = "koin-test-junit4", version.ref = "koin" }
@@ -67,12 +81,24 @@ ktor_client_darwin = { group = "io.ktor", name = "ktor-client-darwin", version.r
 ktor_client_content_negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor_client_content_serialization_json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 
+#MOKO
+moko-permissions-core = { module = "dev.icerock.moko:permissions", version.ref = "moko-permissions" }
+moko-permissions-compose = { module = "dev.icerock.moko:permissions-compose", version.ref = "moko-permissions" }
+moko-permissions-camera = { module = "dev.icerock.moko:permissions-camera", version.ref = "moko-permissions" }
+moko-permissions-gallery = { module = "dev.icerock.moko:permissions-gallery", version.ref = "moko-permissions" }
+
 #Room
 room_runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room_compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room_bundled = { group = "androidx.sqlite", name = "sqlite-bundled", version.ref = "sqlite" }
 
 dokka = { group = "org.jetbrains.dokka", name = "android-documentation-plugin", version.ref = "dokka" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+activity-compose = { module = "androidx.activity:activity-compose", version = "activity-compose" }
 
 #Test
 kotlin_test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
@@ -86,6 +112,12 @@ coroutines_test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-
 [bundles]
 test = ["junit", "mockk", "mockk_android", "viewmodel_test", "koin_test", "coroutines_test"]
 test_multiplatform = ["kotlin_test", "kotlin_test_common", "coroutines_test",]
+camera = [
+    "androidx-camera-camera2",
+    "androidx-camera-core",
+    "androidx-camera-lifecycle",
+    "androidx-camera-view"
+]
 
 [plugins]
 android_application = { id = "com.android.application", version.ref = "android_gradle_plugin" }

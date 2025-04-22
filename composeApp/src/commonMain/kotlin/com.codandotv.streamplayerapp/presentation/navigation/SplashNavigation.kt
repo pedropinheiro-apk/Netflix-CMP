@@ -10,7 +10,14 @@ import com.codandotv.streamplayerapp.presentation.screens.SplashScreen
 fun NavGraphBuilder.splashNavGraph(navController: NavHostController) {
     composable(Routes.Splash) {
         SplashScreen(
-            onAnimationFinished = { navController.navigate(BottomNavRoutes.HOME) }
+            onAnimationFinished = {
+                navController.navigate(BottomNavRoutes.HOME) {
+                    popUpTo(Routes.Splash) {
+                        inclusive = true
+                    }
+                    launchSingleTop = true
+                }
+            }
         )
     }
 }

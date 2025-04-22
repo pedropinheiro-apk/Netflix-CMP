@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="permission_dialog_title">Permissão necessária</string>
+    <string name="permission_dialog_text">Para usar a câmera, permita o acesso nas configurações do app.</string>
+    <string name="permission_dialog_confirm">Abrir Configurações</string>
+    <string name="permission_dialog_dismiss">Cancelar</string>
+</resources>
