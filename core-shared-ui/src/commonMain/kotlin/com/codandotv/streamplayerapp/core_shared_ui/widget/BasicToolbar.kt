@@ -23,7 +23,7 @@ fun BasicToolbar(
         title = { Text(text = title) },
         modifier = Modifier.height(56.dp),
         navigationIcon = {
-            IconButton(onClick = { navController.navigateUp() }) {
+            IconButton(onClick = navController::navigateUp) {
                 Icon(
                     imageVector = Icons.Filled.ArrowBack,
                     contentDescription = null

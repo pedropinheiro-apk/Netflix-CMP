@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 data class NewsScreenUiState(
@@ -28,23 +29,19 @@ class NewsScreenViewModel(
         initialValue = _uiState.value
     )
 
-    init {
-        requestPermission()
-    }
-
     fun openCamera() {
         requestPermission(AppPermission.CAMERA) {
-            _uiState.value = _uiState.value.copy(shouldOpenCamera = true)
+            _uiState.update { it.copy(shouldOpenCamera = true) }
         }
     }
 
     fun openGallery() {
         requestPermission(AppPermission.GALLERY) {
-            _uiState.value = _uiState.value.copy(shouldOpenGallery = true)
+            _uiState.update { it.copy(shouldOpenGallery = true) }
         }
     }
 
-    private fun requestPermission(
+    fun requestPermission(
         vararg permissions: AppPermission = arrayOf(AppPermission.CAMERA,AppPermission.GALLERY),
         result : () -> Unit = {},
     ) {
@@ -52,10 +49,10 @@ class NewsScreenViewModel(
             permissionsManager.request(
                 permissions = permissions,
                 blockDenied = {
-                    _uiState.value = _uiState.value.copy(showPermissionDialog = true)
+                    _uiState.update { it.copy(showPermissionDialog = true) }
                 },
                 blockDeniedAlways = {
-                    _uiState.value = _uiState.value.copy(showPermissionDialog = true)
+                    _uiState.update { it.copy(showPermissionDialog = true) }
                 },
                 blockSuccess = { statusMap ->
                     if (statusMap[AppPermission.CAMERA] == PermissionStatus.GRANTED ||
@@ -68,23 +65,19 @@ class NewsScreenViewModel(
     }
 
     fun consumeEffectCamera() {
-        _uiState.value = _uiState.value.copy(
-            shouldOpenCamera = false,
-        )
+        _uiState.update { it.copy( shouldOpenCamera = false) }
     }
 
     fun consumeEffectGallery() {
-        _uiState.value = _uiState.value.copy(
-            shouldOpenGallery = false,
-        )
+        _uiState.update { it.copy( shouldOpenGallery = false) }
     }
 
     fun dismissPermissionDialog() {
-        _uiState.value = _uiState.value.copy(showPermissionDialog = false)
+        _uiState.update { it.copy( showPermissionDialog = false) }
     }
 
     fun goToSetting() {
-        _uiState.value = _uiState.value.copy(showPermissionDialog = false)
+        _uiState.update { it.copy( showPermissionDialog = false) }
         permissionsManager.openSettings()
     }
 }

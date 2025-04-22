@@ -52,20 +52,21 @@ class PermissionsManagerImpl(
         blockDeniedAlways : () -> Unit,
         blockSuccess : (Map<AppPermission, PermissionStatus>) -> Unit
     ) {
-        try {
+        runCatching {
             permissions.forEach {
                 controller.providePermission(it.toMoko())
             }
 
-            val results = permissions.associateWith { permission ->
+            permissions.associateWith { permission ->
                 controller.getPermissionState(permission.toMoko()).toPermissionStatus()
             }
-
+        }.onSuccess { results ->
             blockSuccess.invoke(results)
-        } catch(deniedAlways: DeniedAlwaysException) {
-            blockDeniedAlways.invoke()
-        } catch(denied: DeniedException) {
-            blockDenied.invoke()
+        }.onFailure { throwable ->
+            when (throwable) {
+                is DeniedAlwaysException -> blockDeniedAlways.invoke()
+                is DeniedException -> blockDenied.invoke()
+            }
         }
     }
 
