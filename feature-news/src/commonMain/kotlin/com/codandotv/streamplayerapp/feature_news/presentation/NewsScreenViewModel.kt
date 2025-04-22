@@ -45,12 +45,12 @@ class NewsScreenViewModel(
     }
 
     private fun requestPermission(
-        vararg permission: AppPermission = arrayOf(AppPermission.CAMERA,AppPermission.GALLERY),
+        vararg permissions: AppPermission = arrayOf(AppPermission.CAMERA,AppPermission.GALLERY),
         result : () -> Unit = {},
     ) {
         viewModelScope.launch {
             permissionsManager.request(
-                permissions = permission,
+                permissions = permissions,
                 blockDenied = {
                     _uiState.value = _uiState.value.copy(showPermissionDialog = true)
                 },
