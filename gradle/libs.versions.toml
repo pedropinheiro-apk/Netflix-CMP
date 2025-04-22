@@ -5,7 +5,6 @@ koin = "4.0.1"
 ksp = "2.1.10-1.0.29"
 
 dokka = "1.9.10"
-kover = "0.7.5"
 detekt = "1.23.6"
 compose_plugin_multiplataform = "1.7.3"
 navigation-compose-version = "2.7.0-alpha07"
@@ -46,8 +45,6 @@ serialization = { module = "org.jetbrains.kotlin.plugin.serialization:org.jetbra
 
 com-google-devtools-ksp-gradle-plugin = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 
-kover-gradle-plugin = { module = "org.jetbrains.kotlinx:kover-gradle-plugin", version.ref = "kover" }
-
 coil = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
 coil-network-ktor3 = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref="coil"}
 
@@ -55,11 +52,6 @@ lottie = { group = "com.airbnb.android", name = "lottie-compose", version.ref = 
 
 kotlin_stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk7", version.ref = "kotlin" }
 
-junit = { group = "junit", name = "junit", version.ref = "test_junit" }
-mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
-mockk_android = { group = "io.mockk", name = "mockk-android", version.ref = "mockk" }
-viewmodel_test = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidx_core_testing" }
-coroutines_test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines-test" }
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigation-compose-version" }
 paging-compose = { module = "app.cash.paging:paging-compose-common", version.ref = "paging-compose" }
 accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist" }
@@ -108,8 +100,18 @@ appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "a
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 activity-compose = { module = "androidx.activity:activity-compose", version = "activity-compose" }
 
+#Test
+kotlin_test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
+kotlin_test_common = { group = "org.jetbrains.kotlin", name = "kotlin-test-common", version.ref = "kotlin" }
+junit = { group = "junit", name = "junit", version.ref = "test_junit" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+mockk_android = { group = "io.mockk", name = "mockk-android", version.ref = "mockk" }
+viewmodel_test = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidx_core_testing" }
+coroutines_test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines-test" }
+
 [bundles]
 test = ["junit", "mockk", "mockk_android", "viewmodel_test", "koin_test", "coroutines_test"]
+test_multiplatform = ["kotlin_test", "kotlin_test_common", "coroutines_test",]
 camera = [
     "androidx-camera-camera2",
     "androidx-camera-core",
@@ -132,5 +134,4 @@ room = { id = "androidx.room", version.ref = "room" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 
-kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 buildkonfig_plugin = { id = "com.codingfeline.buildkonfig", version.ref = "buildkonfig" }

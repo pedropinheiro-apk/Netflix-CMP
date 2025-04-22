@@ -35,8 +35,3 @@ kotlin {
         }
     }
 }
-
-dependencies {
-    // Kover - Combined report
-    rootProject.subprojects.forEach { kover(it) }
-}

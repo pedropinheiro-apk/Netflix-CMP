@@ -12,6 +12,11 @@ on:
         required: true
         default: "false"
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build:
     name: Build Android & iOS (opcional)
@@ -55,3 +60,30 @@ jobs:
             -sdk iphonesimulator \
             -configuration Debug \
             build
+
+      - name: Run Android/CommonMain unit tests
+        run: ./gradlew testDebugUnitTest
+
+      - name: Run iOS/CommonMain unit tests
+        if: github.event.inputs.run_ios == 'true'
+        run: ./gradlew iosSimulatorArm64Test
+
+      - name: Run Coverage
+        run: ./gradlew testDebugUnitTest koverHtmlReport
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/reports/kover/html
+
+  deploy:
+    name: Deploy Kover Report to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -17,14 +17,12 @@ plugins {
     id("kotlin-kapt")
     id("kotlin-parcelize")
     id("com.streamplayer.dokka")
-    id("com.streamplayer.kover")
     id("com.streamplayer.detekt")
 }
 val catalog: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
 kotlin {
     androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_17)
         }
