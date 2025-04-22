@@ -15,7 +15,7 @@ import org.koin.core.annotation.KoinExperimentalAPI
 fun NavGraphBuilder.newsStreamNavGraph(navController: NavHostController) {
     composable(BottomNavRoutes.NEWS) { _ ->
         rememberKoinModules {
-            listOf(NewsScreenModule.module)
+            listOf(NewsScreenModule.module,PermissionsModule.module)
         }
         NewsScreenContent(navController)
     }
