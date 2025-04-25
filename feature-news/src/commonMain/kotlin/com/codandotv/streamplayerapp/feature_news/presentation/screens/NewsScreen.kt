@@ -11,16 +11,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.codandotv.streamplayerapp.core_camera.camera.SharedImage
+import com.codandotv.streamplayerapp.core_camera.camera.rememberCameraManager
 import com.codandotv.streamplayerapp.core_navigation.bottomnavigation.StreamPlayerBottomNavigation
+import com.codandotv.streamplayerapp.core_permission.permission.PermissionDeniedDialog
 import com.codandotv.streamplayerapp.feature_news.presentation.NewsScreenViewModel
 import com.codandotv.streamplayerapp.feature_news.presentation.widget.ImagePickerContent
-import com.codandotv.streamplayerapp.core_permission.permission.PermissionDeniedDialog
 import dev.icerock.moko.permissions.compose.BindEffect
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
@@ -33,23 +36,28 @@ import streamplayerapp_kmp.feature_news.generated.resources.select_image_title
 fun NewsScreenContent(
     navController: NavController,
     viewModel: NewsScreenViewModel = koinViewModel()
-){
+) {
+    val sharedImageState = remember { mutableStateOf<SharedImage?>(null) }
     val uiState by viewModel.uiState.collectAsState()
+    val cameraManager = rememberCameraManager { sharedImage ->
+        sharedImageState.value = sharedImage
+    }
+
     BindEffect(viewModel.permissionsManager.controller)
 
-    LaunchedEffect(Unit){
+    LaunchedEffect(Unit) {
         viewModel.requestPermission()
     }
 
-    LaunchedEffect(uiState.shouldOpenCamera) {
-        if (uiState.shouldOpenCamera) {
-            viewModel.consumeEffectCamera()
-        }
-    }
+//    LaunchedEffect(uiState.shouldOpenCamera) {
+//        if (uiState.shouldOpenCamera) {
+//            viewModel.consumeEffectCamera()
+//        }
+//    } //Note: explain during the record
 
-    LaunchedEffect(uiState.shouldOpenGallery) {
-        if (uiState.shouldOpenGallery) {
-            viewModel.consumeEffectGallery()
+    LaunchedEffect(Unit) {
+        viewModel.openCameraEvent.collect {
+            cameraManager.launch()
         }
     }
 
@@ -69,7 +77,9 @@ fun NewsScreenContent(
         },
         onClickGallery = {
             viewModel.openGallery()
-        })
+        },
+        sharedImage = sharedImageState.value
+    )
 }
 
 @Composable
@@ -77,7 +87,7 @@ fun NewsScreen(
     navController: NavController,
     onClickCamera: () -> Unit,
     onClickGallery: () -> Unit,
-    imageBitmap: ImageBitmap? = null
+    sharedImage: SharedImage? = null
 ) {
     Scaffold(
         bottomBar = {
@@ -111,7 +121,7 @@ fun NewsScreen(
                     )
 
                     ImagePickerContent(
-                        imageBitmap = imageBitmap,
+                        sharedImage = sharedImage,
                         onClickCamera = onClickCamera,
                         onClickGallery = onClickGallery
                     )

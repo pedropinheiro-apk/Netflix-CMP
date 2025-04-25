@@ -11,6 +11,7 @@ kotlin {
         sourceSets {
             androidMain.dependencies {
                 implementation(compose.preview)
+                implementation(libs.activity.compose)
                 implementation(libs.bundles.camera)
             }
             commonMain.dependencies {
