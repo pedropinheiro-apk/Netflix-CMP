@@ -1,9 +1,9 @@
-package com.codandotv.streamplayerapp.core_camera.camera
+package com.codandotv.streamplayerapp.core_camera_gallery.camera
 
 import android.content.Context
 import android.net.Uri
 import androidx.core.content.FileProvider
-import com.codandotv.streamplayerapp.core.camera.R
+import com.codandotv.streamplayerapp.core.camera.gallery.R
 import java.io.File
 import java.util.Objects
 

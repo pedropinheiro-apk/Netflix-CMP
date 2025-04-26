@@ -7,7 +7,7 @@
 //import androidx.compose.runtime.rememberCoroutineScope
 //import androidx.compose.runtime.setValue
 //import androidx.compose.ui.graphics.ImageBitmap
-//import com.codandotv.streamplayerapp.core_camera.camera.rememberCameraManager
+//import com.codandotv.streamplayerapp.core_camera_gallery.camera.rememberCameraManager
 //import com.codandotv.streamplayerapp.core_shared_ui.permission.PermissionCallback
 //import com.codandotv.streamplayerapp.core_shared_ui.permission.createPermissionsManager
 //import kotlinx.coroutines.launch

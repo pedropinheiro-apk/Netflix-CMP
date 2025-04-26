@@ -36,7 +36,7 @@ include(":feature-detail")
 include(":feature-search")
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":feature-news")
-include(":core-camera")
+include(":core-camera-gallery")
 include(":core-permission")
 
 kover {

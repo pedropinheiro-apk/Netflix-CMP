@@ -19,7 +19,7 @@ kotlin {
             implementation(projects.coreNetworking)
             implementation(projects.coreNavigation)
             implementation(projects.coreShared)
-            implementation(projects.coreCamera)
+            implementation(projects.coreCameraGallery)
             implementation(projects.coreSharedUi)
             implementation(projects.corePermission)
             implementation(compose.material3)
