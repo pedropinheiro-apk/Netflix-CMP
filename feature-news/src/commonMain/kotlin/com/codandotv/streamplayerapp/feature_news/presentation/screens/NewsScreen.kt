@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.codandotv.streamplayerapp.core_camera_gallery.SharedImage
 import com.codandotv.streamplayerapp.core_camera_gallery.camera.rememberCameraManager
+import com.codandotv.streamplayerapp.core_camera_gallery.gallery.rememberGalleryManager
 import com.codandotv.streamplayerapp.core_navigation.bottomnavigation.StreamPlayerBottomNavigation
 import com.codandotv.streamplayerapp.core_permission.permission.PermissionDeniedDialog
 import com.codandotv.streamplayerapp.feature_news.presentation.NewsScreenViewModel
@@ -43,6 +44,10 @@ fun NewsScreenContent(
         sharedImageState.value = sharedImage
     }
 
+    val galleryManager = rememberGalleryManager { sharedImage ->
+        sharedImageState.value = sharedImage
+    }
+
     BindEffect(viewModel.permissionsManager.controller)
 
     LaunchedEffect(Unit) {
@@ -58,6 +63,12 @@ fun NewsScreenContent(
     LaunchedEffect(Unit) {
         viewModel.openCameraEvent.collect {
             cameraManager.launch()
+        }
+    }
+
+    LaunchedEffect(Unit) {
+        viewModel.openGalleryEvent.collect {
+            galleryManager.launch()
         }
     }
 
