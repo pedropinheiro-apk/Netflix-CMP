@@ -55,12 +55,6 @@ fun NewsScreenContent(
         viewModel.requestPermission()
     }
 
-//    LaunchedEffect(uiState.shouldOpenCamera) {
-//        if (uiState.shouldOpenCamera) {
-//            viewModel.consumeEffectCamera()
-//        }
-//    } //Note: explain during the record
-
     LaunchedEffect(Unit) {
         viewModel.openCameraEvent.collect {
             cameraManager.launch()
