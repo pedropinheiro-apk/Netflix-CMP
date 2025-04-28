@@ -11,7 +11,7 @@ class ComposeFileProvider : FileProvider(
     R.xml.path_provider
 ) {
     companion object {
-        fun getImageUri(context: Context): Uri {
+        fun getImageUri(context: Context): Uri? = kotlin.runCatching {
             val tempFile = File.createTempFile(
                 "picture_${System.currentTimeMillis()}", ".png", context.cacheDir
             ).apply {
@@ -21,11 +21,11 @@ class ComposeFileProvider : FileProvider(
 
             println("getImageUri: ${tempFile.absolutePath}")
 
-            return getUriForFile(
+            getUriForFile(
                 Objects.requireNonNull(context),
                 authority,
                 tempFile,
             )
-        }
+        }.getOrNull()
     }
 }

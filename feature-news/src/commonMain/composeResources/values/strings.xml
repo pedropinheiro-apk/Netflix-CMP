@@ -4,4 +4,5 @@
     <string name="select_image_subtitle">Compartilhe com a gente aqui.</string>
     <string name="open_camera">Abrir Câmera</string>
     <string name="open_gallery">Abrir Galeria</string>
+    <string name="error_image_loaded">Erro ao capturar a imagem. Tente novamente.</string>
 </resources>

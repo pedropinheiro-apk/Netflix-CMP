@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -29,6 +31,7 @@ import dev.icerock.moko.permissions.compose.BindEffect
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 import streamplayerapp_kmp.feature_news.generated.resources.Res
+import streamplayerapp_kmp.feature_news.generated.resources.error_image_loaded
 import streamplayerapp_kmp.feature_news.generated.resources.select_image_subtitle
 import streamplayerapp_kmp.feature_news.generated.resources.select_image_title
 
@@ -38,10 +41,14 @@ fun NewsScreenContent(
     navController: NavController,
     viewModel: NewsScreenViewModel = koinViewModel()
 ) {
+    val errorMessage = stringResource(Res.string.error_image_loaded)
     val sharedImageState = remember { mutableStateOf<SharedImage?>(null) }
+    val hasTriedCapture = remember { mutableStateOf(false) }
+    val snackbarHostState = remember { SnackbarHostState() }
     val uiState by viewModel.uiState.collectAsState()
     val cameraManager = rememberCameraManager { sharedImage ->
         sharedImageState.value = sharedImage
+        hasTriedCapture.value = true
     }
 
     val galleryManager = rememberGalleryManager { sharedImage ->
@@ -54,12 +61,6 @@ fun NewsScreenContent(
         viewModel.requestPermission()
     }
 
-//    LaunchedEffect(uiState.shouldOpenCamera) {
-//        if (uiState.shouldOpenCamera) {
-//            viewModel.consumeEffectCamera()
-//        }
-//    } //Note: explain during the record
-
     LaunchedEffect(Unit) {
         viewModel.openCameraEvent.collect {
             cameraManager.launch()
@@ -69,6 +70,14 @@ fun NewsScreenContent(
     LaunchedEffect(Unit) {
         viewModel.openGalleryEvent.collect {
             galleryManager.launch()
+        }
+    }
+
+
+    LaunchedEffect(hasTriedCapture.value, sharedImageState.value) {
+        if (hasTriedCapture.value && sharedImageState.value == null) {
+            snackbarHostState.showSnackbar(errorMessage)
+            hasTriedCapture.value = false
         }
     }
 
@@ -89,7 +98,8 @@ fun NewsScreenContent(
         onClickGallery = {
             viewModel.openGallery()
         },
-        sharedImage = sharedImageState.value
+        sharedImage = sharedImageState.value,
+        snackbarHostState = snackbarHostState
     )
 }
 
@@ -98,12 +108,14 @@ fun NewsScreen(
     navController: NavController,
     onClickCamera: () -> Unit,
     onClickGallery: () -> Unit,
-    sharedImage: SharedImage? = null
+    sharedImage: SharedImage? = null,
+    snackbarHostState: SnackbarHostState
 ) {
     Scaffold(
         bottomBar = {
             StreamPlayerBottomNavigation(navController = navController)
         },
+        snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
         content = { innerPadding ->
             Box(
                 modifier = Modifier
