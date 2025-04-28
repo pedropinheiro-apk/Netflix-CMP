@@ -17,7 +17,7 @@ moko-permissions = "0.19.1"
 test_junit = "4.13.2"
 androidx_core_testing = "2.2.0"
 mockk = "1.13.7"
-kotlinx-coroutines-test = "1.8.1"
+kotlinx-coroutines = "1.8.1"
 
 #Networking
 okhttp = "4.12.0"
@@ -54,7 +54,7 @@ kotlin_stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk7", v
 
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigation-compose-version" }
 paging-compose = { module = "app.cash.paging:paging-compose-common", version.ref = "paging-compose" }
-accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 
 #Camera
 androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "cameraCore" }
@@ -107,7 +107,7 @@ junit = { group = "junit", name = "junit", version.ref = "test_junit" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 mockk_android = { group = "io.mockk", name = "mockk-android", version.ref = "mockk" }
 viewmodel_test = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidx_core_testing" }
-coroutines_test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines-test" }
+coroutines_test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
 
 [bundles]
 test = ["junit", "mockk", "mockk_android", "viewmodel_test", "koin_test", "coroutines_test"]

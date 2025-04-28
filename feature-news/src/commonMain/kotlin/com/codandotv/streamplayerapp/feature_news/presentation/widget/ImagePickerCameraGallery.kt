@@ -11,9 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import com.codandotv.streamplayerapp.core_camera.camera.SharedImage
 import org.jetbrains.compose.resources.stringResource
 import streamplayerapp_kmp.feature_news.generated.resources.Res
 import streamplayerapp_kmp.feature_news.generated.resources.open_camera
@@ -21,36 +21,35 @@ import streamplayerapp_kmp.feature_news.generated.resources.open_gallery
 
 @Composable
 fun ImagePickerContent(
-    imageBitmap: ImageBitmap?,
+    sharedImage: SharedImage?,
     onClickCamera: () -> Unit,
     onClickGallery: () -> Unit
 ) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp)
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(
             modifier = Modifier
-                .fillMaxWidth()
-                .height(220.dp)
+                .fillMaxWidth(0.85f)
+                .aspectRatio(3f / 4f)
                 .background(Color.Gray.copy(alpha = 0.1f)),
             contentAlignment = Alignment.Center
         ) {
-            if (imageBitmap != null) {
+            sharedImage?.toImageBitmap()?.let {
                 Image(
-                    bitmap = imageBitmap,
+                    bitmap = it,
                     contentDescription = null,
                     contentScale = ContentScale.Crop,
                     modifier = Modifier.fillMaxSize()
                 )
-            } else {
-                Image(
-                    imageVector = Icons.Filled.Share,
-                    contentDescription = null,
-                    modifier = Modifier.size(96.dp)
-                )
-            }
+            } ?: Image(
+                imageVector = Icons.Filled.Share,
+                contentDescription = null,
+                modifier = Modifier.size(96.dp)
+            )
         }
 
         Spacer(modifier = Modifier.height(16.dp))

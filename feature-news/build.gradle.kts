@@ -19,12 +19,14 @@ kotlin {
             implementation(projects.coreNetworking)
             implementation(projects.coreNavigation)
             implementation(projects.coreShared)
+            implementation(projects.coreCamera)
             implementation(projects.coreSharedUi)
             implementation(projects.corePermission)
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
 
+            implementation(libs.kotlinx.coroutines.core)
             implementation(libs.navigation.compose)
         }
         androidUnitTest.dependencies {
