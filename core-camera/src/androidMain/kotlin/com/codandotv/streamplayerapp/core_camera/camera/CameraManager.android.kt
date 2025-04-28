@@ -32,7 +32,7 @@ actual fun rememberCameraManager(onResult: (SharedImage?) -> Unit): CameraManage
                 ComposeFileProvider.getImageUri(context)?.let {
                     tempPhotoUri = it
                     cameraLauncher.launch(tempPhotoUri)
-                }?: onResult.invoke(null)
+                }?: run { onResult.invoke(null) }
             }
         )
     }
