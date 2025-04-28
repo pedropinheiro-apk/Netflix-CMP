@@ -22,15 +22,17 @@ actual fun rememberCameraManager(onResult: (SharedImage?) -> Unit): CameraManage
             if (success) {
                 onResult.invoke(SharedImage(tempPhotoUri.getBitmapFromUri(contentResolver)))
             }else{
-                println(">>>>>> rememberCameraManager error")
+                onResult.invoke(null)
             }
         }
     )
     return remember {
         CameraManager(
             onLaunch = {
-                tempPhotoUri = ComposeFileProvider.getImageUri(context)
-                cameraLauncher.launch(tempPhotoUri)
+                ComposeFileProvider.getImageUri(context)?.let {
+                    tempPhotoUri = it
+                    cameraLauncher.launch(tempPhotoUri)
+                }?: onResult.invoke(null)
             }
         )
     }
