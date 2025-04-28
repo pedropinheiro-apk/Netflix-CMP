@@ -53,6 +53,7 @@ fun NewsScreenContent(
 
     val galleryManager = rememberGalleryManager { sharedImage ->
         sharedImageState.value = sharedImage
+        hasTriedCapture.value = true
     }
 
     BindEffect(viewModel.permissionsManager.controller)
@@ -72,7 +73,6 @@ fun NewsScreenContent(
             galleryManager.launch()
         }
     }
-
 
     LaunchedEffect(hasTriedCapture.value, sharedImageState.value) {
         if (hasTriedCapture.value && sharedImageState.value == null) {

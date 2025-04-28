@@ -18,7 +18,7 @@ actual fun rememberGalleryManager(onImageSelected: (SharedImage?) -> Unit): Gall
         rememberLauncherForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
             uri?.let {
                 onImageSelected.invoke(SharedImage(uri.getBitmapFromUri(contentResolver)))
-            }
+            } ?: run { onImageSelected.invoke(null) }
         }
     return remember {
         GalleryManager(onLaunch = {
