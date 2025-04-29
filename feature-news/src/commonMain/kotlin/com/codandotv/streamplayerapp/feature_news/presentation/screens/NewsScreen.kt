@@ -25,6 +25,7 @@ import com.codandotv.streamplayerapp.core_camera_gallery.camera.rememberCameraMa
 import com.codandotv.streamplayerapp.core_camera_gallery.gallery.rememberGalleryManager
 import com.codandotv.streamplayerapp.core_navigation.bottomnavigation.StreamPlayerBottomNavigation
 import com.codandotv.streamplayerapp.core_permission.permission.PermissionDeniedDialog
+import com.codandotv.streamplayerapp.feature_news.presentation.NewsScreenActionTakeImage
 import com.codandotv.streamplayerapp.feature_news.presentation.NewsScreenViewModel
 import com.codandotv.streamplayerapp.feature_news.presentation.widget.ImagePickerContent
 import dev.icerock.moko.permissions.compose.BindEffect
@@ -63,14 +64,11 @@ fun NewsScreenContent(
     }
 
     LaunchedEffect(Unit) {
-        viewModel.openCameraEvent.collect {
-            cameraManager.launch()
-        }
-    }
-
-    LaunchedEffect(Unit) {
-        viewModel.openGalleryEvent.collect {
-            galleryManager.launch()
+        viewModel.actionTakeImage.collect { action ->
+            when(action) {
+                NewsScreenActionTakeImage.Camera -> cameraManager.launch()
+                NewsScreenActionTakeImage.Gallery -> galleryManager.launch()
+            }
         }
     }
 
