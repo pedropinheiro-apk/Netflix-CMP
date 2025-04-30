@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import com.codandotv.streamplayerapp.core_camera.camera.SharedImage
+import com.codandotv.streamplayerapp.core_camera_gallery.SharedImage
 import org.jetbrains.compose.resources.stringResource
 import streamplayerapp_kmp.feature_news.generated.resources.Res
 import streamplayerapp_kmp.feature_news.generated.resources.open_camera

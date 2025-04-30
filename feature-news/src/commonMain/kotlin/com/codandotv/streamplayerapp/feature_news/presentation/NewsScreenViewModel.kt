@@ -10,8 +10,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -20,14 +18,16 @@ data class NewsScreenUiState(
     val showPermissionDialog: Boolean = false,
 )
 
+sealed class NewsScreenActionTakeImage {
+    data object Camera : NewsScreenActionTakeImage()
+    data object Gallery : NewsScreenActionTakeImage()
+}
+
 class NewsScreenViewModel(
     val permissionsManager: PermissionsManager
 ) : ViewModel() {
-    private val _openCameraEvent = MutableSharedFlow<Unit>()
-    val openCameraEvent: SharedFlow<Unit> = _openCameraEvent
-
-    private val _openGalleryEvent = MutableSharedFlow<Unit>()
-    val openGalleryEvent: SharedFlow<Unit> = _openGalleryEvent
+    private val _actionTakeImage = MutableSharedFlow<NewsScreenActionTakeImage>()
+    val actionTakeImage: SharedFlow<NewsScreenActionTakeImage> = _actionTakeImage
 
     private val _uiState = MutableStateFlow(NewsScreenUiState())
     val uiState: StateFlow<NewsScreenUiState> = _uiState.stateIn(
@@ -39,7 +39,7 @@ class NewsScreenViewModel(
     fun openCamera() {
         requestPermission(AppPermission.CAMERA) {
             viewModelScope.launch {
-                _openCameraEvent.emit(Unit)
+                _actionTakeImage.emit(NewsScreenActionTakeImage.Camera)
             }
         }
     }
@@ -47,7 +47,7 @@ class NewsScreenViewModel(
     fun openGallery() {
         requestPermission(AppPermission.GALLERY) {
             viewModelScope.launch {
-                _openGalleryEvent.emit(Unit)
+                _actionTakeImage.emit(NewsScreenActionTakeImage.Gallery)
             }
         }
     }

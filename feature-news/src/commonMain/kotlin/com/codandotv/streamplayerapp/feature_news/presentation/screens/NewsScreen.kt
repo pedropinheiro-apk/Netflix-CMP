@@ -20,10 +20,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.codandotv.streamplayerapp.core_camera.camera.SharedImage
-import com.codandotv.streamplayerapp.core_camera.camera.rememberCameraManager
+import com.codandotv.streamplayerapp.core_camera_gallery.SharedImage
+import com.codandotv.streamplayerapp.core_camera_gallery.camera.rememberCameraManager
+import com.codandotv.streamplayerapp.core_camera_gallery.gallery.rememberGalleryManager
 import com.codandotv.streamplayerapp.core_navigation.bottomnavigation.StreamPlayerBottomNavigation
 import com.codandotv.streamplayerapp.core_permission.permission.PermissionDeniedDialog
+import com.codandotv.streamplayerapp.feature_news.presentation.NewsScreenActionTakeImage
 import com.codandotv.streamplayerapp.feature_news.presentation.NewsScreenViewModel
 import com.codandotv.streamplayerapp.feature_news.presentation.widget.ImagePickerContent
 import dev.icerock.moko.permissions.compose.BindEffect
@@ -40,11 +42,17 @@ fun NewsScreenContent(
     navController: NavController,
     viewModel: NewsScreenViewModel = koinViewModel()
 ) {
+    val errorMessage = stringResource(Res.string.error_image_loaded)
     val sharedImageState = remember { mutableStateOf<SharedImage?>(null) }
     val hasTriedCapture = remember { mutableStateOf(false) }
     val snackbarHostState = remember { SnackbarHostState() }
     val uiState by viewModel.uiState.collectAsState()
     val cameraManager = rememberCameraManager { sharedImage ->
+        sharedImageState.value = sharedImage
+        hasTriedCapture.value = true
+    }
+
+    val galleryManager = rememberGalleryManager { sharedImage ->
         sharedImageState.value = sharedImage
         hasTriedCapture.value = true
     }
@@ -56,12 +64,13 @@ fun NewsScreenContent(
     }
 
     LaunchedEffect(Unit) {
-        viewModel.openCameraEvent.collect {
-            cameraManager.launch()
+        viewModel.actionTakeImage.collect { action ->
+            when(action) {
+                NewsScreenActionTakeImage.Camera -> cameraManager.launch()
+                NewsScreenActionTakeImage.Gallery -> galleryManager.launch()
+            }
         }
     }
-
-    val errorMessage = stringResource(Res.string.error_image_loaded)
 
     LaunchedEffect(hasTriedCapture.value, sharedImageState.value) {
         if (hasTriedCapture.value && sharedImageState.value == null) {
