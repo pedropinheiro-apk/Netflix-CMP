@@ -20,7 +20,14 @@ permissions:
 jobs:
   build:
     name: Build Android & iOS (opcional)
-    runs-on: macos-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            run_ios: false
+          - os: macos-latest
+            run_ios: true
 
     steps:
       - name: Checkout
