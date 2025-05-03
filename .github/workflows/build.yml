@@ -18,18 +18,9 @@ permissions:
   id-token: write
 
 jobs:
-  build:
-    name: Build Android & iOS (opcional)
-    strategy:
-      matrix:
-        include:
-          - os: ubuntu-latest
-            run_ios: false
-          - os: macos-latest
-            run_ios: true
-
-    if: ${{ github.event.inputs.run_ios == matrix.run_ios }}
-    runs-on: ${{ matrix.os }}
+  build-android:
+    name: Build Android (Linux)
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
@@ -56,26 +47,8 @@ jobs:
       - name: Build Android (composeApp)
         run: ./gradlew :composeApp:assembleDebug
 
-      - name: Build iOS (KMP Kotlin/Native)
-        if: github.event.inputs.run_ios == 'true'
-        run: ./gradlew :composeApp:compileKotlinIosArm64
-
-      - name: Build iosApp via Xcode
-        if: github.event.inputs.run_ios == 'true'
-        run: |
-          xcodebuild \
-            -project iosApp/iosApp.xcodeproj \
-            -scheme iosApp \
-            -sdk iphonesimulator \
-            -configuration Debug \
-            build
-
       - name: Run Android/CommonMain unit tests
         run: ./gradlew testDebugUnitTest
-
-      - name: Run iOS/CommonMain unit tests
-        if: ${{ matrix.run_ios }}
-        run: ./gradlew iosSimulatorArm64Test
 
       - name: Run Coverage
         run: ./gradlew testDebugUnitTest koverHtmlReport
@@ -85,14 +58,44 @@ jobs:
         with:
           path: build/reports/kover/html
 
-  deploy:
-    name: Deploy Kover Report to GitHub Pages
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build-ios:
+    if: ${{ github.event.inputs.run_ios == 'true' }}
+    name: Build iOS (macOS)
+    runs-on: macos-latest
+
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 17
+
+      - name: Grant permission to gradlew
+        run: chmod +x ./gradlew
+
+      - name: Cache Gradle
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ runner.os }}-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: gradle-${{ runner.os }}-
+
+      - name: Build iOS (KMP Kotlin/Native)
+        run: ./gradlew :composeApp:compileKotlinIosArm64
+
+      - name: Build iosApp via Xcode
+        run: |
+          xcodebuild \
+            -project iosApp/iosApp.xcodeproj \
+            -scheme iosApp \
+            -sdk iphonesimulator \
+            -configuration Debug \
+            build
+
+      - name: Run iOS/CommonMain unit tests
+        run: ./gradlew iosSimulatorArm64Test
