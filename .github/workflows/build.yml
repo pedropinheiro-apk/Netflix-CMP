@@ -20,7 +20,6 @@ permissions:
 jobs:
   build:
     name: Build Android & iOS (opcional)
-    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         include:
@@ -28,6 +27,9 @@ jobs:
             run_ios: false
           - os: macos-latest
             run_ios: true
+
+    if: ${{ github.event.inputs.run_ios == matrix.run_ios }}
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout
@@ -72,7 +74,7 @@ jobs:
         run: ./gradlew testDebugUnitTest
 
       - name: Run iOS/CommonMain unit tests
-        if: github.event.inputs.run_ios == 'true'
+        if: ${{ matrix.run_ios }}
         run: ./gradlew iosSimulatorArm64Test
 
       - name: Run Coverage
