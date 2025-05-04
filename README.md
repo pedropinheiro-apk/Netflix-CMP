@@ -1,6 +1,6 @@
 # StreamPlayerApp
 
-<h3 align="center"> 
+<h3 align="center">
   
 [![Backers on Open Collective](https://opencollective.com/stremplayerapp/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/stremplayerapp/sponsors/badge.svg)](#sponsors)
@@ -30,7 +30,7 @@ We have a specific channel called [#projeto-netflix](https://discord.com/channel
 
 ---
 
-### 🚨 If you arrived here, and you are not subscribed in our YouTube channel, this is a great moment to do that 🙏.
+### 🚨 If you arrived here, and you are not subscribed in our YouTube channel, this is a great moment to do that 🙏
 
 [![CodandoTV](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://bit.ly/3Ob3yPH)
 

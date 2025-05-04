@@ -1,6 +1,6 @@
 # StreamPlayerApp
 
-<h3 align="center"> 
+<h3 align="center">
   
 [![Backers on Open Collective](https://opencollective.com/stremplayerapp/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/stremplayerapp/sponsors/badge.svg)](#sponsors)
@@ -24,13 +24,13 @@ O projeto StreamPlayerApp é um clone do Netflix, desenvolvido de forma colabora
 
 Este projeto foi iniciado com o propósito de fornecer uma oportunidade de aprendizado prático e colaborativo para a comunidade. Através dele, os participantes podem aprimorar suas habilidades em desenvolvimento Android, Kotlin, arquitetura de aplicativos e trabalho em equipe.
 
-## 💬 Comunicação:
+## 💬 Comunicação
 
 Toda a comunicação desse grupo será feita no nosso grupo do [Discord](https://discord.gg/fZMDmjKmju) no canal [#projeto-netflix](https://discord.com/channels/843114243859546142/1101921493010616351))
 
 ---
 
-### 🚨 Ahhhhhh se você esta entrando nesse repo, ou sendo mento(ra/r) ou sendo mentorad(a/o) ou passando aqui por a caso só para pegar um café ☕ e ainda não se inscreveu no canal, inscreva-se 🙏.
+### 🚨 Ahhhhhh se você esta entrando nesse repo, ou sendo mento(ra/r) ou sendo mentorad(a/o) ou passando aqui por a caso só para pegar um café ☕ e ainda não se inscreveu no canal, inscreva-se 🙏
 
 [![CodandoTV](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://bit.ly/3Ob3yPH)
 
