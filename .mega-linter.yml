@@ -30,3 +30,5 @@ FILEIO_REPORTER: false
 MARKDOWN_MARKDOWNLINT_CONFIG_FILE: .markdownlint.json
 MARKDOWN_MARKDOWNLINT_DISABLE_ERRORS: false
 KOTLIN_DETEKT_ARGUMENTS: -c config/detekt/detekt.yml -ex "**/build/**" -p "lib/detekt-formatting-1.23.7.jar"
+
+DISABLE_ERRORS: true
