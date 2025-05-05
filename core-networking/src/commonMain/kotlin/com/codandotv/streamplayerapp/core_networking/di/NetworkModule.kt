@@ -1,9 +1,12 @@
 package com.codandotv.streamplayerapp.core_networking.di
 
 import com.codandotv.streamplayerapp.core_networking.di.Network.TIMEOUT
+import com.codandotv.streamplayerapp.core_networking.handleError.Failure
 import com.codandotv.streamplayerapp.core_networking.httpClientEnginePlatform
 import core.networking.BuildKonfig
 import io.ktor.client.HttpClient
+import io.ktor.client.plugins.ClientRequestException
+import io.ktor.client.plugins.HttpResponseValidator
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.auth.Auth
 import io.ktor.client.plugins.auth.providers.BearerTokens
@@ -17,6 +20,8 @@ import io.ktor.client.request.accept
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
 import io.ktor.serialization.kotlinx.json.json
+import kotlinx.io.IOException
+import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
 import org.koin.dsl.module
 
@@ -80,6 +85,28 @@ object NetworkModule {
                     override fun log(message: String) {
                         //TODO: Migrar Logs para Utilizar Kermit
                         println("HttpClient${message}")
+                    }
+                }
+            }
+
+            HttpResponseValidator {
+                handleResponseExceptionWithRequest { cause, _ ->
+                    throw when (cause) {
+                        is ClientRequestException -> {
+                            Failure.ServerError(codeStatus = cause.response.status.value)
+                        }
+
+                        is SerializationException -> {
+                            Failure.UnparsableResponseException(throwable = cause)
+                        }
+
+                        is IOException -> {
+                            Failure.NetworkError(throwable = cause)
+                        }
+
+                        else -> {
+                            Failure.UnknownError(throwable = cause)
+                        }
                     }
                 }
             }
