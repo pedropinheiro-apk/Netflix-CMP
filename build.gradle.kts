@@ -12,6 +12,7 @@ plugins {
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.dokka) apply false
     alias(libs.plugins.buildkonfig.plugin) apply false
+    id("popcorngp-setup-plugin")
 }
 
 tasks.register("clean", Delete::class) {

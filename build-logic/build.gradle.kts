@@ -18,4 +18,5 @@ dependencies {
     implementation(libs.detekt.gradle.plugin)
     implementation(libs.serialization)
     implementation(libs.com.google.devtools.ksp.gradle.plugin)
+    implementation(libs.popcorn.guineapig)
 }
