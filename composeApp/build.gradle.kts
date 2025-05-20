@@ -4,6 +4,7 @@ plugins {
     id("com.streamplayer.application")
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.google.services)
 }
 kotlin {
     sourceSets {
@@ -11,6 +12,8 @@ kotlin {
             implementation(libs.koin.android)
             implementation(libs.lottie)
             implementation(compose.preview)
+            implementation(project.dependencies.platform(libs.firebase.bom))
+            implementation(libs.firebase.analytics)
         }
         commonMain.dependencies {
             implementation(projects.featureListStreams)

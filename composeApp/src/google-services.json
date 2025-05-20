@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1018484257866",
+    "project_id": "streamplayerappkmp",
+    "storage_bucket": "streamplayerappkmp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1018484257866:android:748747e380bdb9b0afe2b3",
+        "android_client_info": {
+          "package_name": "com.codandotv.streamplayerapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM_qg9Wh7pjUQ9bXc2UJiQY8tY4R-NRCg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
