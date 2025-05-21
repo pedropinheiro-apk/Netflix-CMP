@@ -7,6 +7,9 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.koin.core)
+
+            // Just for test purposes
+            implementation(projects.coreNavigation)
         }
     }
 }
