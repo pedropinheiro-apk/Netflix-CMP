@@ -1,7 +1,6 @@
 import com.github.codandotv.popcorn.domain.input.PopcornChildConfiguration
 import com.github.codandotv.popcorn.domain.input.ProjectType
 import com.github.codandotv.popcorn.domain.rules.DoNotWithRule
-import com.github.codandotv.popcorn.domain.rules.JustWithRule
 import com.github.codandotv.popcorn.domain.rules.NoDependencyRule
 
 plugins {
@@ -13,21 +12,10 @@ popcornGuineapigParentConfig {
 
     children = listOf(
         /**
-         * core-shared-ui should only depends on core-shared
+         * core-shareds  should not have dependencies
          */
         PopcornChildConfiguration(
-            moduleNameRegex = ":core-shared-ui",
-            rules = listOf(
-                JustWithRule(
-                    justWith = listOf("core-shared")
-                )
-            ),
-        ),
-        /**
-         * core-shared should not have dependencies
-         */
-        PopcornChildConfiguration(
-            moduleNameRegex = ":core-shared",
+            moduleNameRegex = ":core-shared[-a-z]*",
             rules = listOf(
                 NoDependencyRule()
             ),
