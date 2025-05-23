@@ -4,7 +4,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
-import com.codandotv.streamplayerapp.core_shared.extension.empty
 import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreview
 import com.codandotv.streamplayerapp.core_shared_ui.theme.ThemePreviews
 
@@ -18,7 +17,7 @@ fun StreamPlayerTopBarPreview() {
                 rememberTopAppBarState()
             ),
             onNavigateProfilePicker = {},
-            onSelectedProfilePicture = String.empty()
+            onSelectedProfilePicture = ""
         )
     }
 }
