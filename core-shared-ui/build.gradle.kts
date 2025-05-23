@@ -12,7 +12,6 @@ kotlin {
             implementation(libs.ktor.client.okhttp)
         }
         commonMain.dependencies {
-            implementation(projects.coreShared)
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
