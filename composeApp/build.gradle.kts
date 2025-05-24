@@ -27,6 +27,7 @@ kotlin {
             implementation(projects.coreNavigation)
             implementation(projects.coreNetworking)
             implementation(projects.coreLocalStorage)
+            implementation(projects.coreBackgroundWork)
 
             implementation(libs.navigation.compose)
 

@@ -2,14 +2,20 @@
 
 plugins {
     id("com.streamplayer.kmp-library")
+    id("com.google.devtools.ksp")
 }
 
 kotlin {
     sourceSets {
         sourceSets {
+            androidMain.dependencies {
+                implementation(libs.work.runtime)
+            }
+
             commonMain.dependencies {
-                implementation(projects.coreShared)
-                implementation(projects.coreSharedUi)
+                implementation(libs.kotlin.stdlib)
+                implementation(libs.kotlinx.coroutines.core)
+                implementation(libs.koin.core)
             }
         }
     }
