@@ -7,16 +7,15 @@ plugins {
 
 kotlin {
     sourceSets {
-        sourceSets {
-            androidMain.dependencies {
-                implementation(libs.work.runtime)
-            }
+        androidMain.dependencies {
+            implementation(libs.work.runtime)
+        }
 
-            commonMain.dependencies {
-                implementation(libs.kotlin.stdlib)
-                implementation(libs.kotlinx.coroutines.core)
-                implementation(libs.koin.core)
-            }
+        commonMain.dependencies {
+            implementation(libs.kotlin.stdlib)
+            implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.koin.core)
+            api(libs.kmpnotifier)
         }
     }
 }

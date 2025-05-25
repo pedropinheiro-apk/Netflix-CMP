@@ -6,6 +6,15 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
 
+        NotifierManager.shared.initialize(configuration: NotificationPlatformConfigurationIos(
+                showPushNotification: true,
+                askNotificationPermissionOnStart: true,
+                notificationSoundName: nil
+            )
+        )
+        // NotifierHelper.showSimpleNotification("Tarefa registrada")
+
+
         BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.codandotv.streamplayerapp", using: nil) { task in
             self.handleAppRefresh(task: task as! BGProcessingTask)
         }

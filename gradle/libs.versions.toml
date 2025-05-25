@@ -39,6 +39,7 @@ activity-compose = "1.8.2"
 popcorngp = "3.1.2"
 
 work-runtime = "2.10.1"
+kmpnotifier = "1.5.1"
 
 #Firebase
 google-services = "4.4.2"
@@ -124,6 +125,8 @@ coroutines_test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-
 popcorn_guineapig = { group = "io.github.codandotv", name = "popcornguineapig", version.ref = "popcorngp" }
 
 work-runtime = { module = "androidx.work:work-runtime-ktx", version.ref = "work-runtime" }
+kmpnotifier = { module = "io.github.mirzemehdi:kmpnotifier", version.ref = "kmpnotifier" }
+
 
 [bundles]
 test = ["junit", "mockk", "mockk_android", "viewmodel_test", "koin_test", "coroutines_test"]
