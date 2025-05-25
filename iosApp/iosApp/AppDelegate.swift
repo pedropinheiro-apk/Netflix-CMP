@@ -7,7 +7,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
 
         BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.codandotv.streamplayerapp", using: nil) { task in
-            self.handleAppRefresh(task: task as! BGAppRefreshTask)
+            self.handleAppRefresh(task: task as! BGProcessingTask)
         }
         print("BGTestes Task registrada!")
 
@@ -16,14 +16,14 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
 
     func scheduleAppRefresh() {
-        let request = BGAppRefreshTaskRequest(identifier: "com.codandotv.streamplayerapp")
-//         request.earliestBeginDate = Date(timeIntervalSinceNow: 15 * 60) // 15 minutos
-        request.earliestBeginDate = Date() // agendar para agora
-
+        let request = BGProcessingTaskRequest(identifier: "com.codandotv.streamplayerapp")
+        request.requiresNetworkConnectivity = false
+        request.requiresExternalPower = false
+        request.earliestBeginDate = Date(timeIntervalSinceNow: 5 * 60) // 5 minutos
 
         do {
             try BGTaskScheduler.shared.submit(request)
-            print("BGTestes tarefa agendada com sucesso para agora: \(request.earliestBeginDate!)")
+            print("BGTestes tarefa agendada com sucesso para: \(request.earliestBeginDate!)")
         } catch {
             print("BGTestes falha ao agendar tarefa: \(error.localizedDescription)")
         }
@@ -31,7 +31,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
     }
 
-    func handleAppRefresh(task: BGAppRefreshTask) {
+    func handleAppRefresh(task: BGProcessingTask) {
         print("BGTestes handleAppRefresh foi chamado!")
 
         scheduleAppRefresh()
