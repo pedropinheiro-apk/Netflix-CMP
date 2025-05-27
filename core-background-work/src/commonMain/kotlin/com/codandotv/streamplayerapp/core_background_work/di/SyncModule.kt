@@ -5,6 +5,6 @@ import org.koin.dsl.module
 
 object SyncModule {
     val module = module {
-        single { SyncManager() }
+        single { SyncManager(get()) }
     }
 }

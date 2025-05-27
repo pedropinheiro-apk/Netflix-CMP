@@ -10,14 +10,15 @@ object NotifierHelperAndroid {
     fun showSimpleNotification(
         title: String = "Notificação Simples",
         body: String = "Corpo da Notificação Simples",
+        imageUrl: String = ""
     ) {
         val notifier = NotifierManager.getLocalNotifier()
         notifier.notify {
-            id= Random.nextInt(0, Int.MAX_VALUE)
+            id = Random.nextInt(0, Int.MAX_VALUE)
             this.title = title
             this.body = body
             payloadData = mapOf(
-                Notifier.KEY_URL to "https://github.com/mirzemehdi/KMPNotifier/",
+                Notifier.KEY_URL to imageUrl,
                 "extraKey" to "randomValue"
             )
         }
@@ -27,14 +28,15 @@ object NotifierHelperAndroid {
     fun showTestNotificationRegister() {
         val notifier = NotifierManager.getLocalNotifier()
         notifier.notify {
-            id= Random.nextInt(0, Int.MAX_VALUE)
+            id = Random.nextInt(0, Int.MAX_VALUE)
             title = "Task disparada"
             body = "Corpo da task disparada Body message from KMPNotifier"
             payloadData = mapOf(
                 Notifier.KEY_URL to "https://github.com/mirzemehdi/KMPNotifier/",
                 "extraKey" to "randomValue"
             )
-            image = NotificationImage.Url("https://github.com/user-attachments/assets/a0f38159-b31d-4a47-97a7-cc230e15d30b")
+            image =
+                NotificationImage.Url("https://github.com/user-attachments/assets/a0f38159-b31d-4a47-97a7-cc230e15d30b")
         }
     }
 }
