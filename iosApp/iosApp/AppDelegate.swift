@@ -40,7 +40,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
 
     func handleSyncWork(task: BGProcessingTask) {
-        scheduleAppRefresh()
+        scheduleSyncWork()
 
         let queue = OperationQueue()
         queue.maxConcurrentOperationCount = 1
