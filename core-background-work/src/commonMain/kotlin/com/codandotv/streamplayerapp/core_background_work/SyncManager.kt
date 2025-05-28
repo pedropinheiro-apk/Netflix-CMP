@@ -10,22 +10,19 @@ class SyncManager(
 ) {
     suspend fun syncData() {
 
-        val titlle: Stream = repository.topRatedStream().first()
+        val title: Stream = repository.topRatedStream().first()
+        val messageTitle = "${title.name} -Já disponível no app!"
+        val messageBody = "Confira a sinopse: ${title.description}"
+        val imageUrl = title.posterPathUrl
 
-        val titleName = titlle.name
-        val titleDescription = titlle.description
-        val messageTitle = "$titleName -Já disponível no app!"
-        val messageBody = "Confira a sinopse: $titleDescription"
-        val imageUrl = "https://example.com/image.jpg"
-
-        NotifierHelperAndroid.showSimpleNotification(
+        NotifierHelper.showSimpleNotification(
             title = messageTitle,
             body = messageBody,
             imageUrl = imageUrl
         )
 
-        println("SyncManager: BGTestes Sincronizando dados de teste...")
+        println("SyncManager: Fazendo alguma tarefa de sincronização...")
         delay(2000)
-        println("SyncManager: BGTestes Dados sincronizados com sucesso!")
+        println("SyncManager: Sincronização concluída!")
     }
 }

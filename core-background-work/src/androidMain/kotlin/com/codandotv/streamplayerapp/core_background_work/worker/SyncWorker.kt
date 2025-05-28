@@ -12,7 +12,6 @@ class SyncWorker(
     params: WorkerParameters
 ) : CoroutineWorker(context, params), KoinComponent {
 
-
     private val syncManager: SyncManager by inject()
 
     override suspend fun doWork(): Result {
@@ -20,6 +19,7 @@ class SyncWorker(
             syncManager.syncData()
             Result.success()
         } catch (e: Exception) {
+            println("Erro no SyncWorker ${e.message}")
             Result.retry()
         }
     }

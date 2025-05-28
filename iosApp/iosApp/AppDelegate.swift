@@ -12,19 +12,18 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                 notificationSoundName: nil
             )
         )
-        // NotifierHelper.showSimpleNotification("Tarefa registrada")
 
 
         BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.codandotv.streamplayerapp", using: nil) { task in
-            self.handleAppRefresh(task: task as! BGProcessingTask)
+            self.handleSyncWork(task: task as! BGProcessingTask)
         }
-        print("BGTestes Task registrada!")
+        print("Tarefa registrada!")
 
-        scheduleAppRefresh()
+        scheduleSyncWork()
         return true
     }
 
-    func scheduleAppRefresh() {
+    func scheduleSyncWork() {
         let request = BGProcessingTaskRequest(identifier: "com.codandotv.streamplayerapp")
         request.requiresNetworkConnectivity = false
         request.requiresExternalPower = false
@@ -32,32 +31,30 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
         do {
             try BGTaskScheduler.shared.submit(request)
-            print("BGTestes tarefa agendada com sucesso para: \(request.earliestBeginDate!)")
+            print("Tarefa agendada com sucesso para pelo menos: \(request.earliestBeginDate!)")
         } catch {
-            print("BGTestes falha ao agendar tarefa: \(error.localizedDescription)")
+            print("Falha ao agendar tarefa: \(error.localizedDescription)")
         }
 
 
     }
 
-    func handleAppRefresh(task: BGProcessingTask) {
-        print("BGTestes handleAppRefresh foi chamado!")
-
+    func handleSyncWork(task: BGProcessingTask) {
         scheduleAppRefresh()
 
         let queue = OperationQueue()
         queue.maxConcurrentOperationCount = 1
 
         let operation = BlockOperation {
-            print("BGTestes Executando operação de sync...")
+            print("Tarefa executando operação de sync...")
             SyncBridge.shared.syncData {
-                print("BGTestes Sincronizado no IOS")
+                print("Tarefa do rodando no iOS")
                 task.setTaskCompleted(success: true)
             }
         }
 
         task.expirationHandler = {
-            print("BGTestes Tarefa expirada.")
+            print("Tarefa expirada.")
             queue.cancelAllOperations()
         }
 
