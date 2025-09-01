@@ -9,9 +9,10 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.navigation.compose)
-
             implementation(compose.material3)
             implementation(compose.components.resources)
+            api(libs.androidx.navigation3.ui)
+            api(libs.androidx.navigation3.runtime)
         }
     }
 }

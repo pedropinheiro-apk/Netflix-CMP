@@ -1,6 +1,6 @@
 [versions]
 kotlin = "2.1.10"
-android_gradle_plugin = "8.7.2"
+android_gradle_plugin = "8.9.1"
 koin = "4.0.1"
 ksp = "2.1.10-1.0.29"
 
@@ -8,6 +8,7 @@ dokka = "1.9.10"
 detekt = "1.23.6"
 compose_plugin_multiplataform = "1.7.3"
 navigation-compose-version = "2.7.0-alpha07"
+navigation3Ui = "1.0.0-alpha08"
 paging-compose = "3.3.0-alpha02-0.5.1"
 buildkonfig = "0.15.2"
 cameraCore = "1.4.2"
@@ -46,6 +47,8 @@ google-services = "4.4.2"
 firebase-bom = "33.13.0"
 
 [libraries]
+androidx-navigation3-runtime = { module = "androidx.navigation3:navigation3-runtime", version.ref = "navigation3Ui" }
+androidx-navigation3-ui = { module = "androidx.navigation3:navigation3-ui", version.ref = "navigation3Ui" }
 kotlin_gradle_plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 android_gradle_plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "android_gradle_plugin" }
 detekt-gradle-plugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
