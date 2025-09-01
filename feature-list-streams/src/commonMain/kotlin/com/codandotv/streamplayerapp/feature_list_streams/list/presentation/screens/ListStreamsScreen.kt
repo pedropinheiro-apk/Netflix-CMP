@@ -22,7 +22,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.codandotv.streamplayerapp.core_navigation.bottomnavigation.StreamPlayerBottomNavigation
 import com.codandotv.streamplayerapp.core_shared_ui.widget.StreamPlayerTopBar
 import com.codandotv.streamplayerapp.feature_list_streams.list.presentation.widgets.HighlightBanner
@@ -34,7 +33,6 @@ import org.koin.compose.viewmodel.koinViewModel
 @Composable
 fun ListStreamsScreen(
     viewModel: ListStreamViewModel = koinViewModel(),
-    navController: NavController,
     onNavigateDetailList: (String) -> Unit = {},
     onNavigateProfilePicker: () -> Unit = {},
     onNavigateSearchScreen: () -> Unit = {},
@@ -56,7 +54,7 @@ fun ListStreamsScreen(
             )
         },
         bottomBar = {
-            StreamPlayerBottomNavigation(navController = navController)
+            StreamPlayerBottomNavigation()
         }
     ) { paddingValues ->
         Box(

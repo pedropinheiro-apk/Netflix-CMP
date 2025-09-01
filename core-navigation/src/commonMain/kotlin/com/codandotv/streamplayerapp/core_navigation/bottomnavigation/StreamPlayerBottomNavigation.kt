@@ -10,77 +10,77 @@ import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import com.codandotv.streamplayerapp.core_navigation.helper.currentRoute
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
-private val bottomMenuItems = listOf(
-    BottomNavItem.Home,
-    BottomNavItem.News,
-    BottomNavItem.Games,
-    BottomNavItem.Downloads
-)
-
 @Composable
-fun StreamPlayerBottomNavigation(navController: NavController) {
+fun StreamPlayerBottomNavigation(
+    modifier: Modifier = Modifier,
+) {
+    val backStack = LocalBackStackProvider.current
+
+    var selectedItem by remember { mutableStateOf(BottomNavItem.Home) }
+
     NavigationBar(
+        modifier = modifier.height(72.dp),
         containerColor = MaterialTheme.colorScheme.surface,
         contentColor = MaterialTheme.colorScheme.onBackground,
-        modifier = Modifier.height(72.dp)
     ) {
-        val currentRoute = currentRoute(navController = navController)
+        BottomNavItem
+            .entries
+            .forEach { item ->
+                key(item.title) {
+                    val isSelected = remember(selectedItem.title) {
+                        selectedItem.screenRoute == item.screenRoute
+                    }
 
-        bottomMenuItems.forEach { item ->
-            NavigationBarItem(colors = NavigationBarItemDefaults.colors(
-                selectedIconColor = MaterialTheme.colorScheme.onBackground,
-                unselectedIconColor = MaterialTheme.colorScheme.surfaceVariant,
-                selectedTextColor = MaterialTheme.colorScheme.onBackground,
-                unselectedTextColor = MaterialTheme.colorScheme.surfaceVariant,
-                indicatorColor = MaterialTheme.colorScheme.surfaceColorAtElevation(
-                    LocalAbsoluteTonalElevation.current
-                )
-            ),
-                icon = { NavItemIcon(currentRoute, item) },
-                label = {
-                    Text(
-                        text = stringResource(item.title),
-                        style = MaterialTheme.typography.bodySmall,
+                    NavigationBarItem(
+                        colors = NavigationBarItemDefaults.colors(
+                            selectedIconColor = MaterialTheme.colorScheme.onBackground,
+                            unselectedIconColor = MaterialTheme.colorScheme.surfaceVariant,
+                            selectedTextColor = MaterialTheme.colorScheme.onBackground,
+                            unselectedTextColor = MaterialTheme.colorScheme.surfaceVariant,
+                            indicatorColor = MaterialTheme.colorScheme.surfaceColorAtElevation(
+                                LocalAbsoluteTonalElevation.current
+                            )
+                        ),
+                        icon = {
+                            NavItemIcon(
+                                item = item,
+                                isSelected = isSelected,
+                            )
+                        },
+                        label = {
+                            Text(
+                                text = stringResource(item.title),
+                                style = MaterialTheme.typography.bodySmall,
+                            )
+                        },
+                        selected = isSelected,
+                        onClick = {
+                            selectedItem = item
+                            backStack.add(item.screenRoute)
+                        }
                     )
-                },
-                selected = currentRoute == item.screenRoute,
-                onClick = { onItemClicked(navController, item) })
-        }
+                }
+            }
     }
 }
 
 @Composable
 private fun NavItemIcon(
-    currentRoute: String?,
-    item: BottomNavItem
+    item: BottomNavItem,
+    isSelected: Boolean,
 ) {
     Icon(
-        painterResource(if (currentRoute == item.screenRoute || currentRoute?.contains(item.screenRoute) == true){
-            item.iconSelected
-        } else {
-            item.iconUnselected
-        }),
         contentDescription = stringResource(item.title),
+        painter = painterResource(if (isSelected) item.iconSelected else item.iconUnselected),
     )
-}
-
-private fun onItemClicked(
-    navController: NavController, item: BottomNavItem
-) {
-    navController.navigate(item.screenRoute) {
-        navController.graph.startDestinationRoute?.let { screen_route ->
-            popUpTo(screen_route) {
-                saveState = true
-            }
-        }
-        launchSingleTop = true
-        restoreState = true
-    }
 }

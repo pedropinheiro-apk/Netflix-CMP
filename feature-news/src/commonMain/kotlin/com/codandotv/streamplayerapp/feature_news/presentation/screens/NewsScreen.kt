@@ -36,10 +36,8 @@ import streamplayerapp_kmp.feature_news.generated.resources.error_image_loaded
 import streamplayerapp_kmp.feature_news.generated.resources.select_image_subtitle
 import streamplayerapp_kmp.feature_news.generated.resources.select_image_title
 
-
 @Composable
 fun NewsScreenContent(
-    navController: NavController,
     viewModel: NewsScreenViewModel = koinViewModel()
 ) {
     val errorMessage = stringResource(Res.string.error_image_loaded)
@@ -65,7 +63,7 @@ fun NewsScreenContent(
 
     LaunchedEffect(Unit) {
         viewModel.actionTakeImage.collect { action ->
-            when(action) {
+            when (action) {
                 NewsScreenActionTakeImage.Camera -> cameraManager.launch()
                 NewsScreenActionTakeImage.Gallery -> galleryManager.launch()
             }
@@ -89,7 +87,6 @@ fun NewsScreenContent(
     }
 
     NewsScreen(
-        navController = navController,
         onClickCamera = {
             viewModel.openCamera()
         },
@@ -103,7 +100,6 @@ fun NewsScreenContent(
 
 @Composable
 fun NewsScreen(
-    navController: NavController,
     onClickCamera: () -> Unit,
     onClickGallery: () -> Unit,
     sharedImage: SharedImage? = null,
@@ -111,7 +107,7 @@ fun NewsScreen(
 ) {
     Scaffold(
         bottomBar = {
-            StreamPlayerBottomNavigation(navController = navController)
+            StreamPlayerBottomNavigation()
         },
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
         content = { innerPadding ->

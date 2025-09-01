@@ -11,19 +11,18 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BasicToolbar(
-    navController: NavController,
-    title: String = ""
+    title: String = "",
+    onIconClicked: () -> Unit = {},
 ) {
     TopAppBar(
         title = { Text(text = title) },
         modifier = Modifier.height(56.dp),
         navigationIcon = {
-            IconButton(onClick = navController::navigateUp) {
+            IconButton(onClick = onIconClicked) {
                 Icon(
                     imageVector = Icons.Filled.ArrowBack,
                     contentDescription = null

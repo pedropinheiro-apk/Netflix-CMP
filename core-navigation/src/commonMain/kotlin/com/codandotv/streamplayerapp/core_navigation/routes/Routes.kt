@@ -1,15 +1,29 @@
 package com.codandotv.streamplayerapp.core_navigation.routes
 
-import com.codandotv.streamplayerapp.core_navigation.routes.Routes.PARAM.ID
+import kotlinx.serialization.Serializable
 
-object Routes {
-    const val DETAIL = "DetailList/"
-    const val DETAIL_COMPLETE = "$DETAIL{${ID}}"
-    const val Splash = "splash"
-    const val SEARCH = "Search"
-    const val PROFILE_PICKER = "profilePicker"
+sealed interface Routes {
+    @Serializable
+    data object Splash : Routes
 
-    object PARAM {
-        const val ID = "id"
-    }
+    @Serializable
+    data object Search : Routes
+
+    @Serializable
+    data object ProfilePicker : Routes
+
+    @Serializable
+    data class Detail(val id: String) : Routes
+
+    @Serializable
+    data class Home(val id: String) : Routes
+
+    @Serializable
+    data object Games : Routes
+
+    @Serializable
+    data object News : Routes
+
+    @Serializable
+    data object Downloads : Routes
 }

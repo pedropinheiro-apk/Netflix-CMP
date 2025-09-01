@@ -29,7 +29,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
+import com.codandotv.streamplayerapp.core_navigation.bottomnavigation.LocalBackStackProvider
+import com.codandotv.streamplayerapp.core_navigation.routes.Routes
+import com.codandotv.streamplayerapp.core_navigation.utils.pop
 import com.codandotv.streamplayerapp.core_shared_ui.widget.BasicToolbar
 import com.codandotv.streamplayerapp.core_shared_ui.widget.SharedHandlerPlatform
 import com.codandotv.streamplayerapp.core_shared_ui.widget.SharingStreamPlatform
@@ -47,18 +49,18 @@ import streamplayerapp_kmp.feature_detail.generated.resources.detail_watch_prima
 @Composable
 fun DetailStreamScreen(
     viewModel: DetailStreamViewModel = koinViewModel(),
-    navController: NavController,
     sharedHandlerPlatform: SharedHandlerPlatform,
     onNavigateSearchScreen: () -> Unit = {},
 ) {
+    val backStack = LocalBackStackProvider.current
     val uiState by viewModel.uiState.collectAsState()
 
     when (uiState) {
         is DetailStreamsUIState.DetailStreamsLoadedUIState -> {
             SetupDetailScreen(
+                backStack = backStack,
                 onToggleToMyList = { detailStream -> viewModel.toggleItemInFavorites(detailStream) },
                 uiState = uiState as DetailStreamsUIState.DetailStreamsLoadedUIState,
-                navController = navController,
                 onNavigateSearchScreen = onNavigateSearchScreen,
                 sharedHandlerPlatform = sharedHandlerPlatform
             )
@@ -80,10 +82,10 @@ fun DetailStreamScreen(
 @Suppress("LongMethod")
 @Composable
 private fun SetupDetailScreen(
+    backStack : MutableList<Routes>,
     onToggleToMyList: (DetailStream) -> Unit,
     uiState: DetailStreamsUIState.DetailStreamsLoadedUIState,
-    navController: NavController,
-    sharedHandlerPlatform : SharedHandlerPlatform,
+    sharedHandlerPlatform: SharedHandlerPlatform,
     onNavigateSearchScreen: () -> Unit = {},
 ) {
     val showDialog = remember { mutableStateOf(false) }
@@ -92,9 +94,7 @@ private fun SetupDetailScreen(
 
     Scaffold(
         topBar = {
-            BasicToolbar(
-                navController = navController,
-            )
+            BasicToolbar(onIconClicked = backStack::pop)
         },
         content = { innerPadding ->
             Column(

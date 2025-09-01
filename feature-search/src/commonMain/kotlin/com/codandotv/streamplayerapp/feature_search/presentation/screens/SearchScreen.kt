@@ -18,8 +18,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import com.codandotv.streamplayerapp.core_navigation.extensions.goBack
 import com.codandotv.streamplayerapp.feature_search.domain.mapper.toSearchStreamCardModel
 import com.codandotv.streamplayerapp.feature_search.presentation.widgets.SearchStreamCard
 import com.codandotv.streamplayerapp.feature_search.presentation.widgets.SearchableTopBar
@@ -33,34 +31,34 @@ import streamplayerapp_kmp.feature_search.generated.resources.search_list_descri
 @Composable
 fun SearchScreen(
     viewModel: SearchViewModel = koinViewModel(),
+    onBackPressed: () -> Unit = {},
     onNavigateDetailList: (String) -> Unit = {},
-    navController: NavController,
 ) {
 
     val uiState by viewModel.uiState.collectAsState()
     when (uiState) {
         is SearchUIState.Success -> {
             SetupSearchScreen(
-                navController = navController,
                 uiState = uiState as SearchUIState.Success,
                 viewModel = viewModel,
-                onNavigateDetailList = onNavigateDetailList
+                onBackPressed = onBackPressed,
+                onNavigateDetailList = onNavigateDetailList,
             )
         }
 
         is SearchUIState.Error -> {
             StreamsError(
                 onRetry = { viewModel.onTryAgain() },
-                onCloseButton = { navController.goBack() }
+                onCloseButton = onBackPressed,
             )
         }
 
         is SearchUIState.Empty -> {
             SetupSearchScreen(
-                navController = navController,
                 uiState = uiState as SearchUIState.Empty,
                 viewModel = viewModel,
-                onNavigateDetailList = onNavigateDetailList
+                onBackPressed = onBackPressed,
+                onNavigateDetailList = onNavigateDetailList,
             )
         }
 
@@ -78,10 +76,10 @@ fun SearchScreen(
 
 @Composable
 private fun SetupSearchScreen(
-    onNavigateDetailList: (String) -> Unit = {},
-    navController: NavController,
     uiState: SearchUIState,
-    viewModel: SearchViewModel
+    viewModel: SearchViewModel,
+    onBackPressed: () -> Unit = {},
+    onNavigateDetailList: (String) -> Unit = {},
 ) {
     Scaffold(
         topBar = {
@@ -99,9 +97,7 @@ private fun SetupSearchScreen(
                 onSearchIconPressed = {
                     viewModel.fetchMovies()
                 },
-                onBackPressed = {
-                    navController.goBack()
-                },
+                onBackPressed = onBackPressed,
                 onCleanTextPressed = {
                     viewModel.onCleanText()
                 }
